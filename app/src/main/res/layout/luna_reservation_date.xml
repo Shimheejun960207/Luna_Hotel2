@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    // 상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu2"
+            android:id="@+id/btn_menu2"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+        // 날짜 담는 용도 입니다 지우면안돼요
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:visibility="invisible"
+          android:id="@+id/T_year"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:id="@+id/T_month"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:id="@+id/T_date"/>
+        // 날짜 담는 용도 입니다 지우면안돼요
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dip"
+            android:layout_marginTop="40dip"
+            android:textColor="#540dcb"
+            android:textSize="30dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dip"
+            android:text="- 날짜선택 -"/>
+
+
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dip"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="체크 인 날짜   : "
+                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="10dip"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:text=""
+            android:id="@+id/text_checkin"/>
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_noneborder"
+            android:text="선택"
+            android:textColor="#540dcb"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:id="@+id/btn_checkin"/>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dip"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="체크 아웃 날짜 : "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text=""
+                android:id="@+id/text_checkout"/>
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_noneborder"
+                android:text="선택"
+                android:textColor="#540dcb"
+                android:textSize="20dp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:id="@+id/btn_checkout"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+    <TextView
+        android:id="@+id/text_roomname"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dip"
+        android:fontFamily="@font/thechocobbangr"
+        android:text="방정보 "
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="숙박일수 : X박X일"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:fontFamily="@font/thechocobbangr"
+        android:textStyle="bold"
+        android:id="@+id/text_date_result"/>
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+
+    <TextView
+        android:id="@+id/Pay_Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/thechocobbangr"
+        android:text="- 결제수단 -"
+        android:textColor="#540dcb"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+
+    <RadioGroup
+        android:id="@+id/Rbtn_GroupPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        // android:layoutDirection="rtl" --> 텍스트 왼쪽 출력
+
+        <RadioButton
+            android:id="@+id/Rbtn_SamsungPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:layoutDirection="rtl"
+            android:text="삼성페이  "
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/Rbtn_CardPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:layoutDirection="rtl"
+            android:text="신용카드  "
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Sale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/thechocobbangr"
+        android:text="10% 할인!!"
+        android:textColor="#727272"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    //결제금액
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="결제금액 - 총 :"
+            android:textColor="#555555"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#540dcb"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="원"
+            android:textColor="#540dcb"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_button"
+            android:layout_gravity="bottom"
+            android:text="다음으로"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/thechocobbangr"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:id="@+id/btn_next" />
+    </LinearLayout>
+</LinearLayout>

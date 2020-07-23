@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    // 상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu2"
+            android:id="@+id/btn_menu2"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="90dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/setting2"
+            android:id="@+id/btn_setting2"
+            android:visibility="invisible"> //로고버튼 아이디지정
+        </Button>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dip"
+            android:textColor="#540dcb"
+            android:textSize="30dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:id="@+id/newaccount_text"
+            android:layout_marginBottom="30dip"
+            android:text="- 회원가입 -"/>
+        //회원가입 절차 레이아웃
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="320dip"
+            android:layout_height="350dip"
+            android:background="@drawable/rectangle"
+            android:layout_marginLeft="50dip"
+            android:id="@+id/rectangle"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="110dip"
+            android:layout_height="20dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:paddingLeft="10dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="1.멤버십 규정" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="20dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="20dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="본 약관은 주식회사 슬기로운 코딩생활의 멤버십" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="20dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="45dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="프로그램인 Hotel Luna 의 이용에 관한 기본적인" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="90dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="20dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="70dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="사항을 정향을 목적으로 합니다." />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="115dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="30dip"
+            android:paddingLeft="8dip"
+            android:paddingTop="95dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="2. 수집이용항목" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="135dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="40dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="115dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="성명,생년월일,이메일주소,휴대폰번호." />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="160dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="45dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="140dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="아이디,비밀번호" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="190dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="50dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="170dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="3. 보유 이용 기간" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="220dip"
+            android:layout_alignLeft="@+id/rectangle"
+            android:layout_marginTop="50dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="200dip"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="회원 탈퇴 시 까지" />
+        </RelativeLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="약관에 동의합니다"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:layout_marginLeft="40dip"
+            android:layout_marginTop="10dip" />
+         <RadioButton
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="45dip"
+             android:layout_marginTop="10dip"
+             android:buttonTint="#540dcb"
+             android:id="@+id/Rbtn_agree"/> //동의합니다 라디오버튼 아이디
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="약관에 동의하지않습니다."
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:layout_marginLeft="40dip"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:buttonTint="#540dcb"
+                android:id="@+id/Rbtn_nagree"/> //동의하지않습니다 라디오버튼 아이디
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_button"
+        android:layout_gravity="bottom"
+        android:text="가입하기"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/thechocobbangr"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/btn_join" />
+    </LinearLayout>
+</LinearLayout>

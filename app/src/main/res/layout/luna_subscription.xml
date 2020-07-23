@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    // 상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu2"
+            android:id="@+id/btn_menu2"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="90dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/setting2"
+            android:id="@+id/btn_setting2"
+            android:visibility="invisible"> //로고버튼 아이디지정
+        </Button>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dip"
+            android:layout_marginTop="40dip"
+            android:textColor="#540dcb"
+            android:textSize="30dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:id="@+id/newaccount_text"
+            android:layout_marginBottom="30dip"
+            android:text="- 가입완료 -"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="320dip"
+                android:layout_height="350dip"
+                android:background="@drawable/rectangle"
+                android:layout_marginLeft="50dip"
+                android:id="@+id/rectangle"/>
+
+            <TextView
+                android:layout_width="320dip"
+                android:layout_height="50dip"
+                android:layout_marginTop="15dip"
+                android:gravity="center_horizontal"
+                android:layout_alignLeft="@id/rectangle"
+                android:paddingLeft="10dip"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="호텔 루나의 회원이 되신 것을"/>
+
+            <TextView
+                android:layout_width="320dip"
+                android:layout_height="50dip"
+                android:layout_marginTop="60dip"
+                android:gravity="center_horizontal"
+                android:layout_alignLeft="@id/rectangle"
+                android:paddingLeft="10dip"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="진심으로 환영합니다!"/>
+
+            <TextView
+                android:layout_width="320dip"
+                android:layout_height="50dip"
+                android:layout_marginTop="200dip"
+                android:gravity="center_horizontal"
+                android:layout_alignLeft="@id/rectangle"
+                android:paddingLeft="10dip"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="최고의 서비스로"/>
+
+            <TextView
+                android:layout_width="320dip"
+                android:layout_height="50dip"
+                android:layout_marginTop="250dip"
+                android:gravity="center_horizontal"
+                android:layout_alignLeft="@id/rectangle"
+                android:paddingLeft="10dip"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="보답하겠습니다!"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_button"
+        android:layout_gravity="bottom"
+        android:text="로그인"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/thechocobbangr"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/btn_login" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Luna_Main"
+    android:background="@drawable/mainbg"
+    android:orientation="vertical">
+
+ //  상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <!-- 상단바 버튼 값의  설정 -->
+    <Button
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/menu"
+        android:id="@+id/btn_menu"> //메뉴버튼 아이디지정
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/lunalogo"
+        android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
+    </Button>
+
+    <Button
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_marginLeft="90dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/setting"
+        android:id="@+id/btn_setting"
+        android:visibility="invisible"> //로고버튼 아이디지정
+    </Button>
+
+</LinearLayout>
+
+    // 아이콘3개가 배치되는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dip"
+            android:layout_marginTop="150dip"
+            android:background="@drawable/hotel"
+            android:id="@+id/btn_hotel"> //호텔소개버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="150dip"
+            android:background="@drawable/reser"
+            android:id="@+id/btn_hotelreser"> //예약하기버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="150dip"
+            android:background="@drawable/room"
+            android:id="@+id/btn_room"> //객실안내 버튼 아이디지정
+        </Button>
+    </LinearLayout>
+
+    // 호텔소개 예약하기 객실안내 텍스트뷰가 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        // 폰트 적용 완료 태그-> fontFamily 사용하세요
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="63dip"
+            android:layout_marginTop="10dip"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="호텔소개"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53dip"
+            android:layout_marginTop="10dip"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="예약하기"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dip"
+            android:layout_marginTop="10dip"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="객실안내"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+    // 버튼2개 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dip"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/map"
+            android:id="@+id/btn_map"> //오시는길 버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/call"
+            android:id="@+id/btn_call"> //전화하기 버튼 아이디지정
+        </Button>
+    </LinearLayout>
+
+    // 마지막 하단 텍스트뷰 2개 배치되는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dip"
+            android:layout_marginTop="10dip"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="오시는길"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dip"
+            android:layout_marginTop="10dip"
+            android:fontFamily="@font/thechocobbangr"
+            android:text="전화하기"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

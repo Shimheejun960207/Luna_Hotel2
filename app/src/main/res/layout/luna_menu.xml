@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    // 상단바 2개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/btn_back"
+            android:id="@+id/btn_back"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+
+    </LinearLayout>
+
+    // 선을 넣어주는 뷰 입니다.
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+    // 회원이름과 이메일이 들어갈 위젯입니다.
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EFEEEE"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/menu_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="회원의 이름 + 님"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/menu_email"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:gravity="center"
+            android:text="회원의 이메일"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:background="#D3D3D3" />
+
+    </LinearLayout>
+
+// 버튼 3개
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+        android:layout_marginTop="40dip"
+        android:layout_marginLeft="40dip"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:background="@drawable/reser_p"
+        android:id="@+id/btn_reser_p"/>
+
+        <Button
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="50dip"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:background="@drawable/check"
+            android:id="@+id/btn_check"/>
+
+
+        <Button
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="50dip"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:background="@drawable/setting_p"
+            android:id="@+id/btn_setting_p"/>
+
+    </LinearLayout>
+
+    // 텍스트 라인
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약하기"
+            android:fontFamily="@font/thechocobbangr"
+           android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약확인"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="환경설정"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="40dip"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:background="@drawable/hotel_p"
+            android:id="@+id/btn_hotel_p"/>
+
+        <Button
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="50dip"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:background="@drawable/room_p"
+            android:id="@+id/btn_room_p"/>
+
+
+        <Button
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="50dip"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:background="@drawable/map_p"
+            android:id="@+id/btn_map_p"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="호텔소개"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="객실안내"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오시는길"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:layout_marginTop="80dip"
+        android:layout_marginLeft="40dip"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="20sp"
+        android:fontFamily="@font/thechocobbangr"
+        android:textColor="#540dcb"
+        android:textStyle="bold"
+        android:background="@drawable/btn_noneborder"
+        android:id="@+id/btn_login"
+        />
+
+    <Button
+        android:layout_marginTop="80dip"
+        android:layout_marginLeft="40dip"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:text="로그아웃"
+        android:textSize="20sp"
+        android:fontFamily="@font/thechocobbangr"
+        android:textColor="#540dcb"
+        android:textStyle="bold"
+        android:background="@drawable/btn_noneborder"
+        android:id="@+id/btn_logout"
+        />
+
+</LinearLayout>
+
+
+
+
+</LinearLayout>

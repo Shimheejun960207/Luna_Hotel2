@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    // 상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu2"
+            android:id="@+id/btn_menu2"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="90dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/setting2"
+            android:id="@+id/btn_setting2"
+            android:visibility="invisible"> //로고버튼 아이디지정
+        </Button>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+    //회원정보입력 텍스트문구
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="40dip"
+            android:textColor="#540dcb"
+            android:textSize="30dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:id="@+id/accountin_text"
+            android:layout_marginBottom="30dip"
+            android:text="- 회원정보입력 -"/>
+
+    </LinearLayout>
+    //EditText,textview,Button 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="아이디"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="83dip"
+            android:id="@+id/edit_id"
+            android:background="@drawable/edittext_rounded"/>
+
+        <Button
+            android:layout_width="80dip"
+            android:layout_height="35dip"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:text="중복확인"
+            android:id="@+id/btn_check"> //중복확인 버튼 아이디 지정
+        </Button>
+
+        <CheckBox
+            android:layout_marginTop="10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_id"
+            android:enabled="false"
+            android:checked="false"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="성명"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="150dip"
+            android:layout_marginTop="10dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dip"
+            android:id="@+id/edit_name"
+            android:background="@drawable/edittext_rounded"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="비밀번호"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="71dip"
+            android:inputType="textPassword"
+            android:id="@+id/edit_password"
+            android:background="@drawable/edittext_rounded"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="비밀번호 확인"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="34dip"
+            android:inputType="textPassword"
+            android:id="@+id/edit_passwordcheck"
+            android:background="@drawable/edittext_rounded"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="주민번호 앞7자리"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:id="@+id/edit_ssn"
+            android:background="@drawable/edittext_rounded"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text=" - "
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="25dip"
+            android:layout_marginTop="10dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_gender"
+            android:background="@drawable/edittext_rounded"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="******"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:text="핸드폰번호"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="65dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="15dip"
+            android:id="@+id/edit_hp1"
+            android:background="@drawable/edittext_rounded"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text=" - "
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="65dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/edit_hp2"
+            android:background="@drawable/edittext_rounded"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text=" - "
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="65dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/edit_hp3"
+            android:background="@drawable/edittext_rounded"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="10dip"
+            android:textSize="20dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="15dip"
+            android:id="@+id/edit_email1"
+            android:background="@drawable/edittext_rounded"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:text=" @ "
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/edit_email2"
+            android:background="@drawable/edittext_rounded"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:text=" . "
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="75dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/edit_email3"
+            android:background="@drawable/edittext_rounded"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_button"
+            android:layout_gravity="bottom"
+            android:text="가입하기"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/thechocobbangr"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:id="@+id/btn_join" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    // 상단바 3개 아이콘 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu2"
+            android:id="@+id/btn_menu3"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id= "@+id/btn_lunalogo3"> //로고버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="90dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/setting2"
+            android:id="@+id/btn_setting3"
+            android:visibility="invisible"> //로고버튼 아이디지정
+        </Button>
+
+
+    </LinearLayout>
+    // 스크롤 시작하는 레이아웃
+
+    // 선을 넣어주는 뷰 입니다.
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="#D3D3D3" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            //텍스트(호텔소개
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="호텔소개"
+                android:textColor="#540dcb"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            //라인1
+
+            <TextView
+                android:id="@+id/Hotel_info_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-30dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="-"
+                android:textColor="#540dcb"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            //라인2
+
+            <TextView
+                android:id="@+id/Hotel_info_line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="-"
+                android:textColor="#540dcb"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+
+            //텍스트(- Welcome to the LunaHotel -)
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Welcome to the LunaHotel -"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            //라인
+
+            <TextView
+                android:id="@+id/Welcom_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Welcome to the LunaHotel -"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="셰게에서 가장 아름다운 야경을 볼 수 있는"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="루나 호텔은 라틴어로 달이라는 뜻의 루나에"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="유래 하였으며"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="(주) 슬기로운 코딩생활 심희준 초대 희장에 "
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="따라 "
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="2020년 5월29일에 개관하였습니다. "
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            //vision 텍스트문구
+
+            //텍스트(- Vision -)
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Vision -"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            //라인
+
+            <TextView
+                android:id="@+id/Vison_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Vision -"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="Premium LifeStyle Leading Company"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="최고의 품격과 신뢰를 바탕으로"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="고객이 꿈꾸는 라이프스타일을 제공하는 호텔"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            //Misson 텍스트문구
+
+
+            //텍스트(- Misson -)
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Misson -"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            //라인
+
+            <TextView
+                android:id="@+id/Misson_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Misson -"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="우리는 최고의 라이프 스타일 전문가로서"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="더 많은 인류에게 품격과 자부심을 "
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="경험케 한다."
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            //루라인으로서 미션
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:background="#D3C2F1"
+                android:text="루나인으로서 미션"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="#D3C2F1"
+                android:singleLine="false"
+                android:text="우리는 Premium Lifestyle을 선도하는 루라인으로서 각각의 분야에서 최고의 전무가로 성장하나다."
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            //고객에 대한 미션
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:background="#D3C2F1"
+                android:text="고객에 대한 미션"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="#D3C2F1"
+                android:singleLine="false"
+                android:text="우리는 더 많은 고객이 다양한 생활영역에서 루라인의 품격과 자부심을 경험케 한다."
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            //사회에 대한 미션
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:background="#D3C2F1"
+                android:text="고객에 대한 미션"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:layout_width="225dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="#D3C2F1"
+                android:singleLine="false"
+                android:text="우리는 지속적인 혁신과 성자을 통해 인류가 더 나은 삷을 누릴 수 있도록 기여한다."
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"></Button>
+
+            //텍스트(루나호텔 핵심가치)
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="루나호텔 핵심가치"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            //라인
+
+            <TextView
+                android:id="@+id/LunaHotel_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="- Vision -"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="▶모든 사업에 최고를 지향합니다."
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="▶모든 업무에서 최고를 추구합니다."
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="▶모든 고객에서 정성을 다합니다."
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/thechocobbangr"
+                android:text="▶모든 루나인은 서로를 존중합니다."
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
