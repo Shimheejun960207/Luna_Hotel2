@@ -8,7 +8,7 @@
     tools:context=".Luna_Main"
     android:background="@drawable/mainbg"
     android:orientation="vertical">
-    //5번째 커밋입니다.
+    //6번째 커밋입니다.
  //  상단바 3개 아이콘 들어가는 레이아웃
     <LinearLayout
         android:layout_width="wrap_content"
