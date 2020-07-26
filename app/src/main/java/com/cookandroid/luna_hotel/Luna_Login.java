@@ -136,9 +136,13 @@ public class Luna_Login extends AppCompatActivity {
                                 String userID = jsonResponse.getString("userID");
                                 String userPW = jsonResponse.getString("userPW");
 
-                                Intent loginintent = new Intent(Luna_Login.this, Luna_menu.class);
+                                Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
                                 loginintent.putExtra("userID", userID);
                                 loginintent.putExtra("userPW", userPW);
+                                //  전연변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
+                                Login_gloval.login_id = userID;
+                                Login_gloval.login_password = userPW;
+                                // 여기까지.
                                 Luna_Login.this.startActivity(loginintent);
                             }
                             else {

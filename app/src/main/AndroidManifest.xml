@@ -16,7 +16,9 @@
         android:value = "@inteher/google_play_services_version" />
 
 
+
     <application
+        android:name=".Login_gloval"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/luna_icon"

@@ -2,6 +2,7 @@ package com.cookandroid.luna_hotel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class Luna_Main extends AppCompatActivity {
        btn_menu = (Button) findViewById(R.id.btn_menu);
        btn_setting = (Button) findViewById(R.id.btn_setting);
        btn_room = (Button)findViewById(R.id.btn_room);
+
 
 
        // 메뉴버튼 클릭시 실행되는 코드입니다
@@ -86,9 +88,22 @@ public class Luna_Main extends AppCompatActivity {
        btn_hotelreser.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
-               startActivity(HotelInfo_Intent);
+
+
+               if(Login_gloval.login_id == null) // 변수값이 null이면 로그인이 인되어있다는 뜻임. 고로 로그인을 해달라는 메시지가 출력
+               {
+                  android.app.AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Main.this);
+                   dlg.setTitle("로그인");
+                   dlg.setMessage("로그인해주세요.");
+                   dlg.setPositiveButton("확인",null);
+                   dlg.show();
+               }
+               else{ // null이 아니라면 로그인이 되어있는 상태
+                   Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
+                   startActivity(HotelInfo_Intent);
+               }
            }
+
        });
 
 
@@ -119,6 +134,8 @@ public class Luna_Main extends AppCompatActivity {
                startActivity(CallIntent);
            }
        });
+
+
 
 
 
