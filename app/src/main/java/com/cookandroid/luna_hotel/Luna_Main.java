@@ -3,6 +3,7 @@ package com.cookandroid.luna_hotel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,17 +17,14 @@ public class Luna_Main extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     private Toast toast;
 
+    AlertDialog dialog;
+
+    Button btn_hotel,btn_hotelreser,btn_menu,btn_lunalogo,btn_setting,btn_room,btn_map,btn_call;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_main);
-
-
-
-
-
-        Button btn_hotel,btn_hotelreser,btn_menu,btn_lunalogo,btn_setting,
-                btn_room,btn_map,btn_call;
 
        btn_call = (Button) findViewById(R.id.btn_call);
        btn_hotel= (Button)findViewById(R.id.btn_hotel);
@@ -88,17 +86,24 @@ public class Luna_Main extends AppCompatActivity {
        btn_hotelreser.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
-
-               if(Login_gloval.login_id == null) // 변수값이 null이면 로그인이 인되어있다는 뜻임. 고로 로그인을 해달라는 메시지가 출력
+               if (Login_gloval.login_id == null) // 널값이면 로그인이 필요하다는 뜻입니다
                {
-                  android.app.AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Main.this);
-                   dlg.setTitle("로그인");
-                   dlg.setMessage("로그인해주세요.");
-                   dlg.setPositiveButton("확인",null);
-                   dlg.show();
+                   AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Main.this);
+                   builder.setMessage("로그인이 필요합니다.");
+
+                   builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialog, int which) {
+                           Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
+                           startActivity(intent);
+                       }
+                   });
+
+                   AlertDialog dialog = builder.create();
+                   dialog.show();
                }
-               else{ // null이 아니라면 로그인이 되어있는 상태
+               else
+               {
                    Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
                    startActivity(HotelInfo_Intent);
                }
@@ -134,16 +139,9 @@ public class Luna_Main extends AppCompatActivity {
                startActivity(CallIntent);
            }
        });
-
-
-
-
-
-
-
-
-
     }
+
+
     // 취소버튼 동작 코드입니다
     @Override
     public void onBackPressed() {

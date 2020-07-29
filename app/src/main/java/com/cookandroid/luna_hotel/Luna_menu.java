@@ -1,5 +1,6 @@
 package com.cookandroid.luna_hotel;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
@@ -16,6 +18,8 @@ public class Luna_menu extends AppCompatActivity {
 
     TextView menu_id, menu_email;
     Button btn_back,btn_reser_p,btn_check,btn_setting_p,btn_hotel_p,btn_room_p,btn_map_p,btn_login_logout;
+
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,7 @@ public class Luna_menu extends AppCompatActivity {
         }
         else
         {
-            menu_id.setText(Login_gloval.login_id + "님");
+            menu_id.setText((info.getString("userName", "")) + "님");
             menu_email.setText(info.getString("userEmail", ""));
 
             btn_login_logout.setText("로그아웃"); // 값이 있다면 로그인이 되어있는 상태입니다
@@ -89,6 +93,28 @@ public class Luna_menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                // 로그인 여부를 확인허는 if ~ else 문
+                if (Login_gloval.login_id == null) // 널값이면 로그인이 필요하다는 뜻입니다
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
+                    builder.setMessage("로그인이 필요합니다.");
+
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+                else
+                {
+                    Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
+                    startActivity(HotelInfo_Intent);
+                }
             }
         });
 
@@ -98,8 +124,29 @@ public class Luna_menu extends AppCompatActivity {
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Reservation_Check.class);
-                startActivity(Intent);
+
+                // 로그인 여부를 확인허는 if ~ else 문
+                if (Login_gloval.login_id == null) // 널값이면 로그인이 필요하다는 뜻입니다
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
+                    builder.setMessage("로그인이 필요합니다.");
+
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+                else
+                {
+                    Intent Intent = new Intent(getApplicationContext(),Luna_Reservation_Check.class);
+                    startActivity(Intent);
+                }
             }
         });
 
@@ -131,7 +178,7 @@ public class Luna_menu extends AppCompatActivity {
             }
         });
 
-        // 호텔소개 버튼 이벤트
+        // 객실안내 버튼 이벤트
         btn_room_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
