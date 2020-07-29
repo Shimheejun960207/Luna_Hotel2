@@ -1,28 +1,32 @@
 package com.cookandroid.luna_hotel;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
@@ -30,6 +34,9 @@ public class Luna_Login extends AppCompatActivity {
     Button btn_Login, btn_account_find, btn_Sign_up;
     Button btn_menu,btn_lunalogo,btn_setting;
     EditText user_id, user_pw;
+
+    private String jsonString;
+    ArrayList<UserInfo> infoArrayList;
 
     AlertDialog dialog;
 
@@ -46,6 +53,8 @@ public class Luna_Login extends AppCompatActivity {
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_menu = (Button)findViewById(R.id.btn_menu);
+
+        // task = new GetInfo();
 
 
         //하얀색 밑줄
@@ -131,14 +140,12 @@ public class Luna_Login extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success) {
-                                Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
                                 String userID = jsonResponse.getString("userID");
                                 String userPW = jsonResponse.getString("userPW");
 
                                 Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
-                                loginintent.putExtra("userID", userID);
-                                loginintent.putExtra("userPW", userPW);
                                 //  전연변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
                                 Login_gloval.login_id = userID;
                                 Login_gloval.login_password = userPW;
@@ -161,6 +168,14 @@ public class Luna_Login extends AppCompatActivity {
                 LoginRequest loginRequest = new LoginRequest(userID, userPW, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Luna_Login.this);
                 queue.add(loginRequest);
+
+
+                // 로그인 직후 DB에 저장되어 있는 회원의 데이터를 가져오기 위한 부분입니다.
+
+                // AsyncTask 생성
+                final JsonParse jsonParse = new JsonParse();
+                // AsyncTask 실행
+                jsonParse.execute("http://52.78.74.201/GetInfo.php");
 
             }
         });
@@ -191,10 +206,151 @@ public class Luna_Login extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
-
-
         super.onBackPressed();
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
+    // AsyncTask 클래스 여기다가 구현.
+    public class JsonParse extends AsyncTask<String, Void, String> {
+        String TAG = "JsonParse";
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            // execute의 매개변수를 받아와서 사용합니다.
+            String url = strings[0];
+
+            try {
+
+                // 따옴표 안의 userID= 부분을 통해 DB에서 해당 아이디로 쿼리를 실행합니다.
+                String selectData = "userID=" + user_id.getText().toString();
+
+                // 어플에서 데이터 전송 준비
+                URL serverURL = new URL(url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) serverURL.openConnection();
+
+                httpURLConnection.setReadTimeout(10000);
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.connect();
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(selectData.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+
+                // 어플에서 데이터 전송 시작
+                int responseStatusCode = httpURLConnection.getResponseCode();
+
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else {
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                bufferedReader.close();
+                Log.d(TAG, sb.toString().trim());
+
+                // 받아온 JSON의 공백을 trim()으로 제거합니다.
+                return sb.toString().trim();
+            } catch(Exception e) {
+                Log.d(TAG, "InsertData : Error", e);
+                String errorString = e.toString();
+                return null;
+            }
+        }
+
+        @Override
+        // doInBackgroundString에서 return한 값을 받습니다.
+        protected void onPostExecute(String fromdoInBackgroundString) {
+            super.onPostExecute(fromdoInBackgroundString);
+
+            if(fromdoInBackgroundString == null) {
+                // doInBackgroundString에서 return받은 값이 null값일 경우 에러로 토스트 출력.
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                // null이 아니라면, 밑 문장들 실행
+                jsonString = fromdoInBackgroundString;
+                // ArrayList에 값을 넣기 위해 doParse() 메소드 실행.
+                // doParse() 메소드는 밑에 onProgressUpdate 부분에 넣음.
+                infoArrayList = doParse();
+
+                // 단말기에 간단한 정보를 저장하는 SharedPreferences 객체를 PRIVATE모드로 선언
+                SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
+                // SharedPreferences 를 제어하기 위한 Editor 선언
+                SharedPreferences.Editor editor = info.edit();
+
+                // Editor를 이용해서 userCODE, userID, userName... 등등의 이름으로 회원 정보 저장
+                editor.putString("userCODE", infoArrayList.get(0).getCODE());
+                editor.putString("userID", infoArrayList.get(0).getID());
+                editor.putString("userName", infoArrayList.get(0).getName());
+                editor.putString("userPW", infoArrayList.get(0).getPW());
+                editor.putString("userSsn", infoArrayList.get(0).getSsn());
+                editor.putString("userGender", infoArrayList.get(0).getGender());
+                editor.putString("userHP", infoArrayList.get(0).getHP());
+                editor.putString("userEmail", infoArrayList.get(0).getEmail());
+
+                // Editor로 작업한 내용들을 커밋.
+                editor.commit();
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        private ArrayList<UserInfo> doParse() {
+            // ArrayList에 값을 넣기 위해 임시 ArrayList를 만듬
+            ArrayList<UserInfo> tmpArray = new ArrayList<UserInfo>();
+
+            try {
+                JSONObject jsonObject = new JSONObject(jsonString);
+                // PHP 구문을 통해 받은 결과인 result라는 이름의 JSONArray를 받아옴.
+                JSONArray jsonArray = jsonObject.getJSONArray("result");
+
+                // 값들을 복사해서 넣는 과정.
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    UserInfo tmpinfo = new UserInfo();
+                    JSONObject item = jsonArray.getJSONObject(i);
+
+                    tmpinfo.setCODE(item.getString("userCODE"));
+                    tmpinfo.setID(item.getString("userID"));
+                    tmpinfo.setName(item.getString("userName"));
+                    tmpinfo.setPW(item.getString("userPW"));
+                    tmpinfo.setSsn(item.getString("userSsn"));
+                    tmpinfo.setGender(item.getString("userGender"));
+                    tmpinfo.setHP(item.getString("userHP"));
+                    tmpinfo.setEmail(item.getString("userEmail"));
+
+                    tmpArray.add(tmpinfo);
+                }
+            } catch(JSONException e) {
+                e.printStackTrace();
+            }
+
+            // JSON을 가공하여 tmpArray에 넣고 반환.
+            return tmpArray;
+        }
 
     }
+
 }

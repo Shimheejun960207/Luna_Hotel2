@@ -8,7 +8,6 @@ public class Login_gloval extends Application {
     public static String login_id;  // 아이디 전연변수입니다.
     public static String login_password; // 비밀번호 전역변수 입니다.
 
-
     @Override
     public void onCreate(){
         super.onCreate();

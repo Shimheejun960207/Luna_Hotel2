@@ -1,6 +1,7 @@
 package com.cookandroid.luna_hotel;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class Luna_menu extends AppCompatActivity {
 
@@ -19,6 +22,12 @@ public class Luna_menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_menu);
 
+        SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = info.edit();
+
+        menu_id = (TextView) findViewById(R.id.menu_id);
+        menu_email = (TextView) findViewById(R.id.menu_email) ;
+
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_check = (Button)findViewById(R.id.btn_check);
         btn_hotel_p = (Button)findViewById(R.id.btn_hotel_p);
@@ -27,7 +36,6 @@ public class Luna_menu extends AppCompatActivity {
         btn_reser_p = (Button)findViewById(R.id.btn_reser_p);
         btn_room_p = (Button)findViewById(R.id.btn_room_p);
         btn_setting_p = (Button)findViewById(R.id.btn_setting_p);
-
 
         // 엑티비티가 호출됨과 동시에 조건문으로 전역변수의 값여부를 확인합니다
         if (Login_gloval.login_id == null) // 널값이면 로그인이 필요하다는 뜻입니다
@@ -46,14 +54,19 @@ public class Luna_menu extends AppCompatActivity {
         }
         else
         {
+            menu_id.setText(Login_gloval.login_id + "님");
+            menu_email.setText(info.getString("userEmail", ""));
+
             btn_login_logout.setText("로그아웃"); // 값이 있다면 로그인이 되어있는 상태입니다
             btn_login_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) { // 로그아웃 버튼을 누르면 전연변수의 모든 값이 null로 초기화됩니다.
-                    Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다..",Toast.LENGTH_SHORT);
+                    Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
                     accountToast.show();
                     Login_gloval.login_id =null;
                     Login_gloval.login_password=null;
+                    editor.clear();
+                    editor.commit();
                     finish();
                 }
             });
