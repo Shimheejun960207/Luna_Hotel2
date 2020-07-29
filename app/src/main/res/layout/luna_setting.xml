@@ -93,7 +93,7 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
+            android:layout_marginLeft="219dp"
             android:id="@+id/switch_SMS_adver"
             android:checked="true"
             android:thumbTint="#540dcb"
@@ -120,7 +120,7 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="187dp"
+            android:layout_marginLeft="189dp"
             android:id="@+id/switch_SMS_reser"
             android:thumbTint="#540dcb"
             />

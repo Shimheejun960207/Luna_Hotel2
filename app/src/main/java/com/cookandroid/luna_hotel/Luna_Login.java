@@ -31,8 +31,7 @@ import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
 
-    Button btn_Login, btn_account_find, btn_Sign_up;
-    Button btn_menu,btn_lunalogo,btn_setting;
+    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo, btn_setting;
     EditText user_id, user_pw;
 
     private String jsonString;
@@ -46,22 +45,19 @@ public class Luna_Login extends AppCompatActivity {
         setContentView(R.layout.luna_login);
 
         btn_Login = (Button) findViewById(R.id.Btn_login);
-        user_id = (EditText) findViewById(R.id.Id_info);
-        user_pw = (EditText) findViewById(R.id.Password_info);
         btn_account_find = (Button) findViewById(R.id.Btn_account_find);
         btn_Sign_up = (Button) findViewById(R.id.Btn_Sign_Up);
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_menu = (Button)findViewById(R.id.btn_menu);
 
-        // task = new GetInfo();
-
+        user_id = (EditText) findViewById(R.id.Id_info);
+        user_pw = (EditText) findViewById(R.id.Password_info);
 
         //하얀색 밑줄
         btn_Login.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "로그인" + "</u></font>"));
         btn_account_find.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "계정찾기" + "</u></font>"));
         btn_Sign_up.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "회원가입" + "</u></font>"));
-
 
         //영문과 숫쟈 허용
         InputFilter filter = new InputFilter() {
@@ -102,6 +98,7 @@ public class Luna_Login extends AppCompatActivity {
             }
         });
 
+
         // 로고클릭 이벤트
         btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +107,7 @@ public class Luna_Login extends AppCompatActivity {
                 startActivity(Intent);
             }
         });
+
 
         // 설정 클릭 이벤트
         btn_setting.setOnClickListener(new View.OnClickListener() {
@@ -120,8 +118,6 @@ public class Luna_Login extends AppCompatActivity {
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
-
-
 
 
        //로그인 하기 위한 버튼
@@ -171,12 +167,8 @@ public class Luna_Login extends AppCompatActivity {
 
 
                 // 로그인 직후 DB에 저장되어 있는 회원의 데이터를 가져오기 위한 부분입니다.
-
-                // AsyncTask 생성
-                final JsonParse jsonParse = new JsonParse();
-                // AsyncTask 실행
-                jsonParse.execute("http://52.78.74.201/GetInfo.php");
-
+                final JsonParse jsonParse = new JsonParse();            // AsyncTask 생성
+                jsonParse.execute("http://52.78.74.201/GetInfo.php");   // AsyncTask 실행
             }
         });
 
@@ -185,13 +177,12 @@ public class Luna_Login extends AppCompatActivity {
         btn_account_find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent Intent = new Intent(getApplicationContext(),Luna_Account_Search.class);
                 startActivity(Intent);
-
             }
 
         });
+
 
         //회원가입 하기 위한 버튼
         btn_Sign_up.setOnClickListener(new View.OnClickListener() {
@@ -199,11 +190,13 @@ public class Luna_Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Setting_Intent = new Intent(getApplicationContext(),Luna_NewAccount.class);
                 startActivity(Setting_Intent);
-
             }
 
         });
     }
+
+
+    // 이 밑은 로그인 할 때 로그인 정보로 회원 정보를 가져오는 구문입니다.
     @Override
     public void onBackPressed(){
         super.onBackPressed();
@@ -216,12 +209,10 @@ public class Luna_Login extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-
             // execute의 매개변수를 받아와서 사용합니다.
             String url = strings[0];
 
             try {
-
                 // 따옴표 안의 userID= 부분을 통해 DB에서 해당 아이디로 쿼리를 실행합니다.
                 String selectData = "userID=" + user_id.getText().toString();
 
@@ -346,11 +337,8 @@ public class Luna_Login extends AppCompatActivity {
             } catch(JSONException e) {
                 e.printStackTrace();
             }
-
             // JSON을 가공하여 tmpArray에 넣고 반환.
             return tmpArray;
         }
-
     }
-
 }

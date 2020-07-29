@@ -12,18 +12,19 @@ import android.widget.Toast;
 
 public class Luna_NewAccount extends AppCompatActivity {
 
+    Button btn_join, btn_lunalogo2, btn_menu2, btn_setting2;
+    RadioButton Rbtn_agree, Rbtn_nagree;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_newaccount);
 
-        final Button btn_join, btn_lunalogo2, btn_menu2, btn_setting2;
-        final RadioButton Rbtn_agree, Rbtn_nagree;
-
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_menu2 = (Button) findViewById(R.id.btn_menu2);
         btn_setting2 = (Button) findViewById(R.id.btn_setting2);
+
         Rbtn_agree = (RadioButton) findViewById(R.id.Rbtn_agree);
         Rbtn_nagree = (RadioButton) findViewById(R.id.Rbtn_nagree);
 
@@ -34,10 +35,10 @@ public class Luna_NewAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Toast accountToast = Toast.makeText(Luna_NewAccount.this,"약관을 동의해주세요.",Toast.LENGTH_SHORT);
                 accountToast.show();
-
-
             }
         });
+
+
         // 동의 버튼 누르면 동의거절 버튼 비활성화 동의버튼 눌려야만 가입하기 버튼 활성화
         Rbtn_agree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
@@ -54,16 +55,16 @@ public class Luna_NewAccount extends AppCompatActivity {
                         }
                     });
                 }
-
             }
         });
+
+
         // 동의거절 버튼 누르면 동의버튼 비활성화 가입하기 버튼 비활성화 및 토스트메시지 출력
         Rbtn_nagree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isCheckd) {
                 if(isCheckd){
-
                     Rbtn_agree.setChecked(false);
                     // 동의하지않아 진행 불가능
                     btn_join.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +75,9 @@ public class Luna_NewAccount extends AppCompatActivity {
                         }
                     });
                 }
-
             }
         });
+
 
         //메뉴버튼 클릭 메소드
         btn_menu2.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +90,7 @@ public class Luna_NewAccount extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +101,7 @@ public class Luna_NewAccount extends AppCompatActivity {
             }
         });
 
+
         // 로고를 누르면 홈화면으로 이동하면 코드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +110,5 @@ public class Luna_NewAccount extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
-
-
     }
 }

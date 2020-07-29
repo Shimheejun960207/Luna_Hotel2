@@ -11,32 +11,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Account_Search extends AppCompatActivity {
 
+    Button  btn_bottom_login, btn_search, btn_menu2, btn_lunalogo2, btn_setting2;
+    TextView text_result_id, text_result_password;
+    EditText edit_S_name, edit_S_personNumber, edit_S_Email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_account_search);
-
-
-        Button  btn_bottom_login,btn_search, btn_menu2;
-        Button btn_lunalogo2,btn_setting2;
-
-        TextView text_result_id,text_result_password;
-
-        EditText edit_S_name,edit_S_personNumber,edit_S_Email;
-
-
 
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
         btn_setting2 = (Button)findViewById(R.id.btn_setting2);
         btn_menu2 = (Button)findViewById(R.id.btn_menu2);
         btn_bottom_login = (Button) findViewById(R.id.btn_bottom_login);
         btn_search = (Button) findViewById(R.id.btn_search);
+
         text_result_id = (TextView) findViewById(R.id.text_result_id);
         text_result_password = (TextView) findViewById(R.id.text_result_password);
+
         edit_S_Email = (EditText) findViewById(R.id.edit_S_Email);
         edit_S_name = (EditText) findViewById(R.id.edit_S_name);
         edit_S_personNumber = (EditText) findViewById(R.id.edit_S_personNumber);
-
 
 
         // 로고버튼 이벤트입니다.
@@ -48,6 +43,7 @@ public class Luna_Account_Search extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 이벤트입니다
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +53,7 @@ public class Luna_Account_Search extends AppCompatActivity {
             }
         });
 
+
         // 메뉴버튼 이벤트입니다
         btn_menu2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,9 +62,6 @@ public class Luna_Account_Search extends AppCompatActivity {
                 startActivity(Intent);
             }
         });
-
-
-
 
 
         // 하단버튼 로그인 버튼 이벤트
@@ -89,8 +83,5 @@ public class Luna_Account_Search extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }

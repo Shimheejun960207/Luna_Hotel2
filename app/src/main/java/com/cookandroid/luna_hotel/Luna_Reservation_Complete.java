@@ -12,15 +12,11 @@ import java.text.DecimalFormat;
 
 public class Luna_Reservation_Complete extends AppCompatActivity {
 
-
-
     // 변수선언
-
     private TextView text_name_info; // 나중에 로그인 정보 가져와서 이름 넣을때 사용
     private TextView text_total;
     private TextView text_subak_info;
     private TextView text_Room_info;
-
 
     private int roomNum; // 방번호
     private String room_name; // 방이름
@@ -29,28 +25,29 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
     private  String date_checkin; // 체크인 날짜
     private  String date_checkout; // 체크아웃 날짜
 
+    Button btn_menu2, btn_lunalogo2, btn_setting2, btn_main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_reservation_complete);
-        Button btn_menu2, btn_lunalogo2, btn_setting2,btn_main;
+
         btn_main = (Button) findViewById(R.id.btn_main) ;
         btn_lunalogo2 = (Button) findViewById(R.id.Btn_lunalogo2);
         btn_menu2 = (Button) findViewById(R.id.Btn_menu2);
+
         text_name_info = (TextView) findViewById(R.id.text_Name_info);
         text_Room_info = (TextView) findViewById(R.id.text_Room_info);
         text_subak_info = (TextView) findViewById(R.id.text_Subak_info);
         text_total = (TextView) findViewById(R.id.text_total);
 
-
-
         Intent intent = getIntent();
-         roomNum = intent.getIntExtra("roomNum", 0);
-         tnrqkr = intent.getIntExtra("tnrqkr", 0); // 숙박 몇박~
-         date_checkin = intent.getStringExtra("date_checkin");
-         date_checkout = intent.getStringExtra("date_checkout");
-         total_price = intent.getIntExtra("total_price",0); //결제금액
 
+        roomNum = intent.getIntExtra("roomNum", 0);
+        tnrqkr = intent.getIntExtra("tnrqkr", 0); // 숙박 몇박~
+        date_checkin = intent.getStringExtra("date_checkin");
+        date_checkout = intent.getStringExtra("date_checkout");
+        total_price = intent.getIntExtra("total_price",0); //결제금액
 
         DecimalFormat formatter = new DecimalFormat("###,###"); // 회계표시
         String formattedStringPrice = formatter.format(total_price); //회계표시 적용
@@ -61,7 +58,6 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
         if (roomNum == 1) {
             room_name = "Single Room";
             text_Room_info.setText(room_name);
-
         } else {
             room_name = "Luxury Room";
             text_Room_info.setText(room_name);
@@ -91,6 +87,7 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
             }
         });
 
+
         //메인으로 버튼 이벤트
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,10 +96,8 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
-
-
-
     }
+
 
     // 취소버튼 동작 코드입니다
     @Override
@@ -123,6 +118,5 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
         dlg.setNegativeButton("취소",null);
         dlg.show();
     }
-
 }
 

@@ -18,10 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Room extends AppCompatActivity {
 
-    Button btn_menu2, btn_lunalogo2,btn_setting2,btn_res;
+    Button btn_menu2, btn_lunalogo2, btn_setting2, btn_res;
     TextView Room_info_text;
-
-    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +27,18 @@ public class Luna_Info_Room extends AppCompatActivity {
         setContentView(R.layout.luna_info_room);
 
         Room_info_text = (TextView)findViewById(R.id.Room_info_text);
+
         btn_menu2 = (Button)findViewById(R.id.btn_menu2);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_setting2 = (Button)findViewById(R.id.btn_setting2);
         btn_res = (Button)findViewById(R.id.btn_res);
 
 
-
+        // 예약하기 버튼 클릭 메소드
         btn_res.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Login_gloval.login_id == null) // 널값이면 로그인이 필요하다는 뜻입니다
-                {
+                if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Info_Room.this);
                     builder.setMessage("로그인이 필요합니다.");
 
@@ -54,9 +52,7 @@ public class Luna_Info_Room extends AppCompatActivity {
 
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }
-                else
-                {
+                } else {
                     Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
                     startActivity(HotelInfo_Intent);
                 }
@@ -75,6 +71,7 @@ public class Luna_Info_Room extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +82,7 @@ public class Luna_Info_Room extends AppCompatActivity {
             }
         });
 
+
         // 로고를 누르면 홈화면으로 이동하면 코드
        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -94,5 +92,4 @@ public class Luna_Info_Room extends AppCompatActivity {
            }
        });
     }
-
 }

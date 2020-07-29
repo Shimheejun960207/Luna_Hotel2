@@ -23,11 +23,9 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-
 public class Luna_Reservation_Date extends AppCompatActivity {
 
     // 변수설정
-
     private int roomNum; // 방번호
     private int room_price = 0;   // 방가격
 
@@ -42,22 +40,22 @@ public class Luna_Reservation_Date extends AppCompatActivity {
     private static final String TAG = "Luna_SelectDate";
     private TextView text_total;
 
+    TextView text_roomname, text_checkin, text_checkout, text_date_result, T_date, T_year, T_month, sale;
+    Button btn_checkin, btn_checkout, btn_menu2, btn_lunalogo2, btn_next;
+    RadioButton Rbtn_SamsungPay, Rbtn_Cardpay;
+    RadioGroup Rbtn_grouppay;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_reservation_date);
-        final Button btn_next;
-        Button btn_checkin,btn_checkout;
-        Button btn_menu2, btn_lunalogo2;
-        final TextView sale;
 
-
-        final RadioButton Rbtn_SamsungPay, Rbtn_Cardpay;
-        final RadioGroup Rbtn_grouppay;
         Rbtn_grouppay = (RadioGroup) findViewById(R.id.Rbtn_GroupPay);
+
         Rbtn_SamsungPay = (RadioButton) findViewById(R.id.Rbtn_SamsungPay);
         Rbtn_Cardpay = (RadioButton) findViewById(R.id.Rbtn_CardPay);
+
         text_total = (TextView) findViewById(R.id.text_total); // 결제 금액
         sale = (TextView) findViewById(R.id.Sale); // 10% 할인!!
 
@@ -66,43 +64,40 @@ public class Luna_Reservation_Date extends AppCompatActivity {
         Rbtn_Cardpay.setText(Html.fromHtml("<font color=#000000><u><b>" + "신용카드" + "</b></u></font>"));
         sale.setText(Html.fromHtml("<font color=#7272><u><b>" + "10% 할인!!" + "</b></u></font>"));
 
-
-       final TextView text_roomname, text_checkin,text_checkout,text_date_result,T_date,T_year,T_month;
-
-       // 날짜 담는 텍스트뷰입니다
-       T_date = (TextView) findViewById(R.id.T_date);
+        // 날짜 담는 텍스트뷰입니다
+        T_date = (TextView) findViewById(R.id.T_date);
         T_month = (TextView) findViewById(R.id.T_month);
         T_year = (TextView) findViewById(R.id.T_year);
         // 여기까지
 
-
         btn_checkin = (Button) findViewById(R.id.btn_checkin);
         btn_checkout = (Button) findViewById(R.id.btn_checkout);
+
         text_checkin = (TextView)findViewById(R.id.text_checkin);
         text_checkout = (TextView)findViewById(R.id.text_checkout);
+
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_menu2 = (Button) findViewById(R.id.btn_menu2);
+
         text_roomname = (TextView) findViewById(R.id.text_roomname);
         text_date_result = (TextView)findViewById(R.id.text_date_result);
 
 
         // 객실선택 데이터 받아와서 그 데이터를 기반으로  선택한 객실의 결과가 나오게함
         Intent intent = getIntent();
-         roomNum = intent.getIntExtra("roomNum",0);
+        roomNum = intent.getIntExtra("roomNum",0);
 
-        if (roomNum == 1 )
-        {
+        if (roomNum == 1 ) {
             room_name = "Single Room";
             text_roomname.setText("선택 객실 : " + room_name);
             room_price = 150000;
-        }
-        else
-        {
+        } else {
             room_name = "Luxury Room";
             text_roomname.setText("선택 객실 : " + room_name);
             room_price = 300000;
         }
+
 
         Rbtn_grouppay.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -111,8 +106,7 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                //  String formattedStringPrice = formatter.format(result); //회계표시 적용
                 // Money.setText(formattedStringPrice); // 결제금액 변경
 
-                if(tnrqkr == 0)
-                {
+                if(tnrqkr == 0) {
                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
                     dlg.setTitle("결제 선택 오류");
                     dlg.setMessage("먼저 날짜를 선택해주세요.");
@@ -120,10 +114,7 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                     dlg.show();
                     Rbtn_SamsungPay.setChecked(false);
                     Rbtn_Cardpay.setChecked(false);
-                }
-                else {
-
-
+                } else {
                     if (checkedId == R.id.Rbtn_SamsungPay) {
                         // 몇박몇일 텍스트뷰의  몇박 데이터를 tnrqkr 변수에 담는다
                         // total 변수에  가격*박 * 할인률을 넣는다
@@ -142,8 +133,6 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                         text_total.setText(formattedStringPrice);
                     }
                 }
-
-
             }
         });
 
@@ -157,16 +146,15 @@ public class Luna_Reservation_Date extends AppCompatActivity {
         Log.e(TAG, cal.get(Calendar.MINUTE)+"");
 
 
-
         // 체크인 달력선택
         btn_checkin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 DatePickerDialog dialog = new DatePickerDialog(Luna_Reservation_Date.this, new DatePickerDialog.OnDateSetListener() {
+
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
-
                         String msg = String.format("%d 년 %d 월 %d 일", year, month+1, date);
                         Toast.makeText(Luna_Reservation_Date.this, msg, Toast.LENGTH_SHORT).show();
 
@@ -184,30 +172,29 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                         String date_s,month_s;
 
                         // 10일 미만 10월 미만 데이터들 앞에 0을 붙여서 스트링으로 변환한다.
-                        if(date_int < 10)
-                        { date_s = "0"+date_int; }
-                        else
-                        { date_s = "" + date_int; }
+                        if(date_int < 10) {
+                            date_s = "0"+date_int;
+                        } else {
+                            date_s = "" + date_int;
+                        }
 
-                        if(month_int < 10)
-                        { month_s = "0"+ month_int; }
-                        else
-                        { month_s = "" + month_int; }
+                        if(month_int < 10) {
+                            month_s = "0"+ month_int;
+                        } else {
+                            month_s = "" + month_int;
+                        }
                         // 변수3개를 연달아서 텍스트에 담는다
 
                         text_checkin.setText(year_int + month_s + date_s);
-
 
                         // 두날짜의 차이를 구해서 몇박몇일인지 구함
                         String strFormat = "yyyyMMdd";
                         String strStartDate = text_checkin.getText().toString();
                         String strEndDate = text_checkout.getText().toString();
 
-
                         //SimpleDateFormat 을 이용하여 startDate와 endDate의 Date 객체를 생성한다.
                         SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
                         try{
-
                             Date startDate = sdf.parse(strStartDate);
                             Date endDate = sdf.parse(strEndDate);
 
@@ -216,10 +203,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                             long diffDay2 = diffDay+1;
 
                             // 잘못된 날짜가 체크되면 실행되는 코드
-                            if(diffDay > 0)
-                            {
-                                if(diffDay2 > 10)
-                                {
+                            if(diffDay > 0) {
+                                if(diffDay2 > 10) {
                                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
                                     dlg.setTitle("날짜 선택 오류");
                                     dlg.setMessage("호텔 루나는 10일이상 서비스를 하지않습니다.");
@@ -232,26 +217,21 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                                 tnrqkr = (int)diffDay;
                                 total_price = 0;
                                 text_total.setText("");
-
-                            }
-                            else
-                            {
+                            } else {
                                 AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
                                 dlg.setTitle("날짜 선택 오류!!");
                                 dlg.setMessage("체크아웃 날짜가 체크인 날짜 보다 앞에 있습니다.");
                                 dlg.setPositiveButton("다시선택",null);
                                 dlg.show();
+
                                 text_checkin.setText("");
                                 text_checkout.setText("");
                                 total_price = 0;
                                 text_total.setText("");
                             }
-
-                        }catch(ParseException e){
+                        }catch(ParseException e) {
                             e.printStackTrace();
                         }
-
-
                     }
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
 
@@ -288,17 +268,19 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                         String date_s,month_s;
 
                         // 10일 미만 10월 미만 데이터들 앞에 0을 붙여서 스트링으로 변환한다.
-                        if(date_int < 10)
-                        { date_s = "0"+date_int; }
-                        else
-                        { date_s = "" + date_int; }
+                        if(date_int < 10) {
+                            date_s = "0"+date_int;
+                        } else {
+                            date_s = "" + date_int;
+                        }
 
-                        if(month_int < 10)
-                        { month_s = "0"+ month_int; }
-                        else
-                        { month_s = "" + month_int; }
+                        if(month_int < 10) {
+                            month_s = "0"+ month_int;
+                        } else {
+                            month_s = "" + month_int;
+                        }
+
                         // 변수3개를 연달아서 텍스트에 담는다
-
                         text_checkout.setText(year_int + month_s + date_s);
 
                         // 두날짜의 차이를 구해서 몇박몇일인지 구함
@@ -308,8 +290,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
 
                         //SimpleDateFormat 을 이용하여 startDate와 endDate의 Date 객체를 생성한다.
                         SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
-                        try{
 
+                        try {
                             Date startDate = sdf.parse(strStartDate);
                             Date endDate = sdf.parse(strEndDate);
 
@@ -318,41 +300,36 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                             long diffDay2 = diffDay+1;
 
                             // 잘못된 날짜가 체크되면 실행되는 코드
-                            if(diffDay > 0)
-                            {
-                                if(diffDay2 > 10)
-                                {
+                            if(diffDay > 0) {
+                                if(diffDay2 > 10) {
                                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
                                     dlg.setTitle("날짜 선택 오류");
                                     dlg.setMessage("호텔 루나는 10일이상 서비스를 하지않습니다.");
                                     dlg.setPositiveButton("다시선택",null);
                                     dlg.show();
+
                                     text_checkin.setText("");
                                     text_checkout.setText("");
                                     total_price = 0;
                                     text_total.setText("");
-
                                 }
                                 text_date_result.setText("숙박일수 : "+ diffDay +"박" + diffDay2 + "일" );
                                 tnrqkr = (int)diffDay;
-
-                            }
-                            else
-                            {
+                            } else {
                                 AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
                                 dlg.setTitle("날짜 선택 오류!!");
                                 dlg.setMessage("체크아웃 날짜가 체크인 날짜 보다 앞에 있습니다.");
                                 dlg.setPositiveButton("다시선택",null);
                                 dlg.show();
+
                                 text_checkin.setText("");
                                 text_checkout.setText("");
                                 total_price = 0;
                                 text_total.setText("");
                             }
-                        }catch(ParseException e){
+                        } catch(ParseException e) {
                             e.printStackTrace();
                         }
-
                     }
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
 
@@ -363,31 +340,25 @@ public class Luna_Reservation_Date extends AppCompatActivity {
         // 체크아웃 이벤트 끝
 
 
-
-
-
                 // 다음으로 버튼 이벤트
                 btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         // 날짜선택 안하면 진행 못하게 막음
-                        if(text_checkin.length() < 6 || text_checkout.length() < 6)
-                        {
+                        if(text_checkin.length() < 6 || text_checkout.length() < 6) {
                             Toast CashToast = Toast.makeText(Luna_Reservation_Date.this,"날짜를 선택해 주세요",Toast.LENGTH_SHORT);
                             CashToast.show();
                         }
                         // 결제 선택 안하면 진행 못하게 막음
                         // total_price 가 0으로 되어 있으면 진행이 불가능
-                        else if (total_price < 1)
-                        {
+                        else if (total_price < 1) {
                             Toast CashToast = Toast.makeText(Luna_Reservation_Date.this,"결제를 선택해 주세요",Toast.LENGTH_SHORT);
                             CashToast.show();
-                        }
-                        else
-                        {   // 다음화면으로 넘어가짐 여기에 DB코드 넣어야할걸?
+                        } else {
+                            // 다음화면으로 넘어가짐 여기에 DB코드 넣어야할걸?
 
-                             date_checkin = text_checkin.getText().toString(); // 체크인날짜
+                            date_checkin = text_checkin.getText().toString(); // 체크인날짜
                             date_checkout = text_checkout.getText().toString(); // 체크아웃 날짜
                             Intent Intent = new Intent(getApplicationContext(),Luna_Reservation_Complete.class);
                             //  방 넘버, 체크인,체크아웃 날짜, 숙박일 보냄
@@ -401,8 +372,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                             // 여기까지 복사
                             startActivity(Intent);
                         }
-            }
-        });
+                    }
+                });
 
 
         //메뉴버튼 클릭 메소드

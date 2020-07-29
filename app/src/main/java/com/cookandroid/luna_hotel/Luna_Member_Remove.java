@@ -11,28 +11,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Member_Remove extends AppCompatActivity {
 
+    Button btn_back, btn_lunalogo2, btn_remove;
+    EditText edit_MR_password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_member_remove);
 
-        Button  btn_back,btn_lunalogo2,btn_remove;
-        EditText edit_MR_password;
-
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
         btn_remove = (Button)findViewById(R.id.btn_remove);
+
         edit_MR_password = (EditText) findViewById(R.id.edit_MR_password);
+
 
         // 뒤로가는버튼
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 finish(); // 창이 종료됩니다.
             }
         });
 
+
+        // 메인화면으로 가는 로고버튼튼
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +43,6 @@ public class Luna_Member_Remove extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
-
 
 
         // 조건문을 통하여 edit_MR_password 값이랑 디비의 회원비빌번호 값이랑 값이 일치하면
@@ -55,8 +57,5 @@ public class Luna_Member_Remove extends AppCompatActivity {
                 finish(); // 창이 종료됩니다.
             }
         });
-
-
     }
-
 }

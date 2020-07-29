@@ -12,18 +12,18 @@ import android.widget.Toast;
 
 public class Luna_Reservation_Room extends AppCompatActivity {
 
+    Button btn_next, btn_lunalogo2, btn_menu2;
+    RadioButton Rbtn_single, Rbtn_luxury;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_reservation_room);
 
-        final Button btn_next, btn_lunalogo2, btn_menu2;
-        final RadioButton Rbtn_single, Rbtn_luxury;
-
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_menu2 = (Button) findViewById(R.id.btn_menu2);
+
         Rbtn_single = (RadioButton) findViewById(R.id.Rbtn_single);
         Rbtn_luxury = (RadioButton) findViewById(R.id.Rbtn_luxury);
 
@@ -36,7 +36,6 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast accountToast = Toast.makeText(Luna_Reservation_Room.this,"객실을 선택해 주세요.",Toast.LENGTH_SHORT);
                 accountToast.show();
             }
@@ -59,10 +58,11 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                             startActivity(Intent);
                         }
                     });
+                } else {
                 }
-                else{ }
             }
         });
+
 
         // 럭셔리룸 버튼 선택
         Rbtn_luxury.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -80,10 +80,11 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                             startActivity(Intent);
                         }
                     });
+                } else {
                 }
-                else{ }
             }
         });
+
 
         //메뉴버튼 클릭 메소드
         btn_menu2.setOnClickListener(new View.OnClickListener() {
@@ -105,9 +106,5 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
-
-
-
-
     }
 }

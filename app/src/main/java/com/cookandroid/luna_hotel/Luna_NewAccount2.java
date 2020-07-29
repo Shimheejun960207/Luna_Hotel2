@@ -27,9 +27,8 @@ import java.util.regex.Pattern;
 
 public class Luna_NewAccount2 extends AppCompatActivity {
 
-    // 이거 onCreate 안에 들어가 있길래 제가 빼놨습니다. (김범준)
-    Button btn_join, btn_check,btn_lunalogo2,btn_menu2,btn_setting2;
-    EditText edit_id,edit_name,edit_password,edit_passwordcheck,edit_ssn,edit_gender,edit_hp1,edit_hp2,edit_hp3,edit_email1,edit_email2,edit_email3;
+    Button btn_join, btn_check, btn_lunalogo2, btn_menu2, btn_setting2;
+    EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_gender, edit_hp1, edit_hp2, edit_hp3, edit_email1, edit_email2, edit_email3;
     CheckBox checkbox_id;
 
     // 회원가입 시 뜨는 알림 창을 사용하기 위한 AlertDialog
@@ -41,6 +40,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         setContentView(R.layout.luna_newaccount2);
 
         checkbox_id = (CheckBox) findViewById(R.id.checkbox_id);
+
         btn_check = (Button) findViewById(R.id.btn_check);
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
@@ -65,7 +65,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         InputFilter filter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-
                 Pattern ps = Pattern.compile("^[a-zA-Z0-9]+$");
                 if (!ps.matcher(source).matches()) {
                     return "";
@@ -139,9 +138,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final String CheckID = edit_id.getText().toString();
-
                 Pattern patternID = Pattern.compile("^[a-z0-9]+$");
 
                 // 아이디 입력을 안하고 중복체크 버튼을 누를 시 뜨는 알림창
@@ -170,7 +167,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     edit_id.requestFocus();
                     return;
                 }
-
 
                 // 서버의 PHP로 아이디를 비교하는 과정
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -205,29 +201,11 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 ValidateRequest validateRequest = new ValidateRequest(CheckID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Luna_NewAccount2.this);
                 queue.add(validateRequest);
-
-
-                // 여기에는 버튼을  처음에는 체크가 다시 해제되게 만들어야합니다.
-                // 예를 들어 shj1996 으로 아이디 중복체크를 하여 체크가되었는데
-                // shj1996 을 shj1997 로 고치면 중복체크가 된채로 회원가입이 그냥 진행되기때문입니다
-                // checkbox_id.setChecked(false); 를 사용하여 해제를 합니다
-
-                // 여기에는 중복된 아이디가 있으면  대화상자로 사용불가능한 아이디라고 출력이되야합니다.
-
-                // 중복확인을 하여 사용가능한 아이디면 체크박스가 자동 채크됩니다.
             }
         });
 
-        //가입하기 클릭시 실행되는 코드 // DB팀이 여기 코드를 잘짜야함
-        // 가입하기 진행시 필요한점
-        // 1. 비밀번호와 비밀번호확인 의 두 값이 같은가? O
-        // 2. 아이디 중복확인 체크박스가 체크가 되어있는가? O
-        // 3. 모든 에디트텍스트에 값이 기입이 되어있는가? O
-        // 4. 이메일은 영어로 입력이 되어있는가? O
-        // 5.  주민번호는 앞에 6자리를 정상적으로 입력하고 뒷자리는 1,2,3,4 만 입력햇는가? O
-        // 6. 핸드폰번호는 앞 3자리  중간4자리 마지막4자리를 입력했는가? O
-        // 7.  아이디는 특수문자가 들어가지않고 영문과 숫자조합으로만 되어있는가?
-        // 위조건이 모두 충족되어야하며  충족이안되면  해당하는 에러의 대화상자가 출력되어야함.
+
+        //가입하기 클릭시 실행되는 코드
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -236,13 +214,11 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 // 데이터베이스로 전송하는 값이 아님!!! 단순 가입하기 진행 시 조건에만 사용
                 String userPWC = edit_passwordcheck.getText().toString();
 
-
                 // 단순 이메일 영어입력 확인에만 사용하기 때문에 분류 해 두었습니다.
                 // 데이터베이스로 전송하는 값이 아님!!! 단순 가입하기 진행 시 조건에만 사용
                 String userEmail1 = edit_email1.getText().toString();
                 String userEmail2 = edit_email2.getText().toString();
                 String userEmail3 = edit_email3.getText().toString();
-
 
                 // 단순 전화번호 글자 수 제한에만 사용하기 때문에 분류 해 두었습니다.
                 // 데이터베이스로 전송하는 값이 아님!!! 단순 가입하기 진행 시 조건에만 사용
@@ -250,19 +226,14 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 String userHP2 = edit_hp2.getText().toString();
                 String userHP3 = edit_hp3.getText().toString();
 
-
                 // 아이디 문자열 제한을 걸기 위한 패턴
                 Pattern patternID = Pattern.compile("^[a-z0-9]+$");
-
                 // 이메일 문자열 제한을 걸기 위한 패턴
                 Pattern patternEmail = Pattern.compile("^[a-z0-9]+$");
-
                 // 주민번호 앞 자리 문자열 제한을 걸기 위한 패턴
                 Pattern patternSsn = Pattern.compile("^[0-9]+$");
-
                 // 휴대폰 번호 문자열 제한을 걸기 위한 패턴
                 Pattern patternHP = Pattern.compile("^[0-9]+$");
-
 
                 // EditText에 있는 값을 String 값으로 가져옵니다.
                 // 밑의 userID, userName, userPW, userSsn, userGender, userHP, userEmail
@@ -345,9 +316,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 }
 
 
-
-
-
                 // 2번. 아이디 중복확인 체크박스가 체크가 되어있는가? : 체크박스 체크 여부 확인
                 if(!checkbox_id.isChecked()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
@@ -355,9 +323,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     dialog.show();
                     return;
                 }
-
-
-
 
 
                 // 1번. 비밀번호와 비밀번호확인 의 두 값이 같은가? : 비밀번호 비교
@@ -368,9 +333,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     edit_passwordcheck.requestFocus();
                     return;
                 }
-
-
-
 
 
                 // 7번. 아이디는 특수문자가 들어가지않고 영문과 숫자조합으로만 되어있는가? : 아이디 문자열 제한
@@ -389,9 +351,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     edit_id.requestFocus();
                     return;
                 }
-
-
-
 
 
                 // 5번. 주민번호는 앞에 6자리를 입력하고 뒷자리는 1,2,3,4만
@@ -418,9 +377,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     edit_gender.requestFocus();
                     return;
                 }
-
-
-
 
 
                 // 6번. 핸드폰번호는 앞 3자리 중간 4자리 마지막 4자리를 입력했는가? : 글자 수 제한
@@ -473,9 +429,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 }
 
 
-
-
-
                 // 4번. 이메일은 영어로 입력이 되어있는가? : 허용 가능한 문자열만 패턴에 저장 후 비교
                 if(!patternEmail.matcher(userEmail1).matches()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
@@ -501,18 +454,11 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     return;
                 }
 
-
-
-
-
                 // gotoDatabase 메소드를 호출합니다. gotoDatabase 메소드는 onCreate 밑에 있습니다!
                 gotoDatabase(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
 
-
-
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Subscription.class);
                 startActivity(Home_Intent);
-
             }
         });
 
@@ -528,6 +474,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -537,6 +484,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
+
 
         // 로고를 누르면 홈화면으로 이동하면 코드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
@@ -554,7 +502,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
 
         // InsertData 클래스 선언, AsyncTask를 이용해 백그라운드에서 인터넷 통신으로 값을 넘김
         class InsertData extends AsyncTask<String, Void, String> {
-
             // pre 형식 실행 시
             @Override
             protected void onPreExecute() {
@@ -572,7 +519,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
             // Register.php 안에 있는 SQL 쿼리를 통해 값을 저장하게 됨.
             @Override
             protected String doInBackground(String... params) {
-
                 try {
                     // String 값들을 배열에 넣습니다.
                     String userID = (String) params[0];
@@ -624,7 +570,5 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         // 백그라운드에서 실행할 수 있게 InsertData 클래스의 인스턴스를 생성하여 execute로 실행합니다.
         InsertData task = new InsertData();
         task.execute(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
-
     }
-
 }

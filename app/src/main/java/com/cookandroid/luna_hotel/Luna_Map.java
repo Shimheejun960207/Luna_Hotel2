@@ -22,27 +22,27 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
     GoogleMap gMap;
     MapFragment mapFrag;
     TextView map_text;
+    Button btn_setting2, btn_lunalogo2, btn_menu2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_map);
 
+        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
+        btn_setting2 = (Button)findViewById(R.id.btn_setting2);
+        btn_menu2 = (Button)findViewById(R.id.btn_menu2);
+
+        map_text = (TextView)findViewById(R.id.map_text);
+
         // 지도 변수 대입
         mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.googlemap);
         mapFrag.getMapAsync(this);
-
-        map_text = (TextView)findViewById(R.id.map_text);
 
         // 오시는길에 밑줄 생기는 코드
         SpannableString content = new SpannableString("- 오시는길 -");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         map_text.setText(content);
-
-        Button btn_setting2, btn_lunalogo2, btn_menu2;
-        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
-        btn_setting2 = (Button)findViewById(R.id.btn_setting2);
-        btn_menu2 = (Button)findViewById(R.id.btn_menu2);
 
 
         //메뉴버튼 메소드
@@ -56,6 +56,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
+
         // 로고버튼 클릭 메소드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +76,9 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
                 startActivity(Home_Intent);
             }
         });
-
-
-
     }
+
+
     // 추상메소드 초기화 - 구글맵 초기값 설정 -
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -92,9 +93,5 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
                 .title("호텔 루나")
                 .snippet("Hotel Luna");
         googleMap.addMarker(marker).showInfoWindow();
-
     }
-
-
-
 }

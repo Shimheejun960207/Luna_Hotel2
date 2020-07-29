@@ -7,7 +7,6 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class LoginRequest extends StringRequest {
 
     // 서버에 위치한 Login.php 스트링 형식으로 저장

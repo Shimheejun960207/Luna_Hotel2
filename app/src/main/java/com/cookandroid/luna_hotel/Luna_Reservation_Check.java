@@ -13,25 +13,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Reservation_Check extends AppCompatActivity {
 
+    TextView text_reser01, text_name_reser01, text_roomname_reser01, text_date_reser01, text_price_reser01;
+    Button btn_back, btn_lunalogo2, btn_cancle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_reservation_check);
 
-        TextView text_reser01,text_name_reser01,text_roomname_reser01,text_date_reser01,text_price_reser01;
-        Button btn_back,btn_lunalogo2,btn_cancle;
-
         text_date_reser01 = (TextView) findViewById(R.id.text_date_reser01);
         text_name_reser01 = (TextView) findViewById(R.id.text_name_reser01);
-       text_price_reser01 = (TextView) findViewById(R.id.text_roomname_reser01);
-       text_reser01 = (TextView) findViewById(R.id.text_reser01);
-       text_roomname_reser01 = (TextView) findViewById(R.id.text_roomname_reser01);
+        text_price_reser01 = (TextView) findViewById(R.id.text_roomname_reser01);
+        text_reser01 = (TextView) findViewById(R.id.text_reser01);
+        text_roomname_reser01 = (TextView) findViewById(R.id.text_roomname_reser01);
 
-       btn_back = (Button)findViewById(R.id.btn_back);
-       btn_cancle = (Button)findViewById(R.id.btn_cancle);
-       btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
-
-
+        btn_back = (Button)findViewById(R.id.btn_back);
+        btn_cancle = (Button)findViewById(R.id.btn_cancle);
+        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
 
         // DB서버에서 사용자의 예약정보를 받아옵니다
         // 각각 맞는 텍스트 ID값에 setText() 함수를 사용하여 출력할수 있습니다
@@ -43,24 +41,18 @@ public class Luna_Reservation_Check extends AppCompatActivity {
 
 
         // 뒤로가기 버튼 이벤트
-       btn_back.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
+        // 예약취소 버튼 이벤트이며 대화상자가 출력됩니다.
+        btn_cancle.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
-               finish();
-           }
-       });
-
-
-
-
-
-       // 예약취소 버튼 이벤트이며 대화상자가 출력됩니다.
-       btn_cancle.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-
-
                AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Check.this); //  대화상자 생성
                dlg.setTitle("예약취소"); // 대화상자 제목
                dlg.setMessage("취소하면 다시 복구할 수 없습니다"); // 대화상자 내용
@@ -76,28 +68,17 @@ public class Luna_Reservation_Check extends AppCompatActivity {
                    }
                });
                dlg.show();
-
            }
-       });
+        });
 
 
-       // 로고버튼 이벤트
-       btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        // 로고버튼 이벤트
+        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
                startActivity(Intent);
            }
-       });
-
-
-
-
-
-
-
-
+        });
     }
-
-
 }

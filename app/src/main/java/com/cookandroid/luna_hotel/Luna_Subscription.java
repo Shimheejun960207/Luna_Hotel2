@@ -11,12 +11,12 @@ import android.widget.Button;
 
 public class Luna_Subscription extends AppCompatActivity {
 
+    Button btn_login, btn_lunalogo2, btn_menu2, btn_setting2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_subscription);
-
-        Button btn_login, btn_lunalogo2, btn_menu2, btn_setting2;
 
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
@@ -33,6 +33,7 @@ public class Luna_Subscription extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,7 @@ public class Luna_Subscription extends AppCompatActivity {
             }
         });
 
+
         // 로고를 누르면 홈화면으로 이동하면 코드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,16 +53,16 @@ public class Luna_Subscription extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
+
+
         // 로그인 클릭시 실행되는 코드입니다.
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(), Luna_Login.class);
                 startActivity(Intent);
-
             }
         });
-
     }
 
 
@@ -68,7 +70,6 @@ public class Luna_Subscription extends AppCompatActivity {
     // 데이터베이스에 무리가 갈 것이 예측되므로 뒤로가기를 막아뒀습니다!
     @Override
     public void onBackPressed() {
-
         AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Subscription.this);
         dlg.setMessage("이 화면을 벗어나면 로그인 화면으로 이동됩니다.");
         dlg.setPositiveButton("이동", new DialogInterface.OnClickListener() {

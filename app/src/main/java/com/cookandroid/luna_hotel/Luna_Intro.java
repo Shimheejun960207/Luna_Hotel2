@@ -27,6 +27,4 @@ public class Luna_Intro extends Activity {
         super.onPause();
         finish();
     }
-
-
 }

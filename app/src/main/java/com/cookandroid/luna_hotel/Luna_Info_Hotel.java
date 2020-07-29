@@ -15,21 +15,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
 public class Luna_Info_Hotel extends AppCompatActivity {
+
+    Button btn_menu3, btn_setting3, btn_lunalogo3;
+    TextView hotel_info_line1, hotel_info_line2, welcome_line1, vision_line1, misson_line1, luna_hotel_line1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_info_hotel);
 
-
-        Button btn_menu3,btn_setting3,btn_lunalogo3;
-        TextView hotel_info_line1,hotel_info_line2, welcome_line1,vision_line1,misson_line1,luna_hotel_line1;
-
         btn_menu3 = (Button)findViewById(R.id.btn_menu3);
         btn_lunalogo3 = (Button) findViewById(R.id.btn_lunalogo3);
         btn_setting3 = (Button)findViewById(R.id.btn_setting3);
+
         hotel_info_line1 = (TextView)findViewById(R.id.Hotel_info_line1);
         hotel_info_line2 = (TextView)findViewById(R.id.Hotel_info_line2);
         welcome_line1 = (TextView)findViewById(R.id.Welcom_line1);
@@ -57,6 +56,7 @@ public class Luna_Info_Hotel extends AppCompatActivity {
             }
         });
 
+
         // 설정버튼 클릭 메소드
         btn_setting3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +66,7 @@ public class Luna_Info_Hotel extends AppCompatActivity {
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
+
 
         // 로고를 누르면 홈화면으로 이동하는 코드
         btn_lunalogo3.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+// 회원가입 할 때 아이디 중복확인 버튼에 필요한 클래스입니다.
 public class ValidateRequest extends StringRequest {
 
     // 서버에 위치한 UserValidate.php 스트링 형식으로 저장
