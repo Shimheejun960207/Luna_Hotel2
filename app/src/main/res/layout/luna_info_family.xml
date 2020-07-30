@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#f7f7f7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#540dcb">
+
+        <!-- 상단바 버튼 값의 설정 -->
+        <Button
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/menu"
+            android:id="@+id/btn_menu"> //메뉴버튼 아이디지정
+        </Button>
+
+        <Button
+            android:layout_width="120dip"
+            android:layout_height="70dip"
+            android:layout_marginLeft="80dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/lunalogo2"
+            android:id="@+id/btn_lunalogo2"> //로고버튼 아이디지정
+        </Button>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dip"
+                android:textColor="#540dcb"
+                android:textSize="25sp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="- Family Room -"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="모던한 아름다움과 호텔 루나 수준의"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="고급 어메네티로 한 단계 업그레이드 된"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:text="휴식을 경험하십시오."/>
+
+            <FrameLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f7f7f7">
+
+                <TextView
+                    android:id="@+id/text_info"
+                    android:textAlignment="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="150dp"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:background="#f7f7f7"
+                    android:fontFamily="@font/thechocobbangr"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:text= "Info"
+                    android:gravity="center_horizontal" />
+
+                // 네모칸 텍스트 넣는곳입니다
+                <FrameLayout
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/room_bg"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위치 : 13 ~ 17층 "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="크기 : 45.2 m²"
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="수영장, 조식, 석식, 헬스장 서비스 이용가능 "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="#000000"/>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/familyroom"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/familyroom2"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/familyroom3"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/pool"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="호텔 루나의 루프탑 수영장 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/health"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="호텔 루나의 헬스장 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/blackfrist"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="신선한 재료로 만드는 조식 제공 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/dinner"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고의 하루를 위한 디너 제공 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            //빈공간
+            <LinearLayout
+                android:layout_marginTop="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
