@@ -110,7 +110,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="55dp"
                     android:layout_width="300dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/room_bg"
                     >
                     <LinearLayout
@@ -135,7 +135,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="크기 : 30.2 평"
+                            android:text="크기 : 30 평"
                             android:fontFamily="@font/thechocobbangr"
                             android:textStyle="bold"
                             android:textSize="17sp"
@@ -146,7 +146,18 @@
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="조식, 석식 서비스 이용가능 "
+                            android:text="침대 : 더블 1"
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="조식, 석식, 루프탑 서비스 이용가능 "
                             android:fontFamily="@font/thechocobbangr"
                             android:textStyle="bold"
                             android:textSize="17sp"
@@ -185,6 +196,44 @@
                 android:layout_gravity="center"
                 android:layout_width="330dip"
                 android:layout_height="230dip"
+                android:src="@drawable/health"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="호텔 루나의 헬스장 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/nightview"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 최고의 야경을 볼 수 있는 루프탑 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
                 android:src="@drawable/blackfrist"/>
 
             <TextView
@@ -217,6 +266,7 @@
                 android:textStyle="bold"
                 android:textSize="17sp"
                 android:textColor="#000000"/>
+
 
             //빈공간
             <LinearLayout

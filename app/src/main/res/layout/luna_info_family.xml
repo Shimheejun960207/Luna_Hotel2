@@ -110,7 +110,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="55dp"
                     android:layout_width="300dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/room_bg"
                     >
                     <LinearLayout
@@ -130,12 +130,13 @@
                             android:textSize="17sp"
                             android:textColor="#000000"/>
 
+
                         <TextView
                             android:layout_gravity="center"
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="크기 : 45.2 평"
+                            android:text="크기 : 45 평"
                             android:fontFamily="@font/thechocobbangr"
                             android:textStyle="bold"
                             android:textSize="17sp"
@@ -146,7 +147,18 @@
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="수영장, 조식, 석식, 헬스장 서비스 이용가능 "
+                            android:text="침대 : 퀸1 더블2 "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="호텔 루나의 모든 서비스 이용가능 "
                             android:fontFamily="@font/thechocobbangr"
                             android:textStyle="bold"
                             android:textSize="17sp"
@@ -212,6 +224,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="호텔 루나의 헬스장 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/nightview"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고의 야경을 볼 수 있는 루프탑 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/winebar"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="우아한 분위기의 와인바 이용가능 "
+                android:fontFamily="@font/thechocobbangr"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="330dip"
+                android:layout_height="230dip"
+                android:src="@drawable/spa"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="편안하고 아늑한 스파시설 이용가능 "
                 android:fontFamily="@font/thechocobbangr"
                 android:textStyle="bold"
                 android:textSize="17sp"
