@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 public class Luna_NewAccount2 extends AppCompatActivity {
 
-    Button btn_join, btn_check, btn_lunalogo2, btn_menu, btn_setting2;
+    Button btn_join, btn_check, btn_lunalogo2, btn_menu;
     EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_gender, edit_hp1, edit_hp2, edit_hp3, edit_email1, edit_email2, edit_email3;
     CheckBox checkbox_id;
 
@@ -45,7 +45,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_menu = (Button) findViewById(R.id.btn_menu);
-        btn_setting2 = (Button) findViewById(R.id.btn_setting2);
+
 
         edit_id = (EditText) findViewById(R.id.edit_id);
         edit_name = (EditText) findViewById(R.id.edit_name);
@@ -471,17 +471,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 startActivity(Intent);
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-            }
-        });
-
-
-        // 설정버튼 클릭 메소드
-        btn_setting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
