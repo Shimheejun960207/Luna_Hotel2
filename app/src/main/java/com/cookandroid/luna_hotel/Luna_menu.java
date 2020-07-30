@@ -3,6 +3,7 @@ package com.cookandroid.luna_hotel;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import org.w3c.dom.Text;
 public class Luna_menu extends AppCompatActivity {
 
     TextView menu_id, menu_email;
-    Button btn_back, btn_reser_p, btn_check, btn_setting_p, btn_hotel_p, btn_room_p, btn_map_p, btn_login_logout;
+    Button btn_back, btn_reser_p, btn_check_p, btn_setting_p, btn_hotel_p, btn_room_p, btn_map_p, btn_login_logout,btn_call_p,btn_myinfo_p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,10 @@ public class Luna_menu extends AppCompatActivity {
         menu_id = (TextView) findViewById(R.id.menu_id);
         menu_email = (TextView) findViewById(R.id.menu_email) ;
 
+        btn_call_p = (Button)findViewById(R.id.btn_call_p);
+        btn_myinfo_p = (Button) findViewById(R.id.btn_myinfo_p);
         btn_back = (Button)findViewById(R.id.btn_back);
-        btn_check = (Button)findViewById(R.id.btn_check);
+        btn_check_p = (Button)findViewById(R.id.btn_check_p);
         btn_hotel_p = (Button)findViewById(R.id.btn_hotel_p);
         btn_login_logout = (Button)findViewById(R.id.btn_login_logout);
         btn_map_p = (Button)findViewById(R.id.btn_map_p);
@@ -117,7 +120,7 @@ public class Luna_menu extends AppCompatActivity {
         // 예약확인 버튼 이벤트
         // 로그인 여부를 항상 물어봐야함
         // 로그인이 안되어있다면 로그인을 하라는 대화상자가 출력되야함
-        btn_check.setOnClickListener(new View.OnClickListener() {
+        btn_check_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 로그인 여부를 확인허는 if ~ else 문
@@ -180,7 +183,26 @@ public class Luna_menu extends AppCompatActivity {
                 startActivity(Intent);
             }
         });
+
+        // 전화하기 버튼 이벤트
+        btn_call_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent CallIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-3826-6515"));
+                startActivity(CallIntent);
+            }
+        });
+
+        // 나의정보 버튼 이벤트
+        btn_myinfo_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
+
+
 
 
     // 취소버튼 누를때 생기는 애니메이션

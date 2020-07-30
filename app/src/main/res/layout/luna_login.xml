@@ -25,8 +25,8 @@
 
         <Button
             android:id="@+id/btn_lunalogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dip"
+            android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/lunalogo">//로고버튼 아이디지정</Button>

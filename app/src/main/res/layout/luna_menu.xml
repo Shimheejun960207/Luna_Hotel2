@@ -77,32 +77,40 @@
 
 // 버튼 3개
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
         <Button
-        android:layout_marginTop="40dip"
-        android:layout_marginLeft="40dip"
-        android:layout_width="80dip"
-        android:layout_height="80dip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:background="@drawable/myinfo_p"
+            android:id="@+id/btn_myinfo_p"/>
+
+        <Button
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
         android:background="@drawable/reser_p"
         android:id="@+id/btn_reser_p"/>
 
         <Button
-            android:layout_marginTop="40dip"
-            android:layout_marginLeft="50dip"
-            android:layout_width="80dip"
-            android:layout_height="80dip"
-            android:background="@drawable/check"
-            android:id="@+id/btn_check"/>
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:background="@drawable/check_p"
+            android:id="@+id/btn_check_p"/>
 
 
         <Button
-            android:layout_marginTop="40dip"
-            android:layout_marginLeft="50dip"
-            android:layout_width="80dip"
-            android:layout_height="80dip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
             android:background="@drawable/setting_p"
             android:id="@+id/btn_setting_p"/>
 
@@ -110,13 +118,24 @@
 
     // 텍스트 라인
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나의정보"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="예약하기"
@@ -127,7 +146,7 @@
 
         <TextView
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="예약확인"
@@ -138,7 +157,7 @@
 
         <TextView
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="환경설정"
@@ -150,56 +169,64 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:layout_marginTop="40dip"
-            android:layout_marginLeft="40dip"
-            android:layout_width="80dip"
-            android:layout_height="80dip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
             android:background="@drawable/hotel_p"
             android:id="@+id/btn_hotel_p"/>
 
         <Button
-            android:layout_marginTop="40dip"
-            android:layout_marginLeft="50dip"
-            android:layout_width="80dip"
-            android:layout_height="80dip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
             android:background="@drawable/room_p"
             android:id="@+id/btn_room_p"/>
 
 
         <Button
-            android:layout_marginTop="40dip"
-            android:layout_marginLeft="50dip"
-            android:layout_width="80dip"
-            android:layout_height="80dip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
             android:background="@drawable/map_p"
             android:id="@+id/btn_map_p"/>
+
+        <Button
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:background="@drawable/call_p"
+            android:id="@+id/btn_call_p"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="45dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="호텔소개"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/thechocobbangr"
+            android:text="호텔소개"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="객실안내"
@@ -210,10 +237,21 @@
 
         <TextView
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오시는길"
+            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="42dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화하기"
             android:fontFamily="@font/thechocobbangr"
             android:textColor="#000000"
             android:textSize="20sp"
