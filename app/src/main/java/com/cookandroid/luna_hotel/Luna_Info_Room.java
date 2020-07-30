@@ -19,19 +19,43 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Luna_Info_Room extends AppCompatActivity {
 
     Button btn_menu, btn_lunalogo2, btn_res;
-    TextView Room_info_text;
+    TextView text_luxury_room,text_single_room;
+    TextView text_info_luxury,text_info_single;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_info_room);
 
-        Room_info_text = (TextView)findViewById(R.id.Room_info_text);
+        text_single_room= (TextView) findViewById(R.id.text_single_room);
+        text_luxury_room = (TextView) findViewById(R.id.text_luxury_room);
+        text_info_luxury = (TextView) findViewById(R.id.text_info_luxury);
+        text_info_single = (TextView) findViewById(R.id.text_info_single);
+
 
         btn_menu = (Button)findViewById(R.id.btn_menu);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_res = (Button)findViewById(R.id.btn_res);
 
+
+        // 네모칸에 텍스트뷰가 가장먼저 앞으로 표시되게 하는 메소드입니다.
+        text_luxury_room.bringToFront();
+        text_single_room.bringToFront();
+
+        text_info_luxury.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // 싱글룸 자세히 보기 이벤트
+        text_info_single.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         // 예약하기 버튼 클릭 메소드
         btn_res.setOnClickListener(new View.OnClickListener() {
