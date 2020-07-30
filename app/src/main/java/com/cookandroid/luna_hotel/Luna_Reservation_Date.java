@@ -41,7 +41,7 @@ public class Luna_Reservation_Date extends AppCompatActivity {
     private TextView text_total;
 
     TextView text_roomname, text_checkin, text_checkout, text_date_result, T_date, T_year, T_month, sale;
-    Button btn_checkin, btn_checkout, btn_menu2, btn_lunalogo2, btn_next;
+    Button btn_checkin, btn_checkout, btn_back, btn_lunalogo2, btn_next;
     RadioButton Rbtn_SamsungPay, Rbtn_Cardpay;
     RadioGroup Rbtn_grouppay;
 
@@ -78,7 +78,7 @@ public class Luna_Reservation_Date extends AppCompatActivity {
 
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.btn_menu2);
+        btn_back = (Button) findViewById(R.id.btn_back);
 
         text_roomname = (TextView) findViewById(R.id.text_roomname);
         text_date_result = (TextView)findViewById(R.id.text_date_result);
@@ -92,7 +92,17 @@ public class Luna_Reservation_Date extends AppCompatActivity {
             room_name = "Single Room";
             text_roomname.setText("선택 객실 : " + room_name);
             room_price = 150000;
-        } else {
+        } else if (roomNum == 2) {
+            room_name = "Double Room";
+            text_roomname.setText("선택 객실 : " + room_name);
+            room_price = 200000;
+        }
+        else if (roomNum == 3) {
+            room_name = "Family Room";
+            text_roomname.setText("선택 객실 : " + room_name);
+            room_price = 250000;
+        }
+        else {
             room_name = "Luxury Room";
             text_roomname.setText("선택 객실 : " + room_name);
             room_price = 300000;
@@ -375,16 +385,15 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                 });
 
 
-        //메뉴버튼 클릭 메소드
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        // 좌측 상단 뒤로가기버튼 클릭시 창이 꺼짐 + 애니메이션 이벤트
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
-                //액티비티 전환 애니메이션 설정하는 부분
-                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+                finish();
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
+
 
 
         // 로고를 누르면 홈화면으로 이동하면 코드

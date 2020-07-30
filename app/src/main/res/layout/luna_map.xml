@@ -55,8 +55,8 @@
             android:layout_marginTop="25dip"
             android:fontFamily="@font/thechocobbangr"
             android:text="주소 : 경기도 가평군 가평읍 대곡리 산105"
-            android:textColor="#540dcb"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="25sp"
             android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"
@@ -65,8 +65,8 @@
             android:layout_marginTop="0dip"
             android:fontFamily="@font/thechocobbangr"
             android:text="호텔 번호 : 010-3826-6515"
-            android:textColor="#540dcb"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
 

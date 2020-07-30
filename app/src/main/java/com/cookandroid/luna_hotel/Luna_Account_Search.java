@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Account_Search extends AppCompatActivity {
 
-    Button  btn_bottom_login, btn_search, btn_menu, btn_lunalogo2;
+    Button  btn_bottom_login, btn_search, btn_back, btn_lunalogo2;
     TextView text_result_id, text_result_password;
     EditText edit_S_name, edit_S_personNumber, edit_S_Email;
 
@@ -21,7 +21,7 @@ public class Luna_Account_Search extends AppCompatActivity {
         setContentView(R.layout.luna_account_search);
 
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
         btn_bottom_login = (Button) findViewById(R.id.btn_bottom_login);
         btn_search = (Button) findViewById(R.id.btn_search);
 
@@ -42,15 +42,14 @@ public class Luna_Account_Search extends AppCompatActivity {
             }
         });
 
-        // 메뉴버튼 이벤트입니다
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        // 좌측 상단 뒤로가기버튼 클릭시 창이 꺼짐 + 애니메이션 이벤트
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
+                finish();
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
-
 
         // 하단버튼 로그인 버튼 이벤트
         btn_bottom_login.setOnClickListener(new View.OnClickListener() {

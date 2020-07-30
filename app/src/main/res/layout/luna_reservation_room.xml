@@ -20,8 +20,8 @@
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/menu"
-            android:id="@+id/btn_menu"> //메뉴버튼 아이디지정
+            android:background="@drawable/btn_back"
+            android:id="@+id/btn_back"> //메뉴버튼 아이디지정
         </Button>
 
         <Button
@@ -74,141 +74,387 @@
             android:fontFamily="@font/thechocobbangr"
             android:textColor="#000000"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <ImageView
-                android:layout_width="390dip"
-                android:layout_height="200dip"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="10dip"
-                android:id="@+id/singleroomselect"
-                android:background="@drawable/singleroomselect"/>
-            <TextView
-                android:layout_marginTop="15dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/singleroomselect"
-                android:text="Single Room"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="@font/thechocobbangr"/>
-            <TextView
-                android:layout_marginTop="50dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/singleroomselect"
-                android:text="인원 : 1 ~ 2명"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:fontFamily="@font/thechocobbangr"/>
-            <TextView
-                android:layout_marginTop="90dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/singleroomselect"
-                android:text="가격 150.000"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="@font/thechocobbangr"/>
-
-            <TextView
-                android:layout_marginTop="130dip"
-                android:layout_width="90dip"
-                android:layout_height="30dip"
-                android:layout_marginLeft="290dp"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:text="( 1박 기준 )"
-                android:textColor="#000000"
-                android:fontFamily="@font/thechocobbangr"/>
-
-            <RadioButton
-                android:layout_marginTop="170dip"
-                android:layout_width="84dip"
-                android:layout_height="30dip"
-                android:id="@+id/Rbtn_single"
-                android:layout_alignRight="@id/singleroomselect"/>
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="15dip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <ImageView
-                android:layout_width="390dip"
-                android:layout_height="200dip"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="10dip"
-                android:id="@+id/luxuryroomselect"
-                android:background="@drawable/luxuryroomselect"/>
-            <TextView
-                android:layout_marginTop="15dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/luxuryroomselect"
-                android:text="Luxury Room"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:fontFamily="@font/thechocobbangr"/>
-            <TextView
-                android:layout_marginTop="50dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/luxuryroomselect"
-                android:text="인원 : 4 ~ 5명"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="@font/thechocobbangr"/>
-            <TextView
-                android:layout_marginTop="90dip"
-                android:layout_width="120dip"
-                android:layout_height="30dip"
-                android:layout_alignRight="@id/luxuryroomselect"
-                android:text="가격 300.000"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="@font/thechocobbangr"/>
-
-            <TextView
-                android:layout_marginTop="130dip"
-                android:layout_width="90dip"
-                android:layout_height="30dip"
-                android:text="( 1박 기준 )"
-                android:layout_marginLeft="290dp"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:fontFamily="@font/thechocobbangr"/>
-
-            <RadioButton
-                android:layout_marginTop="170dip"
-                android:layout_width="84dip"
-                android:layout_height="30dip"
-                android:id="@+id/Rbtn_luxury"
-                android:layout_alignRight="@id/luxuryroomselect"/>
-        </RelativeLayout>
-
-    </LinearLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom">
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+    // 싱글룸
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="390dip"
+        android:layout_height="200dip"
+        android:background="@drawable/room_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="247dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/singleroom"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dip"
+                    android:layout_width="120dip"
+                    android:layout_height="30dip"
+                    android:text="Single Room"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/thechocobbangr"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="120dip"
+                    android:layout_height="30dip"
+                    android:text="인원 : 1 ~ 2명"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/thechocobbangr"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="120dip"
+                    android:layout_height="30dip"
+                    android:text="가격 150.000"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/thechocobbangr"/>
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="90dip"
+                    android:layout_height="30dip"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="( 1박 기준 )"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/thechocobbangr"/>
+
+                <RadioButton
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_width="84dip"
+                    android:layout_height="30dip"
+                    android:id="@+id/Rbtn_single"
+                    />
+
+                <TextView
+                    android:id="@+id/text_info_single"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="   객실 자세히 보기  "
+                    android:fontFamily="@font/thechocobbangr"
+                    android:textColor="#540dcb"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+            //여기까지
+
+            // 더블룸
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="390dip"
+                android:layout_height="200dip"
+                android:background="@drawable/room_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="247dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/doubleroom" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dip"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="Double Room"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="인원 : 2 ~ 3명"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="가격 200.000"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="90dip"
+                            android:layout_height="30dip"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:text="( 1박 기준 )"
+                            android:textColor="#000000"
+
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <RadioButton
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="84dip"
+                            android:layout_height="30dip"
+                            android:id="@+id/Rbtn_double"
+                            />
+
+
+
+                        <TextView
+                            android:id="@+id/text_info_double"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="   객실 자세히 보기  "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textColor="#540dcb"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            // 여기까지
+
+            // 패밀리룸
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="390dip"
+                android:layout_height="200dip"
+                android:background="@drawable/room_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="247dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/familyroom"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dip"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="Family Room"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="인원 : 3 ~ 5명"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="가격 250.000"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="90dip"
+                            android:layout_height="30dip"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:text="( 1박 기준 )"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/thechocobbangr"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sold Out"
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textColor="#ff4242"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/text_info_family"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="   객실 자세히 보기  "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textColor="#540dcb"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            // 여기까지
+
+            // 럭셔리
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="390dip"
+                android:layout_height="200dip"
+                android:background="@drawable/room_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="247dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/luxuryroom"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dip"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="Luxury Room"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="인원 : 5 ~ 7명"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/thechocobbangr"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="120dip"
+                            android:layout_height="30dip"
+                            android:text="가격 300.000"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/thechocobbangr"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="90dip"
+                            android:layout_height="30dip"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:text="( 1박 기준 )"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/thechocobbangr"/>
+
+                        <RadioButton
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="84dip"
+                            android:layout_height="30dip"
+                            android:id="@+id/Rbtn_luxury"
+                            />
+
+                        <TextView
+                            android:id="@+id/text_info_luxury"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:text="   객실 자세히 보기  "
+                            android:fontFamily="@font/thechocobbangr"
+                            android:textColor="#540dcb"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            // 여기까지
+
+            //공백용
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 
         <Button
             android:layout_width="match_parent"
@@ -221,6 +467,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:id="@+id/btn_next" />
-    </LinearLayout>
+
+
 </LinearLayout>
 

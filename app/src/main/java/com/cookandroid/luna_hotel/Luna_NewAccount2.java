@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 public class Luna_NewAccount2 extends AppCompatActivity {
 
-    Button btn_join, btn_check, btn_lunalogo2, btn_menu;
+    Button btn_join, btn_check, btn_lunalogo2, btn_back;
     EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_gender, edit_hp1, edit_hp2, edit_hp3, edit_email1, edit_email2, edit_email3;
     CheckBox checkbox_id;
 
@@ -44,7 +44,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         btn_check = (Button) findViewById(R.id.btn_check);
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu = (Button) findViewById(R.id.btn_menu);
+        btn_back = (Button) findViewById(R.id.btn_back);
 
 
         edit_id = (EditText) findViewById(R.id.edit_id);
@@ -463,14 +463,12 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         });
 
 
-        //메뉴버튼 클릭 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        // 좌측 상단 뒤로가기버튼 클릭시 창이 꺼짐 + 애니메이션 이벤트
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
-                //액티비티 전환 애니메이션 설정하는 부분
-                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+                finish();
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 

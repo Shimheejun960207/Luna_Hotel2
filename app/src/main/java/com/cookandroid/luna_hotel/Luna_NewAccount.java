@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Luna_NewAccount extends AppCompatActivity {
 
-    Button btn_join, btn_lunalogo2, btn_menu;
+    Button btn_join, btn_lunalogo2, btn_back;
     RadioButton Rbtn_agree, Rbtn_nagree;
 
     @Override
@@ -24,7 +24,7 @@ public class Luna_NewAccount extends AppCompatActivity {
 
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu = (Button) findViewById(R.id.btn_menu);
+        btn_back = (Button) findViewById(R.id.btn_back);
         Rbtn_agree = (RadioButton) findViewById(R.id.Rbtn_agree);
         Rbtn_nagree = (RadioButton) findViewById(R.id.Rbtn_nagree);
 
@@ -85,14 +85,12 @@ public class Luna_NewAccount extends AppCompatActivity {
         });
 
 
-        //메뉴버튼 클릭 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        // 좌측 상단 뒤로가기버튼 클릭시 창이 꺼짐 + 애니메이션 이벤트
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
-                //액티비티 전환 애니메이션 설정하는 부분
-                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+                finish();
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 

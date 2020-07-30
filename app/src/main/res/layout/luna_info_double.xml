@@ -135,7 +135,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="크기 : 30.2 m²"
+                            android:text="크기 : 30.2 평"
                             android:fontFamily="@font/thechocobbangr"
                             android:textStyle="bold"
                             android:textSize="17sp"

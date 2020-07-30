@@ -25,7 +25,7 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
     private  String date_checkin; // 체크인 날짜
     private  String date_checkout; // 체크아웃 날짜
 
-    Button btn_menu2, btn_lunalogo2, btn_setting2, btn_main;
+    Button  btn_lunalogo2, btn_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
 
         btn_main = (Button) findViewById(R.id.btn_main) ;
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.btn_menu);
         text_name_info = (TextView) findViewById(R.id.text_Name_info);
         text_Room_info = (TextView) findViewById(R.id.text_Room_info);
         text_subak_info = (TextView) findViewById(R.id.text_Subak_info);
@@ -53,9 +52,16 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
 
         text_total.setText(formattedStringPrice); //결제금액 화면에 표시
 
-        // 방 번호를 이용하여 싱글룸과 럭셔리룸 스트링값 적용하기
+        // 방 번호를 이용하여 방이름 스트링값 적용하기
         if (roomNum == 1) {
             room_name = "Single Room";
+            text_Room_info.setText(room_name);
+        } else if (roomNum == 2) {
+            room_name = "Double Room";
+            text_Room_info.setText(room_name);
+        }
+        else if (roomNum == 3) {
+            room_name = "Family Room";
             text_Room_info.setText(room_name);
         } else {
             room_name = "Luxury Room";
@@ -64,17 +70,6 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
         // 예약된 날짜와 몇박몇일 출력
         text_subak_info.setText(date_checkin + " ~ " + date_checkout + "  " + tnrqkr + "박" + (tnrqkr + 1) + "일");
 
-
-        //메뉴버튼 클릭 메소드
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
-                //액티비티 전환 애니메이션 설정하는 부분
-                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-            }
-        });
 
 
         // 로고를 누르면 홈화면으로 이동하면 코드
@@ -105,8 +100,7 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
         // super.onBackPressed();
 
         AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Complete.this);
-        dlg.setTitle("뒤로 갈 수 없음!!");
-        dlg.setMessage("이미 예약이 완료되어 뒤로 갈 수 없습니다. 메인화면으로 이동합니다.");
+        dlg.setMessage("예약이 완료되어 뒤로 갈 수 없습니다. 메인화면으로 이동합니다.");
         dlg.setPositiveButton("이동", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
