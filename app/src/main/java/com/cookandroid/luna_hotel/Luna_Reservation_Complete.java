@@ -33,9 +33,8 @@ public class Luna_Reservation_Complete extends AppCompatActivity {
         setContentView(R.layout.luna_reservation_complete);
 
         btn_main = (Button) findViewById(R.id.btn_main) ;
-        btn_lunalogo2 = (Button) findViewById(R.id.Btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.Btn_menu2);
-
+        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
+        btn_menu2 = (Button) findViewById(R.id.btn_menu);
         text_name_info = (TextView) findViewById(R.id.text_Name_info);
         text_Room_info = (TextView) findViewById(R.id.text_Room_info);
         text_subak_info = (TextView) findViewById(R.id.text_Subak_info);

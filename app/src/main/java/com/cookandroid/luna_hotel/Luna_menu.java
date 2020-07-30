@@ -19,8 +19,6 @@ public class Luna_menu extends AppCompatActivity {
     TextView menu_id, menu_email;
     Button btn_back, btn_reser_p, btn_check, btn_setting_p, btn_hotel_p, btn_room_p, btn_map_p, btn_login_logout;
 
-    AlertDialog dialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +64,7 @@ public class Luna_menu extends AppCompatActivity {
                     accountToast.show();
                     Login_gloval.login_id =null;
                     Login_gloval.login_password=null;
+                    // eatior 이거 뭔지 설명좀
                     editor.clear();
                     editor.commit();
 

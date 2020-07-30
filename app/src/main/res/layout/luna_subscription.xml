@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#540dcb">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -19,7 +20,7 @@
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/menu2"
+            android:background="@drawable/menu"
             android:id="@+id/btn_menu2"> //메뉴버튼 아이디지정
         </Button>
 
@@ -29,18 +30,9 @@
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/lunalogo2"
-            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+            android:id="@+id/btn_lunalogo2"> //로고버튼 아이디지정
         </Button>
 
-        <Button
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_marginLeft="90dip"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/setting2"
-            android:id="@+id/btn_setting2"
-            android:visibility="invisible"> //로고버튼 아이디지정
-        </Button>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

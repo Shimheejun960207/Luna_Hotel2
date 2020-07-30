@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Hotel extends AppCompatActivity {
 
-    Button btn_menu3, btn_setting3, btn_lunalogo3;
+    Button btn_menu, btn_lunalogo2;
     TextView hotel_info_line1, hotel_info_line2, welcome_line1, vision_line1, misson_line1, luna_hotel_line1;
 
     @Override
@@ -25,9 +25,8 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_info_hotel);
 
-        btn_menu3 = (Button)findViewById(R.id.btn_menu3);
-        btn_lunalogo3 = (Button) findViewById(R.id.btn_lunalogo3);
-        btn_setting3 = (Button)findViewById(R.id.btn_setting3);
+        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
 
         hotel_info_line1 = (TextView)findViewById(R.id.Hotel_info_line1);
         hotel_info_line2 = (TextView)findViewById(R.id.Hotel_info_line2);
@@ -46,7 +45,7 @@ public class Luna_Info_Hotel extends AppCompatActivity {
 
 
         //메뉴버튼 클릭 메소드
-        btn_menu3.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
@@ -56,20 +55,8 @@ public class Luna_Info_Hotel extends AppCompatActivity {
             }
         });
 
-
-        // 설정버튼 클릭 메소드
-        btn_setting3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-            }
-        });
-
-
         // 로고를 누르면 홈화면으로 이동하는 코드
-        btn_lunalogo3.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Main.class);

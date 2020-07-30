@@ -2,6 +2,8 @@ package com.cookandroid.luna_hotel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 
 public class Luna_NewAccount extends AppCompatActivity {
 
-    Button btn_join, btn_lunalogo2, btn_menu2, btn_setting2;
+    Button btn_join, btn_lunalogo2, btn_menu;
     RadioButton Rbtn_agree, Rbtn_nagree;
 
     @Override
@@ -22,9 +24,7 @@ public class Luna_NewAccount extends AppCompatActivity {
 
         btn_join = (Button) findViewById(R.id.btn_join);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.btn_menu2);
-        btn_setting2 = (Button) findViewById(R.id.btn_setting2);
-
+        btn_menu = (Button) findViewById(R.id.btn_menu);
         Rbtn_agree = (RadioButton) findViewById(R.id.Rbtn_agree);
         Rbtn_nagree = (RadioButton) findViewById(R.id.Rbtn_nagree);
 
@@ -33,8 +33,11 @@ public class Luna_NewAccount extends AppCompatActivity {
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast accountToast = Toast.makeText(Luna_NewAccount.this,"약관을 동의해주세요.",Toast.LENGTH_SHORT);
-                accountToast.show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount.this);
+                builder.setMessage("약관에 동의해주세요.");
+                builder.setPositiveButton("확인",null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -70,8 +73,11 @@ public class Luna_NewAccount extends AppCompatActivity {
                     btn_join.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast accountToast = Toast.makeText(Luna_NewAccount.this,"약관을 동의해주세요.",Toast.LENGTH_SHORT);
-                            accountToast.show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount.this);
+                            builder.setMessage("약관에 동의해주세요.");
+                            builder.setPositiveButton("확인",null);
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         }
                     });
                 }
@@ -80,24 +86,13 @@ public class Luna_NewAccount extends AppCompatActivity {
 
 
         //메뉴버튼 클릭 메소드
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
                 startActivity(Intent);
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-            }
-        });
-
-
-        // 설정버튼 클릭 메소드
-        btn_setting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 

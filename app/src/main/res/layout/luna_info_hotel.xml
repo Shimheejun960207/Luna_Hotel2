@@ -8,11 +8,11 @@
     android:background="#f7f7f7">
 
 
-    // 상단바 3개 아이콘 들어가는 레이아웃
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#540dcb">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -20,8 +20,8 @@
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/menu2"
-            android:id="@+id/btn_menu3"> //메뉴버튼 아이디지정
+            android:background="@drawable/menu"
+            android:id="@+id/btn_menu"> //메뉴버튼 아이디지정
         </Button>
 
         <Button
@@ -30,19 +30,8 @@
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/lunalogo2"
-            android:id= "@+id/btn_lunalogo3"> //로고버튼 아이디지정
+            android:id="@+id/btn_lunalogo2"> //로고버튼 아이디지정
         </Button>
-
-        <Button
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_marginLeft="90dip"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/setting2"
-            android:id="@+id/btn_setting3"
-            android:visibility="invisible"> //로고버튼 아이디지정
-        </Button>
-
 
     </LinearLayout>
     // 스크롤 시작하는 레이아웃

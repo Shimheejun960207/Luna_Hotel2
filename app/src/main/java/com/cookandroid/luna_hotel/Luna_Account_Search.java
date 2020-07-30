@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Account_Search extends AppCompatActivity {
 
-    Button  btn_bottom_login, btn_search, btn_menu2, btn_lunalogo2, btn_setting2;
+    Button  btn_bottom_login, btn_search, btn_menu, btn_lunalogo2;
     TextView text_result_id, text_result_password;
     EditText edit_S_name, edit_S_personNumber, edit_S_Email;
 
@@ -21,8 +21,7 @@ public class Luna_Account_Search extends AppCompatActivity {
         setContentView(R.layout.luna_account_search);
 
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
-        btn_setting2 = (Button)findViewById(R.id.btn_setting2);
-        btn_menu2 = (Button)findViewById(R.id.btn_menu2);
+        btn_menu = (Button)findViewById(R.id.btn_menu);
         btn_bottom_login = (Button) findViewById(R.id.btn_bottom_login);
         btn_search = (Button) findViewById(R.id.btn_search);
 
@@ -43,19 +42,8 @@ public class Luna_Account_Search extends AppCompatActivity {
             }
         });
 
-
-        // 설정버튼 이벤트입니다
-        btn_setting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Intent);
-            }
-        });
-
-
         // 메뉴버튼 이벤트입니다
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);

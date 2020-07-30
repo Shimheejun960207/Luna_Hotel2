@@ -22,7 +22,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
     GoogleMap gMap;
     MapFragment mapFrag;
     TextView map_text;
-    Button btn_setting2, btn_lunalogo2, btn_menu2;
+    Button btn_lunalogo2, btn_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
         setContentView(R.layout.luna_map);
 
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
-        btn_setting2 = (Button)findViewById(R.id.btn_setting2);
-        btn_menu2 = (Button)findViewById(R.id.btn_menu2);
+        btn_menu = (Button)findViewById(R.id.btn_menu);
 
         map_text = (TextView)findViewById(R.id.map_text);
 
@@ -46,7 +45,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
 
 
         //메뉴버튼 메소드
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
@@ -55,18 +54,6 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
-
-
-        // 설정버튼 클릭 메소드
-        btn_setting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-            }
-        });
-
 
         // 로고버튼 클릭 메소드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {

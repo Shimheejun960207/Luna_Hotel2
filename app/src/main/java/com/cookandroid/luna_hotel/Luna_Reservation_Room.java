@@ -2,6 +2,7 @@ package com.cookandroid.luna_hotel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 public class Luna_Reservation_Room extends AppCompatActivity {
 
-    Button btn_next, btn_lunalogo2, btn_menu2;
+    Button btn_next, btn_lunalogo2, btn_menu;
     RadioButton Rbtn_single, Rbtn_luxury;
 
     @Override
@@ -22,7 +23,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
 
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.btn_menu2);
+        btn_menu = (Button) findViewById(R.id.btn_menu);
 
         Rbtn_single = (RadioButton) findViewById(R.id.Rbtn_single);
         Rbtn_luxury = (RadioButton) findViewById(R.id.Rbtn_luxury);
@@ -36,8 +37,10 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast accountToast = Toast.makeText(Luna_Reservation_Room.this,"객실을 선택해 주세요.",Toast.LENGTH_SHORT);
-                accountToast.show();
+                AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Room.this);
+                dlg.setMessage("객실을 선택해 주세요.");
+                dlg.setPositiveButton("확인",null);
+                dlg.show();
             }
         });
 
@@ -87,7 +90,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
 
 
         //메뉴버튼 클릭 메소드
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);

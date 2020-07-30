@@ -8,7 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#540dcb">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -28,6 +29,7 @@
             android:background="@drawable/lunalogo2"
             android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
         </Button>
+
 
 
     </LinearLayout>
@@ -50,7 +52,7 @@
             android:id="@+id/menu_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="로그인이 필요합니다."
             android:textSize="20sp"/>
@@ -68,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_centerInParent="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:background="#D3D3D3" />
 
     </LinearLayout>
@@ -224,12 +226,12 @@
     android:orientation="vertical">
 
     <Button
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:layout_gravity="center"
-        android:layout_width="150dip"
-        android:layout_height="wrap_content"
+        android:layout_width="200dip"
+        android:layout_height="60dp"
         android:text="로그인"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:fontFamily="@font/thechocobbangr"
         android:textColor="#540dcb"
         android:textStyle="bold"

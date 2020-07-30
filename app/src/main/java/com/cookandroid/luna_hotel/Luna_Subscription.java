@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class Luna_Subscription extends AppCompatActivity {
 
-    Button btn_login, btn_lunalogo2, btn_menu2, btn_setting2;
+    Button btn_login, btn_lunalogo2, btn_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +20,9 @@ public class Luna_Subscription extends AppCompatActivity {
 
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu2 = (Button) findViewById(R.id.btn_menu2);
-        btn_setting2 = (Button) findViewById(R.id.btn_setting2);
+        btn_menu = (Button) findViewById(R.id.btn_menu);
 
-        btn_menu2.setOnClickListener(new View.OnClickListener() {
+        btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
@@ -32,18 +31,6 @@ public class Luna_Subscription extends AppCompatActivity {
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
-
-
-        // 설정버튼 클릭 메소드
-        btn_setting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-            }
-        });
-
 
         // 로고를 누르면 홈화면으로 이동하면 코드
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {

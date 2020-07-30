@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
 
-    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo, btn_setting;
+    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
     EditText user_id, user_pw;
 
     private String jsonString;
@@ -48,7 +48,6 @@ public class Luna_Login extends AppCompatActivity {
         btn_account_find = (Button) findViewById(R.id.Btn_account_find);
         btn_Sign_up = (Button) findViewById(R.id.Btn_Sign_Up);
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
-        btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_menu = (Button)findViewById(R.id.btn_menu);
 
         user_id = (EditText) findViewById(R.id.Id_info);
@@ -107,18 +106,6 @@ public class Luna_Login extends AppCompatActivity {
                 startActivity(Intent);
             }
         });
-
-
-        // 설정 클릭 이벤트
-        btn_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Setting_Intent = new Intent(getApplicationContext(),Luna_Setting.class);
-                startActivity(Setting_Intent);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-            }
-        });
-
 
        //로그인 하기 위한 버튼
         btn_Login.setOnClickListener(new View.OnClickListener() {

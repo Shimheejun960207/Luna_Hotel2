@@ -1,6 +1,8 @@
 package com.cookandroid.luna_hotel;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -121,8 +123,24 @@ public class Luna_Setting extends AppCompatActivity {
         btn_member_remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Member_Remove.class);
-                startActivity(Intent);
+                if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Setting.this);
+                    builder.setMessage("로그인이 필요합니다.");
+
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                } else {
+                    Intent Intent = new Intent(getApplicationContext(),Luna_Member_Remove.class);
+                    startActivity(Intent);
+                }
             }
         });
     }

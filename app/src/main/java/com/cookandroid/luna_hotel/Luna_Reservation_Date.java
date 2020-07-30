@@ -108,7 +108,6 @@ public class Luna_Reservation_Date extends AppCompatActivity {
 
                 if(tnrqkr == 0) {
                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
-                    dlg.setTitle("결제 선택 오류");
                     dlg.setMessage("먼저 날짜를 선택해주세요.");
                     dlg.setPositiveButton("확인",null);
                     dlg.show();
@@ -206,9 +205,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                             if(diffDay > 0) {
                                 if(diffDay2 > 10) {
                                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
-                                    dlg.setTitle("날짜 선택 오류");
-                                    dlg.setMessage("호텔 루나는 10일이상 서비스를 하지않습니다.");
-                                    dlg.setPositiveButton("다시선택",null);
+                                    dlg.setMessage("10일 이상은 불가능합니다.");
+                                    dlg.setPositiveButton("확인",null);
                                     dlg.show();
                                     text_checkin.setText("");
                                     text_checkout.setText("");
@@ -219,9 +217,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                                 text_total.setText("");
                             } else {
                                 AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
-                                dlg.setTitle("날짜 선택 오류!!");
                                 dlg.setMessage("체크아웃 날짜가 체크인 날짜 보다 앞에 있습니다.");
-                                dlg.setPositiveButton("다시선택",null);
+                                dlg.setPositiveButton("확인",null);
                                 dlg.show();
 
                                 text_checkin.setText("");
@@ -303,9 +300,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                             if(diffDay > 0) {
                                 if(diffDay2 > 10) {
                                     AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
-                                    dlg.setTitle("날짜 선택 오류");
-                                    dlg.setMessage("호텔 루나는 10일이상 서비스를 하지않습니다.");
-                                    dlg.setPositiveButton("다시선택",null);
+                                    dlg.setMessage("10일 이상은 불가능합니다.");
+                                    dlg.setPositiveButton("확인",null);
                                     dlg.show();
 
                                     text_checkin.setText("");
@@ -317,9 +313,8 @@ public class Luna_Reservation_Date extends AppCompatActivity {
                                 tnrqkr = (int)diffDay;
                             } else {
                                 AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
-                                dlg.setTitle("날짜 선택 오류!!");
                                 dlg.setMessage("체크아웃 날짜가 체크인 날짜 보다 앞에 있습니다.");
-                                dlg.setPositiveButton("다시선택",null);
+                                dlg.setPositiveButton("확인",null);
                                 dlg.show();
 
                                 text_checkin.setText("");
@@ -347,14 +342,18 @@ public class Luna_Reservation_Date extends AppCompatActivity {
 
                         // 날짜선택 안하면 진행 못하게 막음
                         if(text_checkin.length() < 6 || text_checkout.length() < 6) {
-                            Toast CashToast = Toast.makeText(Luna_Reservation_Date.this,"날짜를 선택해 주세요",Toast.LENGTH_SHORT);
-                            CashToast.show();
+                            AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
+                            dlg.setMessage("날짜를 선택해 주세요.");
+                            dlg.setPositiveButton("확인",null);
+                            dlg.show();
                         }
                         // 결제 선택 안하면 진행 못하게 막음
                         // total_price 가 0으로 되어 있으면 진행이 불가능
                         else if (total_price < 1) {
-                            Toast CashToast = Toast.makeText(Luna_Reservation_Date.this,"결제를 선택해 주세요",Toast.LENGTH_SHORT);
-                            CashToast.show();
+                            AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Reservation_Date.this);
+                            dlg.setMessage("결제방식을 선택해 주세요.");
+                            dlg.setPositiveButton("확인",null);
+                            dlg.show();
                         } else {
                             // 다음화면으로 넘어가짐 여기에 DB코드 넣어야할걸?
 
