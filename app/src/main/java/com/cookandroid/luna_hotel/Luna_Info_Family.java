@@ -20,20 +20,19 @@ public class Luna_Info_Family extends AppCompatActivity {
         setContentView(R.layout.luna_info_family);
 
         TextView text_info;
-        Button btn_menu,btn_lunalogo2;
+        Button btn_back,btn_lunalogo2;
 
         text_info = (TextView) findViewById(R.id.text_info);
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
 
         text_info.bringToFront();
 
         //메뉴버튼 클릭 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
+              finish();
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
@@ -49,5 +48,11 @@ public class Luna_Info_Family extends AppCompatActivity {
             }
         });
 
+    }
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }

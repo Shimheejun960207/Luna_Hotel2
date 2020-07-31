@@ -52,26 +52,18 @@
             android:textSize="25dp"
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
-            android:text="- 회원 찾기 -"/>
+            android:text="- 아이디 찾기 -"/>
 
         <EditText
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="이름"
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
-            android:id="@+id/edit_S_name"/>
+            android:id="@+id/edit_id_name"/>
 
-        <EditText
-            android:layout_marginLeft="50dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="주민번호 앞 6자리"
-            android:fontFamily="@font/thechocobbangr"
-            android:textStyle="bold"
-            android:id="@+id/edit_S_personNumber" />
 
         <EditText
             android:layout_marginLeft="50dp"
@@ -80,45 +72,72 @@
             android:hint="E-Mail"
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
-            android:id="@+id/edit_S_Email"/>
+            android:id="@+id/edit_id_email"/>
 
         <Button
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="찾기"
-            android:id="@+id/btn_search"/>
+            android:id="@+id/btn_id_search"/>
 
         <View
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_centerInParent="true"
             android:background="#D3D3D3" />
 
         <TextView
-            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dip"
+            android:textColor="#540dcb"
+            android:textSize="25dp"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:text="- 비밀번호 찾기 -"/>
+
+        <EditText
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="ID"
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:id="@+id/text_result_id"
+            android:id="@+id/edit_password_id"
             />
 
-        <TextView
-            android:layout_marginTop="20dp"
+        <EditText
             android:layout_marginLeft="50dp"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:hint="PassWord"
+            android:hint="이름"
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:id="@+id/text_result_password"
+            android:id="@+id/edit_password_name"
             />
+
+        <EditText
+            android:layout_marginLeft="50dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="E_Mail"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:id="@+id/edit_password_email"
+            />
+
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="찾기"
+            android:id="@+id/btn_password_search"/>
 
 
     </LinearLayout>

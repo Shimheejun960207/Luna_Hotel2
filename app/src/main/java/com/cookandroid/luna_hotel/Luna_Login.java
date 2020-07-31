@@ -44,12 +44,11 @@ public class Luna_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_login);
 
-        btn_Login = (Button) findViewById(R.id.Btn_login);
-        btn_account_find = (Button) findViewById(R.id.Btn_account_find);
-        btn_Sign_up = (Button) findViewById(R.id.Btn_Sign_Up);
+        btn_Login = (Button) findViewById(R.id.btn_login);
+        btn_account_find = (Button) findViewById(R.id.btn_account_find);
+        btn_Sign_up = (Button) findViewById(R.id.btn_Sign_Up);
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
-
         user_id = (EditText) findViewById(R.id.Id_info);
         user_pw = (EditText) findViewById(R.id.Password_info);
 
@@ -164,11 +163,12 @@ public class Luna_Login extends AppCompatActivity {
         btn_account_find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Account_Search.class);
+                Intent Intent = new Intent(getApplicationContext(), Luna_Account_Search.class);
                 startActivity(Intent);
             }
 
         });
+
 
 
         //회원가입 하기 위한 버튼

@@ -11,9 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Account_Search extends AppCompatActivity {
 
-    Button  btn_bottom_login, btn_search, btn_back, btn_lunalogo2;
-    TextView text_result_id, text_result_password;
-    EditText edit_S_name, edit_S_personNumber, edit_S_Email;
+    Button  btn_bottom_login, btn_id_search, btn_back, btn_lunalogo2,btn_password_search;
+    EditText edit_id_name, edit_id_email,edit_password_email,edit_password_id,edit_password_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +22,10 @@ public class Luna_Account_Search extends AppCompatActivity {
         btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_bottom_login = (Button) findViewById(R.id.btn_bottom_login);
-        btn_search = (Button) findViewById(R.id.btn_search);
-
-        text_result_id = (TextView) findViewById(R.id.text_result_id);
-        text_result_password = (TextView) findViewById(R.id.text_result_password);
-
-        edit_S_Email = (EditText) findViewById(R.id.edit_S_Email);
-        edit_S_name = (EditText) findViewById(R.id.edit_S_name);
-        edit_S_personNumber = (EditText) findViewById(R.id.edit_S_personNumber);
+        btn_id_search = (Button) findViewById(R.id.btn_id_search);
+        btn_password_search = (Button)findViewById(R.id.btn_password_search);
+        edit_id_email = (EditText) findViewById(R.id.edit_id_email);
+        edit_id_name = (EditText) findViewById(R.id.edit_id_name);
 
 
         // 로고버튼 이벤트입니다.
@@ -61,10 +56,20 @@ public class Luna_Account_Search extends AppCompatActivity {
         });
 
 
-        // 조회 버튼 이벤트 3개의 에디트텍스트 값을 디비서버에 조회하는 코드가 필요함
-        // 만약 조회되는 값이 없다면 토스트메시지로 조회된 값이 없다고 떠야함
-        // 만약 있다면 ID : + ID이름 과 Password : + 패스워드  형식으로 출력되게 해야함
-        btn_search.setOnClickListener(new View.OnClickListener() {
+        // 아이디 찾기 버튼이며  이름과 이메일 값을 디비로 조회하여 아이디를 찾는다
+        // 조회된 값이 없다면 대화상자로   "조회된 아이디가 없습니다." 라고 출력한다
+        // 값이 있다면 대화상자로 "조회된 아이디는 **** 입니다." 라고 출력한다.
+        btn_id_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // 비밀번호 찾기 버튼이며  이름과 이메일 아이디 값을 디비로 조회하여 아이디를 찾는다
+        // 조회된 값이 없다면 대화상자로   "조회된 값이 없습니다." 라고 출력한다
+        // 값이 있다면 대화상자로 "조회된 비밀번호는 **** 입니다." 라고 출력한다.
+        btn_password_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
