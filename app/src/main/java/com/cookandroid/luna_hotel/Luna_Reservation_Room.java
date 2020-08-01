@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,9 +16,26 @@ import android.widget.Toast;
 public class Luna_Reservation_Room extends AppCompatActivity {
 
     Button btn_next, btn_lunalogo2, btn_back;
-    RadioButton Rbtn_single, Rbtn_luxury,Rbtn_double;
+    RadioButton Rbtn_single, Rbtn_luxury,Rbtn_double,Rbtn_family;
     TextView text_info_luxury,text_info_double,text_info_single,text_info_family;
+    TextView  text_soldout1,text_soldout2,text_soldout3,text_soldout4;
 
+
+    // 예약하기 중요 변수들
+    // 메인화면에서 가져올 변수들
+    private int tnrqkr = 0; // 숙박 몇박 변수
+    private  int hotel_number = 0; // 호텔 지점 번호입니다
+    private String put_checkin =null; // 예약한 날짜를 보낼 변수
+    private String put_checkout=null; // 예약한 날짜를 보낼 변수
+
+    // 스트링형 변수를 선언
+    private  String date_s_in,month_s_in,year_s_in; //  체크인 날짜 변환하는 변수
+    private  String date_s_out,month_s_out,year_s_out; //  체크인 날짜 변환하는 변수
+    // 인트형 변수를 선언  변환하는 변수
+    private  int date_int = 0;
+    // 여기까지
+
+    private String hotel_name = null; // 선택한 호텔 지점 이름
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +44,10 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_back = (Button) findViewById(R.id.btn_back);
-
+        text_soldout1 = (TextView) findViewById(R.id.text_soldout1); // 싱글
+        text_soldout2 = (TextView) findViewById(R.id.text_soldout2); // 더블
+        text_soldout3 = (TextView) findViewById(R.id.text_soldout3); // 패밀리
+        text_soldout4 = (TextView) findViewById(R.id.text_soldout4); // 럭셔리
         text_info_luxury = (TextView) findViewById(R.id.text_info_luxury);
         text_info_single = (TextView) findViewById(R.id.text_info_single);
         text_info_family = (TextView) findViewById(R.id.text_info_family);
@@ -34,11 +55,177 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         Rbtn_single = (RadioButton) findViewById(R.id.Rbtn_single);
         Rbtn_luxury = (RadioButton) findViewById(R.id.Rbtn_luxury);
         Rbtn_double = (RadioButton) findViewById(R.id.Rbtn_double);
+        Rbtn_family = (RadioButton)findViewById(R.id.Rbtn_family);
+
+        final TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr,text_hotel_name;
+
+        // 예약했던 데이터를 불러옵니다.
+        Intent intent = getIntent();
+        tnrqkr = intent.getIntExtra("tnrqkr",0);
+        date_int = intent.getIntExtra("date_int",0);
+        //체크인 변수
+        date_s_in = intent.getStringExtra("date_s_in");
+        month_s_in = intent.getStringExtra("month_s_in");
+        year_s_in = intent.getStringExtra("year_s_in");
+        put_checkin = intent.getStringExtra("put_checkin");
+        // 체크아웃 변수
+        date_s_out = intent.getStringExtra("date_s_out");
+        month_s_out = intent.getStringExtra("month_s_out");
+        year_s_out = intent.getStringExtra("year_s_out");
+        put_checkout = intent.getStringExtra("put_checkout");
+        // 지점 호텔 번호를 불러온다.
+        hotel_number = intent.getIntExtra("hotel_number",0);
+
+        text_checkin_mmdd = (TextView) findViewById(R.id.text_checkin_mmdd);
+        text_checkout_mmdd = (TextView) findViewById(R.id.text_checkout_mmdd);
+        text_checkout_yy = (TextView) findViewById(R.id.text_checkout_yy);
+        text_checkin_yy = (TextView) findViewById(R.id.text_checkin_yy);
+        text_tnrqkr = (TextView) findViewById(R.id.text_tnrqkr);
+        text_hotel_name = (TextView)findViewById(R.id.text_hotel_name);
+        // 날짜 표시하는곳에 텍스트 담기.
+        text_checkin_mmdd.setText(month_s_in + "월" + date_s_in + "일");
+        text_checkin_yy.setText(year_s_in + "년");
+        text_checkout_mmdd.setText(month_s_out + "월" + date_s_out + "일");
+        text_checkout_yy.setText(year_s_out + "년");
+        text_tnrqkr.setText(tnrqkr + "박");
+
+        // 호텔번호를 체크해서 호텔이름을 부여한다
+        if (hotel_number == 1) // 서울
+        {
+            hotel_name = "호텔 루나 서울";
+
+            text_hotel_name.setText("- " +  hotel_name + " -");
+        }
+        else if (hotel_number == 2) // 부산
+        {
+            hotel_name = "호텔 루나 부산";
+
+            text_hotel_name.setText("- " +  hotel_name + " -");
+        }
+        else if (hotel_number == 3) // 제주
+        {
+            hotel_name = "호텔 루나 제주";
+
+            text_hotel_name.setText("- " +  hotel_name + " -");
+        }
+        else  // 속초
+        {
+            hotel_name = "호텔 루나 속초";
+
+            text_hotel_name.setText("- " +  hotel_name + " -");
+        }
+
+    // 랜덤으로 방의 예약을 방는 코드입니다
+
+        if(hotel_number == 1) // 서울 점 선택
+        {
+            if(date_int <= 10){ // 일이 10보다 작으면
+                // 더블룸 예약 불가능하게 만듬
+                Rbtn_double.setVisibility(View.INVISIBLE);
+                text_soldout2.setText("예약 불가");
+                text_soldout2.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 10 && date_int <= 20)
+            {
+                Rbtn_family.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 20 && date_int <= 31)
+            {
+                Rbtn_single.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+                // 클릭시 아무 동작 못하게 막음
+
+            }
+        }
+        else if (hotel_number == 2) // 부산 점 선택
+        {
+            if(date_int <= 10){ // 일이 10보다 작으면
+                // 더블룸 예약 불가능하게 만듬
+                Rbtn_double.setVisibility(View.INVISIBLE);
+                text_soldout2.setText("예약 불가");
+                text_soldout2.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 10 && date_int <= 20)
+            {
+                Rbtn_family.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 20 && date_int <= 31)
+            {
+                Rbtn_single.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+                // 클릭시 아무 동작 못하게 막음
+
+            }
+        }
+
+        else if (hotel_number == 3) // 제주
+        {
+            if(date_int <= 10){ // 일이 10보다 작으면
+                // 더블룸 예약 불가능하게 만듬
+                Rbtn_double.setVisibility(View.INVISIBLE);
+                text_soldout2.setText("예약 불가");
+                text_soldout2.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 10 && date_int <= 20)
+            {
+                Rbtn_luxury.setVisibility(View.INVISIBLE);
+                text_soldout4.setText("예약 불가");
+                text_soldout4.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 20 && date_int <= 31)
+            {
+                Rbtn_single.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+                // 클릭시 아무 동작 못하게 막음
+
+            }
+        }
+        else // 속초
+        {
+            if(date_int <= 10){ // 일이 10보다 작으면
+
+                Rbtn_family.setVisibility(View.INVISIBLE);
+                text_soldout3.setText("예약 불가");
+                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 10 && date_int <= 20)
+            {
+                Rbtn_single.setVisibility(View.INVISIBLE);
+                text_soldout1.setText("예약 불가");
+                text_soldout1.setTextColor(Color.parseColor("#ff7e7e"));
+
+            }
+            else if (date_int > 20 && date_int <= 31)
+            {
+                Rbtn_luxury.setVisibility(View.INVISIBLE);
+                text_soldout4.setText("예약 불가");
+                text_soldout4.setTextColor(Color.parseColor("#ff7e7e"));
+                // 클릭시 아무 동작 못하게 막음
+
+            }
+        }
+
+        // 여기까지 랜덤방 예약 코드였습니다.
 
         // 버튼 모두 비활성화
         Rbtn_single.setChecked(false);
         Rbtn_luxury.setChecked(false);
         Rbtn_double.setChecked(false);
+        Rbtn_family.setChecked(false);
 
         // 럭셔리룸 자세히 보기 이벤트
         text_info_luxury.setOnClickListener(new View.OnClickListener() {
@@ -103,14 +290,26 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                 if(isCheckd){
                     Rbtn_luxury.setChecked(false);
                     Rbtn_double.setChecked(false);
+                    Rbtn_family.setChecked(false);
                      // 럭셔리 버튼은 비활성화
                     // 싱글룸 변수는 1이다
                     final int roomNum = 1;
                     btn_next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_Date.class);
-                            Intent.putExtra("roomNum",roomNum);
+                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_pay.class);
+                            Intent.putExtra("roomNum",roomNum);  // 방번호다
+                            Intent.putExtra("hotel_number",hotel_number); // 호텔번호다 지점이 선택된다
+                            Intent.putExtra("year_s_out",year_s_out);    // 체크아웃의 년도다 ex 2020
+                            Intent.putExtra("month_s_out",month_s_out); // 체크아웃의 월이다 ex 08
+                            Intent.putExtra("date_s_out",date_s_out); // 체크아웃의 일이다 ex 20
+                            Intent.putExtra("year_s_in",year_s_in); // 체크인의 년도다 ex 2020
+                            Intent.putExtra("month_s_in", month_s_in); // 체크인의 월이다 ex 09
+                            Intent.putExtra("date_s_in",date_s_in); // 체크아웃의 일이다 ex 01
+                            Intent.putExtra("put_checkout",put_checkout); // 체크아웃 8자리 ex 20200820
+                            Intent.putExtra("put_checkin", put_checkin); // 체크인 8자리 20200901
+                            Intent.putExtra("tnrqkr",tnrqkr); // 숙박일수 정수형 변수
+                            Intent.putExtra("date_int",date_int); // 일자 정수형 변수다 이변수는 나중에 랜덤한 방 예약을 위한 변수.
                             startActivity(Intent);
                             overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
@@ -128,14 +327,62 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                 if(isCheckd){
                     Rbtn_single.setChecked(false);
                     Rbtn_luxury.setChecked(false);
+                    Rbtn_family.setChecked(false);
                     // 싱글룸 비활성화
                     //더블룸 변수는 2이다
                     final int roomNum = 2;
                     btn_next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_Date.class);
-                            Intent.putExtra("roomNum",roomNum);
+                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_pay.class);
+                            Intent.putExtra("roomNum",roomNum);  // 방번호다
+                            Intent.putExtra("hotel_number",hotel_number); // 호텔번호다 지점이 선택된다
+                            Intent.putExtra("year_s_out",year_s_out);    // 체크아웃의 년도다 ex 2020
+                            Intent.putExtra("month_s_out",month_s_out); // 체크아웃의 월이다 ex 08
+                            Intent.putExtra("date_s_out",date_s_out); // 체크아웃의 일이다 ex 20
+                            Intent.putExtra("year_s_in",year_s_in); // 체크인의 년도다 ex 2020
+                            Intent.putExtra("month_s_in", month_s_in); // 체크인의 월이다 ex 09
+                            Intent.putExtra("date_s_in",date_s_in); // 체크아웃의 일이다 ex 01
+                            Intent.putExtra("put_checkout",put_checkout); // 체크아웃 8자리 ex 20200820
+                            Intent.putExtra("put_checkin", put_checkin); // 체크인 8자리 20200901
+                            Intent.putExtra("tnrqkr",tnrqkr); // 숙박일수 정수형 변수
+                            Intent.putExtra("date_int",date_int); // 일자 정수형 변수다 이변수는 나중에 랜덤한 방 예약을 위한 변수.
+                            startActivity(Intent);
+                            overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                        }
+                    });
+                } else {
+                }
+            }
+        });
+
+        // 패밀리룸 버튼 선택
+        Rbtn_family.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isCheckd) {
+                if(isCheckd){
+                    Rbtn_single.setChecked(false);
+                    Rbtn_double.setChecked(false);
+                    Rbtn_luxury.setChecked(false);
+                    // 싱글룸 비활성화
+                    //럭셔리룸 변수는 3이다
+                    final int roomNum = 3;
+                    btn_next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_pay.class);
+                            Intent.putExtra("roomNum",roomNum);  // 방번호다
+                            Intent.putExtra("hotel_number",hotel_number); // 호텔번호다 지점이 선택된다
+                            Intent.putExtra("year_s_out",year_s_out);    // 체크아웃의 년도다 ex 2020
+                            Intent.putExtra("month_s_out",month_s_out); // 체크아웃의 월이다 ex 08
+                            Intent.putExtra("date_s_out",date_s_out); // 체크아웃의 일이다 ex 20
+                            Intent.putExtra("year_s_in",year_s_in); // 체크인의 년도다 ex 2020
+                            Intent.putExtra("month_s_in", month_s_in); // 체크인의 월이다 ex 09
+                            Intent.putExtra("date_s_in",date_s_in); // 체크아웃의 일이다 ex 01
+                            Intent.putExtra("put_checkout",put_checkout); // 체크아웃 8자리 ex 20200820
+                            Intent.putExtra("put_checkin", put_checkin); // 체크인 8자리 20200901
+                            Intent.putExtra("tnrqkr",tnrqkr); // 숙박일수 정수형 변수
+                            Intent.putExtra("date_int",date_int); // 일자 정수형 변수다 이변수는 나중에 랜덤한 방 예약을 위한 변수.
                             startActivity(Intent);
                             overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
@@ -152,14 +399,26 @@ public class Luna_Reservation_Room extends AppCompatActivity {
                 if(isCheckd){
                     Rbtn_single.setChecked(false);
                     Rbtn_double.setChecked(false);
+                    Rbtn_family.setChecked(false);
                     // 싱글룸 비활성화
                     //럭셔리룸 변수는 4이다
                     final int roomNum = 4;
                     btn_next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_Date.class);
-                            Intent.putExtra("roomNum",roomNum);
+                            Intent Intent = new Intent(getApplicationContext(), Luna_Reservation_pay.class);
+                            Intent.putExtra("roomNum",roomNum);  // 방번호다
+                            Intent.putExtra("hotel_number",hotel_number); // 호텔번호다 지점이 선택된다
+                            Intent.putExtra("year_s_out",year_s_out);    // 체크아웃의 년도다 ex 2020
+                            Intent.putExtra("month_s_out",month_s_out); // 체크아웃의 월이다 ex 08
+                            Intent.putExtra("date_s_out",date_s_out); // 체크아웃의 일이다 ex 20
+                            Intent.putExtra("year_s_in",year_s_in); // 체크인의 년도다 ex 2020
+                            Intent.putExtra("month_s_in", month_s_in); // 체크인의 월이다 ex 09
+                            Intent.putExtra("date_s_in",date_s_in); // 체크아웃의 일이다 ex 01
+                            Intent.putExtra("put_checkout",put_checkout); // 체크아웃 8자리 ex 20200820
+                            Intent.putExtra("put_checkin", put_checkin); // 체크인 8자리 20200901
+                            Intent.putExtra("tnrqkr",tnrqkr); // 숙박일수 정수형 변수
+                            Intent.putExtra("date_int",date_int); // 일자 정수형 변수다 이변수는 나중에 랜덤한 방 예약을 위한 변수.
                             startActivity(Intent);
                             overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
