@@ -99,8 +99,7 @@ public class Luna_NewAccount extends AppCompatActivity {
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Main.class);
-                startActivity(Home_Intent);
+
             }
         });
     }

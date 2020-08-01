@@ -99,14 +99,14 @@ public class Luna_Info_Room extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Info_Room.this);
                     builder.setMessage("로그인이 필요합니다.");
 
-                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("로그인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
                             startActivity(intent);
                         }
                     });
-
+                    builder.setNegativeButton("취소",null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
