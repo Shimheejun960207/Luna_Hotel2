@@ -4,7 +4,7 @@ package com.cookandroid.luna_hotel;
 
 public class UserPWSearch {
 
-    String PW;
+    public String PW;
 
     public String getPW() {
         return PW;

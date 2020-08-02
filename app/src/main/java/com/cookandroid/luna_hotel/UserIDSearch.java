@@ -4,7 +4,7 @@ package com.cookandroid.luna_hotel;
 
 public class UserIDSearch {
 
-    String ID;
+    public String ID;
 
     public String getID() {
         return ID;

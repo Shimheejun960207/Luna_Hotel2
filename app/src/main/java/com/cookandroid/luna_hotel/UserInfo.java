@@ -4,14 +4,14 @@ package com.cookandroid.luna_hotel;
 
 public class UserInfo {
 
-    String CODE;
-    String ID;
-    String Name;
-    String PW;
-    String Ssn;
-    String Gender;
-    String HP;
-    String Email;
+    public String CODE;
+    public String ID;
+    public String Name;
+    public String PW;
+    public String Ssn;
+    public String Gender;
+    public String HP;
+    public String Email;
 
     public String getCODE() {
         return CODE;
