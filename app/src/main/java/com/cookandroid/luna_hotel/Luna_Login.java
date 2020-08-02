@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,8 +32,9 @@ import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
 
-    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo, btn_guest_login;
+    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
     EditText user_id, user_pw;
+    TextView text_guest_login;
 
     private String jsonString;
     ArrayList<UserInfo> infoArrayList;
@@ -49,14 +51,14 @@ public class Luna_Login extends AppCompatActivity {
         btn_Sign_up = (Button) findViewById(R.id.btn_Sign_Up);
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
-        btn_guest_login = (Button) findViewById(R.id.btn_guest_login);
+        text_guest_login = (TextView) findViewById(R.id.text_guest_login);
         user_id = (EditText) findViewById(R.id.Id_info);
         user_pw = (EditText) findViewById(R.id.Password_info);
 
         //하얀색 밑줄
-        btn_Login.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "로그인" + "</u></font>"));
         btn_account_find.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "계정찾기" + "</u></font>"));
         btn_Sign_up.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "회원가입" + "</u></font>"));
+        text_guest_login.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "GUEST 로 로그인하기" + "</u></font>"));
 
         //영문과 숫쟈 허용
         InputFilter filter = new InputFilter() {
@@ -181,7 +183,7 @@ public class Luna_Login extends AppCompatActivity {
 
 
         //게스트로 로그인하기 위한 버튼
-        btn_guest_login.setOnClickListener(new View.OnClickListener() {
+        text_guest_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Login_gloval.login_id = null;

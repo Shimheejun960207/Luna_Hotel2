@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dbc">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -29,8 +29,8 @@
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo2"
-            android:id="@+id/btn_lunalogo2"> //로고버튼 아이디지정
+            android:background="@drawable/lunalogo"
+            android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
         </Button>
 
 
@@ -40,7 +40,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#540dbc"
+        android:background="#100c3e"
         android:orientation="vertical">
 
         <TextView
@@ -322,7 +322,7 @@
                     android:textSize="15sp"
                     android:text="   객실 자세히 보기  "
                     android:fontFamily="@font/thechocobbangr"
-                    android:textColor="#540dcb"
+                    android:textColor="#100c3e"
                     android:textStyle="bold"/>
             </LinearLayout>
 
@@ -415,7 +415,7 @@
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
                             android:fontFamily="@font/thechocobbangr"
-                            android:textColor="#540dcb"
+                            android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -502,7 +502,7 @@
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
                             android:fontFamily="@font/thechocobbangr"
-                            android:textColor="#540dcb"
+                            android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -587,7 +587,7 @@
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
                             android:fontFamily="@font/thechocobbangr"
-                            android:textColor="#540dcb"
+                            android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
                     </LinearLayout>

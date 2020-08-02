@@ -91,18 +91,27 @@ public class Luna_menu extends AppCompatActivity {
             btn_login_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) { // 로그아웃 버튼을 누르면 전연변수의 모든 값이 null로 초기화됩니다.
-                    Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
-                    accountToast.show();
-                    Login_gloval.login_id =null;
-                    Login_gloval.login_password=null;
-                    // eatior 이거 뭔지 설명좀
-                    editor.clear();
-                    editor.commit();
 
-                    Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
-                    startActivity(goMain);
-
-                    finish();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
+                    builder.setMessage("로그아웃 하시겠습니까?");
+                    builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
+                            accountToast.show();
+                            Login_gloval.login_id =null;
+                            Login_gloval.login_password=null;
+                            // eatior 이거 뭔지 설명좀
+                            editor.clear();
+                            editor.commit();
+                            Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
+                            startActivity(goMain);
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("아니요",null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
         }

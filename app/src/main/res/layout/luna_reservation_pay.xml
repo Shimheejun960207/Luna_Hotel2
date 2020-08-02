@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dbc">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의  설정 -->
         <Button
@@ -45,7 +45,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:background="#540dbc"
+        android:background="#100c3e"
         android:orientation="vertical"
         >
 
@@ -327,7 +327,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="원"
-            android:textColor="#540dcb"
+            android:textColor="#100c3e"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
