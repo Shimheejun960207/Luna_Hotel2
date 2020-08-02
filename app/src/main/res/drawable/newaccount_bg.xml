@@ -5,7 +5,7 @@
     <!-- 테두리 내부 색상 설정 -->
     <solid android:color="#f7f7f7" />
     <corners
-        android:radius="30dp"/>
+        android:radius="0dp"/>
 
 
 

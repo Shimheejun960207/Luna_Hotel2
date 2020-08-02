@@ -42,10 +42,6 @@
         </activity>
         <activity android:name=".Luna_Reservation_pay">
         </activity>
-        <activity android:name=".Luna_Reservation_Date">
-        </activity>
-        <activity android:name=".Luna_Reservation_Complete">
-        </activity>
         <activity android:name=".Luna_Reservation_Check">
         </activity>
         <activity android:name=".Luna_Member_Remove">

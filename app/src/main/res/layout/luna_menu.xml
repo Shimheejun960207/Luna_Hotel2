@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dcb">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -26,260 +26,627 @@
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo2"
-            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+            android:background="@drawable/lunalogo"
+            android:id= "@+id/btn_lunalogo"> //로고버튼 아이디지정
         </Button>
 
-
+        <Button
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_marginLeft="90dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/setting"
+            android:id="@+id/btn_setting"
+            />
 
     </LinearLayout>
 
-    // 선을 넣어주는 뷰 입니다.
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_centerInParent="true"
-        android:background="#D3D3D3" />
 
-    // 회원이름과 이메일이 들어갈 위젯입니다.
+    // 회원 정보 기능 이 담기는 레이아웃입니다.
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#100c3e">
+
+    // 회원이름과 이메일이 들어갈 레이아웃입니다.
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_weight="5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#EFEEEE"
+        android:background="#100c3e"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/text_hi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="안녕하세요."
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
             android:id="@+id/menu_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="로그인이 필요합니다."
+            android:textColor="#ffffff"
+            android:text="GUEST 님"
             android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/menu_email"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="GUEST"
-            android:textSize="15sp" />
+            android:textColor="#ffffff"
+            android:text="로그인이 필요합니다."
+            android:textSize="15sp"
+            android:layout_marginBottom="15dp"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp"
-            android:background="#D3D3D3" />
+    </LinearLayout>
+    // 여기까지 이름과 이메일
+
+    // 로그인 로그아웃  회원가입 기능이 들어갈 레이아웃
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#100c3e"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:id="@+id/btn_login_logout"
+            />
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:id="@+id/btn_new_account"
+            />
+
 
     </LinearLayout>
 
-// 버튼 3개
+</LinearLayout>
+    // 여기까지
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            />
+
+    </LinearLayout>
+
+// 상단버튼4개
+    <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/myinfo_p"
-            android:id="@+id/btn_myinfo_p"/>
 
-        <Button
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-        android:background="@drawable/reser_p"
-        android:id="@+id/btn_reser_p"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/check_p"
-            android:id="@+id/btn_check_p"/>
+            <Button
+                android:id="@+id/btn_news"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/news" />
 
+        </LinearLayout>
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/setting_p"
-            android:id="@+id/btn_setting_p"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_res_check"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/check"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_promotion"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/promotion"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_myinfo"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/myinfo"
+                />
+        </LinearLayout>
 
     </LinearLayout>
+    // 여기까지
 
-    // 텍스트 라인
+    // 상단 텍스트 4개
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="나의정보"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="공지사항"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예약하기"
-            android:fontFamily="@font/thechocobbangr"
-           android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="예약확인"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예약확인"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="프로모션"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="환경설정"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 내 정보"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
+    // 여기까지
 
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#D3D3D3" />
+
+    // 미들 버튼4개
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/hotel_p"
-            android:id="@+id/btn_hotel_p"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/room_p"
-            android:id="@+id/btn_room_p"/>
+            <Button
+                android:id="@+id/btn_hotel_info"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/hotel_info" />
 
+        </LinearLayout>
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/map_p"
-            android:id="@+id/btn_map_p"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:background="@drawable/call_p"
-            android:id="@+id/btn_call_p"/>
+            <Button
+                android:id="@+id/btn_hotel_local_info"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/hotel"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_room"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/room"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_establishment"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/establishment"
+                />
+        </LinearLayout>
 
     </LinearLayout>
+    // 여기까지
 
+    // 미들 텍스트 4개
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
-        <TextView
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
-            android:fontFamily="@font/thechocobbangr"
-            android:text="호텔소개"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="호텔소개"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="객실안내"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="지점안내"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오시는길"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="42dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="객실안내"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전화하기"
-            android:fontFamily="@font/thechocobbangr"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 시설안내"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
+    // 여기까지
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#D3D3D3" />
+
+    // 하단 버튼4개
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_faq"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/faq" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_chat"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/kakao"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_call"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/call"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/btn_clause"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/clause"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    // 여기까지
+
+    // 하단 텍스트 4개
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="    FAQ    "
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1대1상담"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="전화하기"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=" 이용약관"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    // 여기까지
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#D3D3D3" />
+
+
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <Button
-        android:layout_marginTop="70dp"
-        android:layout_gravity="center"
-        android:layout_width="200dip"
-        android:layout_height="60dp"
-        android:text="로그인"
-        android:textSize="30sp"
-        android:fontFamily="@font/thechocobbangr"
-        android:textColor="#540dcb"
-        android:textStyle="bold"
-        android:background="@drawable/btn_noneborder"
-        android:id="@+id/btn_login_logout"
-        />
+
 
 
 
 </LinearLayout>
+
+
 
 
 
