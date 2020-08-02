@@ -57,12 +57,10 @@
             android:layout_marginBottom="30dip"
             android:text="- 회원가입 -"/>
         //회원가입 절차 레이아웃
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <FrameLayout
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
