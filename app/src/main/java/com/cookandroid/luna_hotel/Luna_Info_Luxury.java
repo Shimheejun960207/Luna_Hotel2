@@ -20,11 +20,11 @@ public class Luna_Info_Luxury extends AppCompatActivity {
         setContentView(R.layout.luna_info_luxury);
 
         TextView text_info;
-        Button btn_back,btn_lunalogo2;
+        Button btn_back,btn_lunalogo;
 
         text_info = (TextView) findViewById(R.id.text_info);
         btn_back = (Button)findViewById(R.id.btn_back);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
         text_info.bringToFront();
 
@@ -40,7 +40,7 @@ public class Luna_Info_Luxury extends AppCompatActivity {
 
 
         // 로고를 누르면 홈화면으로 이동하면 코드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Main.class);

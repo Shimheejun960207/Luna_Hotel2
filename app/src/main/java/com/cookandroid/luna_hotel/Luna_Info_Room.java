@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Room extends AppCompatActivity {
 
-    Button btn_menu, btn_lunalogo2, btn_res;
+    Button btn_menu, btn_lunalogo;
     TextView text_luxury_room,text_single_room,text_double_room,text_family_room;
     TextView text_info_luxury,text_info_single,text_info_double,text_info_family;
 
@@ -38,8 +38,7 @@ public class Luna_Info_Room extends AppCompatActivity {
 
 
         btn_menu = (Button)findViewById(R.id.btn_menu);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_res = (Button)findViewById(R.id.btn_res);
+        btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
 
         // 네모칸에 텍스트뷰가 가장먼저 앞으로 표시되게 하는 메소드입니다.
@@ -91,30 +90,7 @@ public class Luna_Info_Room extends AppCompatActivity {
             }
         });
 
-        // 예약하기 버튼 클릭 메소드
-        btn_res.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Info_Room.this);
-                    builder.setMessage("로그인이 필요합니다.");
 
-                    builder.setPositiveButton("로그인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.setNegativeButton("취소",null);
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                } else {
-                    Intent HotelInfo_Intent = new Intent(getApplicationContext(), Luna_Reservation_Room.class);
-                    startActivity(HotelInfo_Intent);
-                }
-            }
-        });
 
 
         //메뉴버튼 클릭 메소드
@@ -130,7 +106,7 @@ public class Luna_Info_Room extends AppCompatActivity {
 
 
         // 로고를 누르면 홈화면으로 이동하면 코드
-       btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+       btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Main.class);

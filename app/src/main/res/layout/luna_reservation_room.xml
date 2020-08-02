@@ -321,7 +321,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:text="   객실 자세히 보기  "
-                    android:fontFamily="@font/thechocobbangr"
                     android:textColor="#100c3e"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -414,7 +413,6 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
-                            android:fontFamily="@font/thechocobbangr"
                             android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
@@ -501,7 +499,6 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
-                            android:fontFamily="@font/thechocobbangr"
                             android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
@@ -586,7 +583,6 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:text="   객실 자세히 보기  "
-                            android:fontFamily="@font/thechocobbangr"
                             android:textColor="#100c3e"
                             android:textStyle="bold"/>
 
