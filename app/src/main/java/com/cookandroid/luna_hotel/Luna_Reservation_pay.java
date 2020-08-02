@@ -1,8 +1,10 @@
 package com.cookandroid.luna_hotel;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,8 +20,7 @@ import java.text.DecimalFormat;
 
 public class Luna_Reservation_pay extends AppCompatActivity {
 
-    // 예약하기 중요 변수들
-    // 메인화면에서 가져올 변수들
+
 
     private  int hotel_number = 0; // 호텔 지점 번호입니다
 
@@ -177,6 +178,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                 }
                 else if (number == 3) //신용카드 선택
                 {
+
                     total_price = (room_price * tnrqkr);
                     // 회계 표시 를한다
                     String formattedStringPrice = formatter.format(total_price);
@@ -200,6 +202,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                 }
                  else
                 {
+
                     total_price = (room_price * tnrqkr);
                     // 회계 표시 를한다
                     String formattedStringPrice = formatter.format(total_price);
@@ -225,6 +228,8 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     // 범준아 여기에 예약 DB 넣으면된다. 변수는 위에서 봐라 주석달았다.
+
+
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Reservation_pay.this);
                     builder.setMessage("예약되셨습니다. ");

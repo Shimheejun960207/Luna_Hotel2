@@ -120,6 +120,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         if(hotel_number == 1) // 서울 점 선택
         {
             if(date_int <= 10){ // 일이 10보다 작으면
+
                 // 더블룸 예약 불가능하게 만듬
                 Rbtn_double.setVisibility(View.INVISIBLE);
                 text_soldout2.setText("예약 불가");
@@ -135,9 +136,9 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             }
             else if (date_int > 20 && date_int <= 31)
             {
-                Rbtn_single.setVisibility(View.INVISIBLE);
-                text_soldout3.setText("예약 불가");
-                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+                Rbtn_luxury.setVisibility(View.INVISIBLE);
+                text_soldout4.setText("예약 불가");
+                text_soldout4.setTextColor(Color.parseColor("#ff7e7e"));
                 // 클릭시 아무 동작 못하게 막음
 
             }
@@ -161,8 +162,8 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             else if (date_int > 20 && date_int <= 31)
             {
                 Rbtn_single.setVisibility(View.INVISIBLE);
-                text_soldout3.setText("예약 불가");
-                text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
+                text_soldout1.setText("예약 불가");
+                text_soldout1.setTextColor(Color.parseColor("#ff7e7e"));
                 // 클릭시 아무 동작 못하게 막음
 
             }
@@ -186,7 +187,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             }
             else if (date_int > 20 && date_int <= 31)
             {
-                Rbtn_single.setVisibility(View.INVISIBLE);
+                Rbtn_family.setVisibility(View.INVISIBLE);
                 text_soldout3.setText("예약 불가");
                 text_soldout3.setTextColor(Color.parseColor("#ff7e7e"));
                 // 클릭시 아무 동작 못하게 막음
