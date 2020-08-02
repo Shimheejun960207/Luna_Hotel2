@@ -165,6 +165,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_guest_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="GUEST로 로그인하기"
+            android:textColor="#f0f0f0"
+            android:fontFamily="@font/thechocobbangr"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#708090"/>
+
+    </LinearLayout>
+
 
     //밑에 회사 정보 텍스트
 
@@ -172,7 +194,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="135dp">
+        android:layout_marginTop="70dp">
 
         <TextView
             android:layout_width="wrap_content"

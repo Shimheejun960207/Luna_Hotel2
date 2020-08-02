@@ -71,7 +71,7 @@ public class Luna_menu extends AppCompatActivity {
                     editor.clear();
                     editor.commit();
 
-                    Intent goMain = new Intent(getApplicationContext(), Luna_Main.class);
+                    Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
                     startActivity(goMain);
 
                     finish();
@@ -100,13 +100,14 @@ public class Luna_menu extends AppCompatActivity {
                 if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
                     builder.setMessage("로그인이 필요합니다.");
-                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("로그인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
                             startActivity(intent);
                         }
                     });
+                    builder.setNegativeButton("취소",null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
@@ -127,13 +128,14 @@ public class Luna_menu extends AppCompatActivity {
                 if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
                     builder.setMessage("로그인이 필요합니다.");
-                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("로그인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
                             startActivity(intent);
                         }
                     });
+                    builder.setNegativeButton("취소",null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
@@ -163,7 +165,6 @@ public class Luna_menu extends AppCompatActivity {
                 startActivity(Intent);
             }
         });
-
 
         // 오시는길 버튼 이벤트
         btn_map_p.setOnClickListener(new View.OnClickListener() {

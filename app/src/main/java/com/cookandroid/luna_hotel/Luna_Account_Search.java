@@ -32,8 +32,7 @@ public class Luna_Account_Search extends AppCompatActivity {
         btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
-                startActivity(Intent);
+
             }
         });
 

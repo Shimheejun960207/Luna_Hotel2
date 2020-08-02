@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
 
-    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
+    Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo, btn_guest_login;
     EditText user_id, user_pw;
 
     private String jsonString;
@@ -49,6 +49,7 @@ public class Luna_Login extends AppCompatActivity {
         btn_Sign_up = (Button) findViewById(R.id.btn_Sign_Up);
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_guest_login = (Button) findViewById(R.id.btn_guest_login);
         user_id = (EditText) findViewById(R.id.Id_info);
         user_pw = (EditText) findViewById(R.id.Password_info);
 
@@ -101,8 +102,6 @@ public class Luna_Login extends AppCompatActivity {
         btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
-                startActivity(Intent);
             }
         });
 
@@ -170,7 +169,6 @@ public class Luna_Login extends AppCompatActivity {
         });
 
 
-
         //회원가입 하기 위한 버튼
         btn_Sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,14 +178,51 @@ public class Luna_Login extends AppCompatActivity {
             }
 
         });
+
+
+        //게스트로 로그인하기 위한 버튼
+        btn_guest_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Login_gloval.login_id = null;
+                Login_gloval.login_password = null;
+                Intent Main_intent = new Intent(getApplicationContext(),Luna_Main.class);
+                startActivity(Main_intent);
+            }
+
+        });
     }
+
+    private long backKeyPressedTime = 0;
+    private Toast toast;
 
 
     // 이 밑은 로그인 할 때 로그인 정보로 회원 정보를 가져오는 구문입니다.
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
+        // 기존 뒤로가기 버튼의 기능을 막기위해 주석처리 또는 삭제
+        // super.onBackPressed();
+
+        // 마지막으로 뒤로가기 버튼을 눌렀던 시간에 2초를 더해 현재시간과 비교 후
+        // 마지막으로 뒤로가기 버튼을 눌렀던 시간이 2초가 지났으면 Toast Show
+        // 2000 milliseconds = 2 seconds
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        // 마지막으로 뒤로가기 버튼을 눌렀던 시간에 2초를 더해 현재시간과 비교 후
+        // 마지막으로 뒤로가기 버튼을 눌렀던 시간이 2초가 지나지 않았으면 종료
+        // 현재 표시된 Toast 취소
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
+        }
+
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+
     }
 
     // AsyncTask 클래스 여기다가 구현.
