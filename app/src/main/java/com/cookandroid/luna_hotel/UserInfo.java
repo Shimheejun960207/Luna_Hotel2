@@ -2,7 +2,7 @@ package com.cookandroid.luna_hotel;
 
 // 회원 정보를 받아오기 위한 UserInfo 클래스입니다.
 
-final public class UserInfo {
+public class UserInfo {
 
     String CODE;
     String ID;

@@ -107,6 +107,7 @@
             android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"
             android:hint="  비밀번호를 입력해주세요"
+            android:inputType="textPassword"
             android:id="@+id/edit_MR_password"
             />
 

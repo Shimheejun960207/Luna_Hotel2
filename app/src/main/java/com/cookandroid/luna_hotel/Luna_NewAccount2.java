@@ -238,13 +238,13 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 // EditText에 있는 값을 String 값으로 가져옵니다.
                 // 밑의 userID, userName, userPW, userSsn, userGender, userHP, userEmail
                 // 이 값들이 데이터베이스로 전송되는 값입니다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                String userID = edit_id.getText().toString();
-                String userName = edit_name.getText().toString();
-                String userPW = edit_password.getText().toString();
-                String userSsn = edit_ssn.getText().toString();
-                String userGender = edit_gender.getText().toString();
-                String userHP = (edit_hp1.getText().toString()) + (edit_hp2.getText().toString()) + (edit_hp3.getText().toString());
-                String userEmail = (edit_email1.getText().toString()) + "@" + (edit_email2.getText().toString()) + "." + (edit_email3.getText().toString());
+                final String userID = edit_id.getText().toString();
+                final String userName = edit_name.getText().toString();
+                final String userPW = edit_password.getText().toString();
+                final String userSsn = edit_ssn.getText().toString();
+                final String userGender = edit_gender.getText().toString();
+                final String userHP = (edit_hp1.getText().toString()) + (edit_hp2.getText().toString()) + (edit_hp3.getText().toString());
+                final String userEmail = (edit_email1.getText().toString()) + "@" + (edit_email2.getText().toString()) + "." + (edit_email3.getText().toString());
 
 
                 // 다음은 가입하기 클릭시 실행되는 조건에 대한 코드입니다.
@@ -454,11 +454,41 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     return;
                 }
 
-                // gotoDatabase 메소드를 호출합니다. gotoDatabase 메소드는 onCreate 밑에 있습니다!
-                gotoDatabase(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
 
-                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Subscription.class);
-                startActivity(Home_Intent);
+                // 이메일 중복을 체크하는 구문입니다.
+                // 계정찾기를 통해 아이디를 찾을 때 한 명의 이름에 여러 이메일이 있을 경우 검색이 안되기 때문에 이메일도 가입할 때 중복되는 값 없이 제한했습니다.
+                Response.Listener<String> responseListener2 = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response2) {
+                        try {
+                            // JSON 오브젝트를 만듬.
+                            JSONObject jsonResponse2 = new JSONObject(response2);
+                            boolean success = jsonResponse2.getBoolean("success");
+
+                            // 중복되는 이메일이 없을 경우에 if문 실행
+                            if (success) {
+                                // gotoDatabase 메소드를 호출합니다. gotoDatabase 메소드는 onCreate 밑에 있습니다!
+                                gotoDatabase(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
+
+                                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Subscription.class);
+                                startActivity(Home_Intent);
+                            }
+                            // 중복되는 이메일이 있다면? 밑 메세지를 출력하고 진행이 안됩니다.
+                            else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
+                                dialog = builder.setMessage("이미 등록 된 이메일입니다.").setPositiveButton("확인", null).create();
+                                dialog.show();
+                            }
+                        } catch(JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                // Volley 라이브러리를 통해 서버와 통신합니다. 값들을 큐에 넣어 전송합니다.
+                ValidateRequest_Email validateRequestEmail = new ValidateRequest_Email(userEmail, responseListener2);
+                RequestQueue queue2 = Volley.newRequestQueue(Luna_NewAccount2.this);
+                queue2.add(validateRequestEmail);
             }
         });
 
