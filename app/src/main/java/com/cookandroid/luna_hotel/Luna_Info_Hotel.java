@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Hotel extends AppCompatActivity {
 
-    Button btn_menu, btn_lunalogo2;
-    TextView hotel_info_line1, hotel_info_line2, welcome_line1, vision_line1, misson_line1, luna_hotel_line1;
+    Button btn_menu, btn_lunalogo;
+    TextView hotel_info_line1, welcome_line1, vision_line1, misson_line1, luna_hotel_line1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,9 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         setContentView(R.layout.luna_info_hotel);
 
         btn_menu = (Button)findViewById(R.id.btn_menu);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
         hotel_info_line1 = (TextView)findViewById(R.id.Hotel_info_line1);
-        hotel_info_line2 = (TextView)findViewById(R.id.Hotel_info_line2);
         welcome_line1 = (TextView)findViewById(R.id.Welcom_line1);
         vision_line1 = (TextView)findViewById(R.id.Vison_line1);
         misson_line1 = (TextView)findViewById(R.id.Misson_line1);
@@ -39,7 +38,6 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         welcome_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Welcome to the LunaHotel" + "</u></font>"));
         vision_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Vision" + "</u></font>"));
         hotel_info_line1.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
-        hotel_info_line2.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
         misson_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Misson" + "</u></font>"));
         luna_hotel_line1.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
 
@@ -56,7 +54,7 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         });
 
         // 로고를 누르면 홈화면으로 이동하는 코드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Main.class);

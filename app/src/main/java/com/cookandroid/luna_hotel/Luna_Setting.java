@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Setting extends AppCompatActivity {
 
-    Button btn_back,btn_lunalogo2,btn_member_remove,btn_cash_remove,btn_rnjsgks,btn_apply;
+    Button btn_back,btn_lunalogo,btn_member_remove,btn_cash_remove,btn_rnjsgks,btn_apply;
     Switch switch_SMS_adver, switch_SMS_reser;
 
     @Override
@@ -27,7 +27,7 @@ public class Luna_Setting extends AppCompatActivity {
 
         btn_apply = (Button) findViewById(R.id.btn_apply);
         btn_cash_remove  = (Button) findViewById(R.id.btn_cash_remove);
-        btn_lunalogo2  = (Button) findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo  = (Button) findViewById(R.id.btn_lunalogo);
         btn_member_remove  = (Button) findViewById(R.id.btn_member_remove);
         btn_back  = (Button) findViewById(R.id.btn_back);
         btn_rnjsgks  = (Button) findViewById(R.id.btn_rnjsgks);
@@ -48,7 +48,7 @@ public class Luna_Setting extends AppCompatActivity {
 
 
         // 로고클릭 이벤트
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(),Luna_Main.class);

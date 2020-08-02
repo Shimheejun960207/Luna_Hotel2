@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dcb">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -29,19 +29,34 @@
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo2"
-            android:id="@+id/btn_lunalogo2"> //로고버튼 아이디지정
+            android:background="@drawable/lunalogo"
+            android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
         </Button>
 
     </LinearLayout>
     // 스크롤 시작하는 레이아웃
 
-    // 선을 넣어주는 뷰 입니다.
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_centerInParent="true"
-        android:background="#D3D3D3" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#100c3e">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="- 호텔 소개 -"/>
+
+    </LinearLayout>
+
+
+
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,17 +70,6 @@
             android:orientation="vertical">
 
             //텍스트(호텔소개
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dip"
-                android:fontFamily="@font/thechocobbangr"
-                android:text="호텔소개"
-                android:textColor="#540dcb"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
             //라인1
 
@@ -83,20 +87,7 @@
 
             //라인2
 
-            <TextView
-                android:id="@+id/Hotel_info_line2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="-25dip"
-                android:fontFamily="@font/thechocobbangr"
-                android:text="-"
-                android:textColor="#540dcb"
-                android:textSize="25dp"
-                android:textStyle="bold" />
 
-
-            //텍스트(- Welcome to the LunaHotel -)
 
             <TextView
                 android:layout_width="wrap_content"

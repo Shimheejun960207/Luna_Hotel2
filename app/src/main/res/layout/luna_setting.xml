@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dcb">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
@@ -30,38 +30,32 @@
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo2"
-            android:id= "@+id/btn_lunalogo2"> //로고버튼 아이디지정
+            android:background="@drawable/lunalogo"
+            android:id= "@+id/btn_lunalogo"> //로고버튼 아이디지정
         </Button>
 
 
     </LinearLayout>
 
-    // 선을 넣어주는 뷰 입니다.
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_centerInParent="true"
-        android:background="#D3D3D3" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dip"
-        android:textColor="#540dcb"
-        android:textSize="25dp"
-        android:fontFamily="@font/thechocobbangr"
-        android:textStyle="bold"
-        android:id="@+id/Room_info_text"
-        android:text="- 환경설정 -"/>
+        android:orientation="vertical"
+        android:background="#100c3e">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="- 환경 설정 -"/>
 
-    <View
-        android:layout_marginTop="35dip"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_centerInParent="true"
-        android:background="#D3D3D3" />
+    </LinearLayout>
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,9 +63,8 @@
         android:layout_marginTop="10dip"
         android:text="알림"
         android:layout_marginLeft="20dip"
-        android:textColor="#540dcb"
+        android:textColor="#100c3e"
         android:textSize="20sp"
-        android:fontFamily="@font/thechocobbangr"
         android:textStyle="bold"/>
 
     // 알림 : 광고수신 부분 레이아웃
@@ -88,7 +81,6 @@
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"/>
         
         <Switch
@@ -97,7 +89,7 @@
             android:layout_marginLeft="219dp"
             android:id="@+id/switch_SMS_adver"
             android:checked="true"
-            android:thumbTint="#540dcb"
+            android:thumbTint="#100c3e"
             />
 
     </LinearLayout>
@@ -115,7 +107,6 @@
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
             android:textStyle="bold"/>
 
         <Switch
@@ -123,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="189dp"
             android:id="@+id/switch_SMS_reser"
-            android:thumbTint="#540dcb"
+            android:thumbTint="#100c3e"
             />
 
     </LinearLayout>
