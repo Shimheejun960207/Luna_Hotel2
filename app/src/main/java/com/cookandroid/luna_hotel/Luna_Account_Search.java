@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class Luna_Account_Search extends AppCompatActivity {
 
-    Button btn_bottom_login, btn_id_search, btn_back, btn_lunalogo2, btn_password_search;
+    Button btn_bottom_login, btn_id_search, btn_back, btn_password_search;
     EditText edit_id_name, edit_id_email, edit_password_email, edit_password_id, edit_password_name;
 
     // 서버에서 받은 JSON 스트링 문자를 저장하는 변수
@@ -47,7 +47,6 @@ public class Luna_Account_Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_account_search);
 
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_bottom_login = (Button) findViewById(R.id.btn_bottom_login);
         btn_id_search = (Button) findViewById(R.id.btn_id_search);
@@ -59,13 +58,6 @@ public class Luna_Account_Search extends AppCompatActivity {
         edit_password_email = (EditText) findViewById(R.id.edit_password_email);
 
 
-        // 로고버튼 이벤트입니다.
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
         // 좌측 상단 뒤로가기버튼 클릭시 창이 꺼짐 + 애니메이션 이벤트
         btn_back.setOnClickListener(new View.OnClickListener() {

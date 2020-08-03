@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Luna_Reservation_Check extends AppCompatActivity {
 
     TextView text_reser01, text_name_reser01, text_roomname_reser01, text_date_reser01, text_price_reser01;
-    Button btn_back, btn_lunalogo2, btn_cancle;
+    Button btn_back, btn_lunalogo, btn_cancle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Luna_Reservation_Check extends AppCompatActivity {
 
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_cancle = (Button)findViewById(R.id.btn_cancle);
-        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
 
         // DB서버에서 사용자의 예약정보를 받아옵니다
         // 각각 맞는 텍스트 ID값에 setText() 함수를 사용하여 출력할수 있습니다
@@ -73,7 +73,7 @@ public class Luna_Reservation_Check extends AppCompatActivity {
 
 
         // 로고버튼 이벤트
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);

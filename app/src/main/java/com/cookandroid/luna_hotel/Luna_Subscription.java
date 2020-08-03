@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class Luna_Subscription extends AppCompatActivity {
 
-    Button btn_login, btn_lunalogo2, btn_menu;
+    Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,26 +19,10 @@ public class Luna_Subscription extends AppCompatActivity {
         setContentView(R.layout.luna_subscription);
 
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
-        btn_menu = (Button) findViewById(R.id.btn_menu);
 
-        btn_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
-                //액티비티 전환 애니메이션 설정하는 부분
-                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-            }
-        });
 
-        // 로고를 누르면 홈화면으로 이동하면 코드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+
 
 
         // 로그인 클릭시 실행되는 코드입니다.

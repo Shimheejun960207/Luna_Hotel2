@@ -237,8 +237,7 @@
            android:layout_gravity="bottom"
            android:text="적용"
            android:textColor="#ffffff"
-           android:fontFamily="@font/thechocobbangr"
-           android:textSize="30sp"
+           android:textSize="25sp"
            android:textStyle="bold"
            android:id="@+id/btn_apply"
            />

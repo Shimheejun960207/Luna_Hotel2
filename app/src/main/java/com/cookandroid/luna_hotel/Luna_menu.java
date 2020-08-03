@@ -275,8 +275,41 @@ public class Luna_menu extends AppCompatActivity {
         btn_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01038266515"));
-                startActivity(tt);
+                android.app.AlertDialog.Builder dlg = new android.app.AlertDialog.Builder(Luna_menu.this);
+                dlg.setTitle("지점을 선택해 주세요"); //제목
+                final String[] versionArray = new String[] {"호텔 루나 - 서울 점 010-3826-6515 ","호텔 루나 - 부산 점 010-4993-0654",
+                        "호텔 루나 - 제주 점 010-5480-7429","호텔 루나 - 속초 점 010-4122-9142"};
+
+                dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (which == 0) // 서울점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01038266515"));
+                            startActivity(tt);
+                        }
+                        else if (which == 1) // 부산점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01049930654"));
+                            startActivity(tt);
+                        }
+                        else if (which == 2) // 제주점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 01054807429"));
+                            startActivity(tt);
+                        }
+                        else if (which == 3) // 속초점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01041229142"));
+                            startActivity(tt);
+                        }
+                        else{}
+                    }
+                });
+//                버튼 클릭시 동작
+                dlg.setPositiveButton("취소",null);
+                dlg.show();
             }
         });
         // 시설안내

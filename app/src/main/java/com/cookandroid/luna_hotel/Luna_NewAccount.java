@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Luna_NewAccount extends AppCompatActivity {
 
-    Button btn_join, btn_lunalogo2, btn_back;
+    Button btn_join, btn_lunalogo, btn_back;
     RadioButton Rbtn_agree, Rbtn_nagree;
 
     @Override
@@ -23,7 +23,7 @@ public class Luna_NewAccount extends AppCompatActivity {
         setContentView(R.layout.luna_newaccount);
 
         btn_join = (Button) findViewById(R.id.btn_join);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
         btn_back = (Button) findViewById(R.id.btn_back);
         Rbtn_agree = (RadioButton) findViewById(R.id.Rbtn_agree);
         Rbtn_nagree = (RadioButton) findViewById(R.id.Rbtn_nagree);
@@ -96,7 +96,7 @@ public class Luna_NewAccount extends AppCompatActivity {
 
 
         // 로고를 누르면 홈화면으로 이동하면 코드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
