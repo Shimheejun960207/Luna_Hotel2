@@ -88,46 +88,13 @@
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="65dip"
+            android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
             android:layout_marginLeft="15dip"
-            android:id="@+id/edit_hp1"
+            android:id="@+id/edit_hp"
             android:background="@drawable/edittext_rounded"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginTop="15dip"
-            android:text=" - "
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="65dip"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:id="@+id/edit_hp2"
-            android:background="@drawable/edittext_rounded"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginTop="15dip"
-            android:text=" - "
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/edit_hp3"
-            android:layout_width="65dip"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginTop="15dip"
-            android:background="@drawable/edittext_rounded" />
     </LinearLayout>
 
     <LinearLayout
@@ -150,45 +117,11 @@
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="150dip"
+            android:layout_width="300dip"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
             android:layout_marginLeft="15dip"
-            android:id="@+id/edit_email1"
-            android:background="@drawable/edittext_rounded"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:text=" @ "
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="100dip"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:id="@+id/edit_email2"
-            android:background="@drawable/edittext_rounded"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:text=" . "
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="75dip"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:id="@+id/edit_email3"
+            android:id="@+id/edit_email"
             android:background="@drawable/edittext_rounded"/>
 
     </LinearLayout>

@@ -242,7 +242,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 final String userPW = edit_password.getText().toString();
                 final String userSsn = edit_ssn.getText().toString();
                 final String userGender = edit_gender.getText().toString();
-                final String userHP = (edit_hp1.getText().toString()) + (edit_hp2.getText().toString()) + (edit_hp3.getText().toString());
+                final String userHP = (edit_hp1.getText().toString()) + "-" + (edit_hp2.getText().toString()) + "-" + (edit_hp3.getText().toString());
                 final String userEmail = (edit_email1.getText().toString()) + "@" + (edit_email2.getText().toString()) + "." + (edit_email3.getText().toString());
 
 

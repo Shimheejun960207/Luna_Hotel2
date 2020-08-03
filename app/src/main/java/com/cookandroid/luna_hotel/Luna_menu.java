@@ -82,6 +82,7 @@ public class Luna_menu extends AppCompatActivity {
 
         // 엑티비티가 호출됨과 동시에 조건문으로 전역변수의 값여부를 확인합니다
         if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
+            image_gender.setImageResource(R.drawable.man);  // GUEST 계정이면 남자 사진을 사용합니다.
             btn_new_acoout.setVisibility(View.VISIBLE); // 회원가입 버튼이 보이게함
             text_hi.setVisibility(View.INVISIBLE); // 안녕하세요 문구가 안보이게함
             btn_login_logout.setText("로그인");
@@ -93,7 +94,22 @@ public class Luna_menu extends AppCompatActivity {
                     overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
             });
-        } else {
+        }
+
+        // 로그인 되어있는 상태라면 else 문을 실행
+        else {
+            // 현재 로그인 된 회원의 성별 정보를 가져와서 gender 변수에 넣습니다.
+            String gender = info.getString("userGender", "");
+
+            // 회원의 주민번호 뒷자리 시작이 1 또는 3이면 남자 사진,
+            if(gender.equals("1") || gender.equals("3")) {
+                image_gender.setImageResource(R.drawable.man);
+            }
+            // 1, 3이 아니라면 여자 사진이 적용됩니다.
+            else {
+                image_gender.setImageResource(R.drawable.lady);
+            }
+
             menu_id.setText((info.getString("userName", "")) + "님");
             menu_email.setText(info.getString("userEmail", ""));
             btn_new_acoout.setVisibility(View.INVISIBLE); // 회원가입 버튼이 안보이게함
@@ -110,11 +126,13 @@ public class Luna_menu extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
                             accountToast.show();
+
                             Login_gloval.login_id =null;
                             Login_gloval.login_password=null;
-                            // eatior 이거 뭔지 설명좀
+
                             editor.clear();
                             editor.commit();
+
                             Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
                             startActivity(goMain);
                             finish();

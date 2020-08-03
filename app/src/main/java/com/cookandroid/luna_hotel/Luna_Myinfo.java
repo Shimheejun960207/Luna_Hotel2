@@ -1,6 +1,7 @@
 package com.cookandroid.luna_hotel;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,41 +13,65 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Myinfo extends AppCompatActivity {
 
+    ImageView image_gender;
+    TextView text_uesr_name,text_uesr_id,text_uesr_email,text_uesr_phone;
+    Button btn_back,btn_lunalogo;
+    LinearLayout lay_reser_check,lay_edit_profile,lay_change_password,lay_remove_member;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_myinfo);
 
-        ImageView image_gender;
         image_gender = (ImageView) findViewById(R.id.image_gender);
 
-        TextView text_uesr_name,text_uesr_id,text_uesr_email,text_uesr_phone;
         text_uesr_email = (TextView)findViewById(R.id.text_uesr_email); // 유저의 이메일 담는곳
         text_uesr_id = (TextView)findViewById(R.id.text_uesr_id);     // 유저의 아이디
         text_uesr_phone = (TextView)findViewById(R.id.text_uesr_phone); //유저의 폰번호
         text_uesr_name= (TextView)findViewById(R.id.text_uesr_name);   // 유저의 이름
-
-
-        LinearLayout lay_reser_check,lay_edit_profile,lay_change_password,lay_remove_member;
 
         lay_reser_check = (LinearLayout)findViewById(R.id.lay_reser_check);
         lay_edit_profile = (LinearLayout)findViewById(R.id.lay_edit_profile);
         lay_change_password = (LinearLayout)findViewById(R.id.lay_change_password);
         lay_remove_member = (LinearLayout)findViewById(R.id.lay_remove_member);
 
-
-        Button btn_back,btn_lunalogo;
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_back = (Button)findViewById(R.id.btn_back);
 
 
-        // image_gender 사용설명
-        // 젠더 값  -> 주민번호 뒷자리 1자리 값이 1 or 3이면
-        // image_gender.setImageResource(R.drawable.man); 프로필사진 남자로
+        // 회원 정보를 읽어오기 위한 SharedPreferences 선언
+        SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = info.edit();
 
-        // 젠더 값  -> 주민번호 뒷자리 1자리 값이 2 or 4 이면
-        // image_gender.setImageResource(R.drawable.lady); // 프로필사진 여자로
+        /*
+        image_gender 사용설명
+        젠더 값  -> 주민번호 뒷자리 1자리 값이 1 or 3이면
+        image_gender.setImageResource(R.drawable.man); 프로필사진 남자로
 
+        젠더 값  -> 주민번호 뒷자리 1자리 값이 2 or 4 이면
+        image_gender.setImageResource(R.drawable.lady); // 프로필사진 여자로
+        */
+
+        // 현재 로그인 된 회원의 성별 정보를 가져와서 gender 변수에 넣습니다.
+        String gender = info.getString("userGender", "");
+        String Name = info.getString("userName", "");
+        String ID = info.getString("userID", "");
+        String Email = info.getString("userEmail", "");
+        String HP = info.getString("userHP", "");
+
+        // 회원의 주민번호 뒷자리 시작이 1 또는 3이면 남자 사진,
+        if(gender.equals("1") || gender.equals("3")) {
+            image_gender.setImageResource(R.drawable.man);
+        }
+        // 1, 3이 아니라면 여자 사진이 적용됩니다.
+        else {
+            image_gender.setImageResource(R.drawable.lady);
+        }
+
+        text_uesr_name.setText(Name + "님");   // 회원의 이름을 가져옵니다.
+        text_uesr_id.setText(ID);       // 회원의 아이디 정보를 가져옵니다.
+        text_uesr_email.setText(Email); // 회원의 이메일 정보를 가져옵니다.
+        text_uesr_phone.setText(HP);    // 회원의 전화번호 정보를 가져옵니다.
 
 
         // 비밀번호 변경 이벤트

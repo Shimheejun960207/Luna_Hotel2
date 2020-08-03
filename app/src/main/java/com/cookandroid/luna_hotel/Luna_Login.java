@@ -227,6 +227,8 @@ public class Luna_Login extends AppCompatActivity {
 
     }
 
+
+    // 로그인 직후 회원 정보를 DB에서 가져오는 부분입니다!
     // AsyncTask 클래스 여기다가 구현.
     public class JsonParse extends AsyncTask<String, Void, String> {
         String TAG = "JsonParse";
