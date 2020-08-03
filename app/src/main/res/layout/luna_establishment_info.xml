@@ -21,7 +21,6 @@
             android:id="@+id/btn_back">
         </Button>
 
-
         <Button
             android:layout_width="120dip"
             android:layout_height="70dip"

@@ -173,8 +173,45 @@ public class Luna_Main extends AppCompatActivity {
         lay_hotel_local_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
-                startActivity(intent);
+
+               // Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
+                // startActivity(intent);
+
+                AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Main.this);
+                dlg.setTitle("지점을 선택해 주세요"); //제목
+                final String[] versionArray = new String[] {"호텔 루나 - 서울 점  ","호텔 루나 - 부산 점 ",
+                        "호텔 루나 - 제주 점 ","호텔 루나 - 속초 점 "};
+
+                dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (which == 0) // 서울점
+                        {
+                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Seoul.class);
+                            startActivity(intent);
+                        }
+                        else if (which == 1) // 부산점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01049930654"));
+                            startActivity(tt);
+                        }
+                        else if (which == 2) // 제주점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 01054807429"));
+                            startActivity(tt);
+                        }
+                        else if (which == 3) // 속초점
+                        {
+                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01041229142"));
+                            startActivity(tt);
+                        }
+                        else{}
+                    }
+                });
+//                버튼 클릭시 동작
+                dlg.setPositiveButton("취소",null);
+                dlg.show();
 
             }
         });

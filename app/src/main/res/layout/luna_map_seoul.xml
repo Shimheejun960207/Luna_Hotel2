@@ -6,28 +6,49 @@
     android:orientation="vertical">
     // 상단바 3개 아이콘 들어가는 레이아웃
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#540dcb">
+        android:background="#100c3e">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
-            android:id="@+id/btn_menu"
             android:layout_width="40dip"
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/menu">//메뉴버튼 아이디지정</Button>
+            android:background="@drawable/menu"
+            android:id="@+id/btn_menu">
+        </Button>
 
         <Button
-            android:id="@+id/btn_lunalogo2"
             android:layout_width="120dip"
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo2">//로고버튼 아이디지정</Button>
+            android:background="@drawable/lunalogo"
+            android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#100c3e">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="- 위치 안내 -"/>
 
     </LinearLayout>
 
@@ -36,17 +57,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-        android:id="@+id/map_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:layout_gravity="center"
-        android:layout_marginTop="25dip"
-        android:fontFamily="@font/thechocobbangr"
-        android:text="- 오시는길 -"
-        android:textColor="#540dcb"
-        android:textSize="25sp"
-        android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +64,7 @@
             android:layout_marginLeft="15dip"
             android:layout_marginTop="25dip"
             android:fontFamily="@font/thechocobbangr"
-            android:text="주소 : 경기도 가평군 가평읍 대곡리 산105"
+            android:text="주소 : 서울특별시 서초구 잠원동"
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold" />

@@ -2,11 +2,8 @@ package com.cookandroid.luna_hotel;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,31 +14,26 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
+public class Luna_Map_Seoul extends AppCompatActivity implements OnMapReadyCallback {
    // 지도 변수 선언
     GoogleMap gMap;
     MapFragment mapFrag;
-    TextView map_text;
-    Button btn_lunalogo2, btn_menu;
+    Button btn_lunalogo, btn_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.luna_map);
+        setContentView(R.layout.luna_map_seoul);
 
-        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
 
-        map_text = (TextView)findViewById(R.id.map_text);
 
         // 지도 변수 대입
         mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.googlemap);
         mapFrag.getMapAsync(this);
 
-        // 오시는길에 밑줄 생기는 코드
-        SpannableString content = new SpannableString("- 오시는길 -");
-        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-        map_text.setText(content);
+
 
 
         //메뉴버튼 메소드
@@ -56,7 +48,7 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
         });
 
         // 로고버튼 클릭 메소드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(),Luna_Main.class);
@@ -65,20 +57,19 @@ public class Luna_Map extends AppCompatActivity implements OnMapReadyCallback {
         });
     }
 
-
     // 추상메소드 초기화 - 구글맵 초기값 설정 -
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
         gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.819509,127.521652),17));
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.521451,127.012060),17));
 
         // marker 표시
         // market 의 위치, 타이틀, 짧은설명 추가 가능.
         MarkerOptions marker = new MarkerOptions();
-        marker .position(new LatLng(37.819509, 127.521652))
-                .title("호텔 루나")
-                .snippet("Hotel Luna");
+        marker .position(new LatLng(37.521451, 127.012060))
+                .title("호텔 루나 서울 ")
+                .snippet("Hotel Luna -Seoul-");
         googleMap.addMarker(marker).showInfoWindow();
     }
 }
