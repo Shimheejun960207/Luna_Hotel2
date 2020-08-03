@@ -193,18 +193,18 @@ public class Luna_Main extends AppCompatActivity {
                         }
                         else if (which == 1) // 부산점
                         {
-                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01049930654"));
-                            startActivity(tt);
+                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Busan.class);
+                            startActivity(intent);
                         }
                         else if (which == 2) // 제주점
                         {
-                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 01054807429"));
-                            startActivity(tt);
+                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Jeju.class);
+                            startActivity(intent);
                         }
                         else if (which == 3) // 속초점
                         {
-                            Intent tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01041229142"));
-                            startActivity(tt);
+                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Sokcho.class);
+                            startActivity(intent);
                         }
                         else{}
                     }

@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dip"
             android:layout_marginTop="25dip"
-            android:text="주소 : 서울특별시 서초구 반포3동"
+            android:text="주소 : 부산광역시 해운대구 우1동 628-1"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dip"
             android:layout_marginTop="0dip"
-            android:text="호텔 번호 : 010-3826-6515"
+            android:text="호텔 번호 : 010-4993-0654"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"

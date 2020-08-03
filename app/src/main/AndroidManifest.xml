@@ -71,6 +71,12 @@
         </activity>
         <activity android:name=".Luna_Info_Hotel">
         </activity>
+        <activity android:name=".Luna_Map_Sokcho">
+        </activity>
+        <activity android:name=".Luna_Map_Busan">
+        </activity>
+        <activity android:name=".Luna_Map_Jeju">
+        </activity>
         <activity android:name=".Luna_Map_Seoul">
         </activity>
         <activity android:name=".Luna_Main">

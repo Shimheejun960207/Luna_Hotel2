@@ -14,7 +14,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Luna_Map_Seoul extends AppCompatActivity implements OnMapReadyCallback {
+public class Luna_Map_Busan extends AppCompatActivity implements OnMapReadyCallback {
    // 지도 변수 선언
     GoogleMap gMap;
     MapFragment mapFrag;
@@ -23,7 +23,7 @@ public class Luna_Map_Seoul extends AppCompatActivity implements OnMapReadyCallb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.luna_map_seoul);
+        setContentView(R.layout.luna_map_busan);
 
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
@@ -62,14 +62,14 @@ public class Luna_Map_Seoul extends AppCompatActivity implements OnMapReadyCallb
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
         gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.510690, 127.002029),17));
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.159404,129.158888),17));
 
         // marker 표시
         // market 의 위치, 타이틀, 짧은설명 추가 가능.
         MarkerOptions marker = new MarkerOptions();
-        marker .position(new LatLng(37.510690, 127.002029))
-                .title("호텔 루나 서울 ")
-                .snippet("Hotel Luna -Seoul-");
+        marker .position(new LatLng(35.159404, 129.158888))
+                .title("호텔 루나 부산 ")
+                .snippet("Hotel Luna -Busan-");
         googleMap.addMarker(marker).showInfoWindow();
     }
 }

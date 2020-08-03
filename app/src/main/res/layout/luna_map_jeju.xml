@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dip"
             android:layout_marginTop="25dip"
-            android:text="주소 : 서울특별시 서초구 반포3동"
+            android:text="주소 : 제주특별자치도 서귀포시 천지동 820"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dip"
             android:layout_marginTop="0dip"
-            android:text="호텔 번호 : 010-3826-6515"
+            android:text="호텔 번호 : 010-5480-7429"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
