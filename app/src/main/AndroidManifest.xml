@@ -31,6 +31,10 @@
         <meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity android:name=".Luna_Myinfo">
         </activity>
+        <activity android:name=".Luna_Change_Password">
+        </activity>
+        <activity android:name=".Luna_Edit_Profile">
+        </activity>
         <activity android:name=".Luna_Info_Double">
         </activity>
         <activity android:name=".Luna_Info_Luxury">

@@ -49,6 +49,14 @@
     android:orientation="horizontal"
     android:background="#100c3e">
 
+    <ImageView
+        android:id="@+id/image_gender"
+        android:layout_weight="2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/lady"/>
+
     // 회원이름과 이메일이 들어갈 레이아웃입니다.
     <LinearLayout
         android:layout_marginTop="15dp"

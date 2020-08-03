@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class Luna_menu extends AppCompatActivity {
     TextView menu_id, menu_email, btn_login_logout,btn_new_acoout,text_hi;
     Button btn_back, btn_res_check, btn_setting, btn_room, btn_hotel_info,btn_myinfo,btn_call,
             btn_news,btn_promotion,btn_faq,btn_chat,btn_clause,btn_establishment,btn_hotel_local_info;
+    ImageView image_gender;
 
     // 뷰페이저
     private ViewPager viewPager;
@@ -46,6 +48,7 @@ public class Luna_menu extends AppCompatActivity {
         SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
         final SharedPreferences.Editor editor = info.edit();
 
+        image_gender = (ImageView)findViewById(R.id.image_gender);
         menu_id = (TextView) findViewById(R.id.menu_id);
         menu_email = (TextView) findViewById(R.id.menu_email);
         btn_login_logout = (TextView )findViewById(R.id.btn_login_logout);
@@ -67,6 +70,14 @@ public class Luna_menu extends AppCompatActivity {
         btn_clause = (Button)findViewById(R.id.btn_clause);
         btn_establishment = (Button)findViewById(R.id.btn_establishment);
         btn_hotel_local_info = (Button)findViewById(R.id.btn_hotel_local_info);
+
+
+        // image_gender 사용설명
+        // 젠더 값  -> 주민번호 뒷자리 1자리 값이 1 or 3이면
+        // image_gender.setImageResource(R.drawable.man); 프로필사진 남자로
+
+        // 젠더 값  -> 주민번호 뒷자리 1자리 값이 2 or 4 이면
+        // image_gender.setImageResource(R.drawable.lady); // 프로필사진 여자로
 
 
         // 엑티비티가 호출됨과 동시에 조건문으로 전역변수의 값여부를 확인합니다

@@ -53,7 +53,8 @@ public class Luna_Myinfo extends AppCompatActivity {
         lay_change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Change_Password.class);
+                startActivity(intent);
             }
         });
 
@@ -61,6 +62,8 @@ public class Luna_Myinfo extends AppCompatActivity {
         lay_edit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Luna_Edit_Profile.class);
+                startActivity(intent);
 
             }
         });
@@ -80,6 +83,25 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                 startActivity(intent);
+            }
+        });
+
+        //로고클릭
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
+                startActivity(intent);
+            }
+        });
+
+        // 뒤로가기
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //액티비티 전환 애니메이션 설정하는 부분
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
     }

@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 public class Luna_NewAccount2 extends AppCompatActivity {
 
-    Button btn_join, btn_check, btn_lunalogo2, btn_back;
+    Button btn_join, btn_check, btn_back;
     EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_gender, edit_hp1, edit_hp2, edit_hp3, edit_email1, edit_email2, edit_email3;
     CheckBox checkbox_id;
 
@@ -43,7 +43,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
 
         btn_check = (Button) findViewById(R.id.btn_check);
         btn_join = (Button) findViewById(R.id.btn_join);
-        btn_lunalogo2 = (Button) findViewById(R.id.btn_lunalogo2);
         btn_back = (Button) findViewById(R.id.btn_back);
 
 
@@ -503,13 +502,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         });
 
 
-        // 로고를 누르면 홈화면으로 이동하면 코드
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
 

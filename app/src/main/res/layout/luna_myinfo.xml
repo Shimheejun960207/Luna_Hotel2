@@ -18,8 +18,9 @@
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/btn_back"
-            android:id="@+id/btn_back"> //메뉴버튼 아이디지정
+            android:id="@+id/btn_back">
         </Button>
+
 
         <Button
             android:layout_width="120dip"
@@ -27,7 +28,8 @@
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/lunalogo"
-            android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
+            android:id="@+id/btn_lunalogo"
+            android:layout_marginStart="80dip">
         </Button>
 
     </LinearLayout>
@@ -163,13 +165,6 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_marginLeft="105dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/btn_go"
-            android:layout_marginStart="105dp" />
 
 
 
@@ -226,13 +221,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_marginLeft="70dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/btn_go"
-            android:layout_marginStart="70dp" />
+
 
 
 
@@ -289,13 +278,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_marginLeft="45dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/btn_go"
-            android:layout_marginStart="45dp" />
+
 
 
 
@@ -354,13 +337,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_marginLeft="222dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/btn_go"
-            android:layout_marginStart="222dp" />
+
 
     </LinearLayout>
     // 여기까지
