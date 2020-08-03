@@ -33,7 +33,6 @@
         </Button>
 
     </LinearLayout>
-    // 스크롤 시작하는 레이아웃
 
     <LinearLayout
         android:layout_width="match_parent"
