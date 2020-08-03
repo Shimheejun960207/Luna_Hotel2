@@ -18,8 +18,11 @@ import java.util.TimerTask;
 
 public class Luna_Local_Hotel_Info extends AppCompatActivity {
 
-
     ViewFlipper v_fllipper; //슬라이드 전역변수 선언
+
+    TabHost tabHost1;
+    Button btn_back, btn_lunalogo;
+    Button btn_seoulview1, btn_seoulview2, btn_seoulmap,btn_busanmap,btn_jejumap,btn_sokchomap;
 
 
     @Override
@@ -27,10 +30,7 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_local_hotel_info);
 
-        Button btn_back, btn_lunalogo;
-        Button btn_seoulview1, btn_seoulview2, btn_seoulmap,btn_busanmap,btn_jejumap,btn_sokchomap;
-
-        TabHost tabHost1 = (TabHost) findViewById(R.id.tabHost1);
+        tabHost1 = (TabHost) findViewById(R.id.tabHost1);
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
         btn_seoulview1 = (Button) findViewById(R.id.btn_seoulview1);
