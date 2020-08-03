@@ -201,7 +201,8 @@ public class Luna_menu extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    // 여기에 내정보인텐트 삽입
+                    Intent intent = new Intent(getApplicationContext(), Luna_Myinfo.class);
+                    startActivity(intent);
                 }
             }
         });

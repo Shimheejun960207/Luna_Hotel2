@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class Luna_Member_Remove extends AppCompatActivity {
 
-    Button btn_back, btn_lunalogo2, btn_remove;
+    Button btn_back, btn_lunalogo, btn_remove;
     EditText edit_MR_password;
 
     @Override
@@ -41,7 +41,7 @@ public class Luna_Member_Remove extends AppCompatActivity {
         setContentView(R.layout.luna_member_remove);
 
         btn_back = (Button)findViewById(R.id.btn_back);
-        btn_lunalogo2 = (Button)findViewById(R.id.btn_lunalogo2);
+        btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_remove = (Button)findViewById(R.id.btn_remove);
 
         edit_MR_password = (EditText) findViewById(R.id.edit_MR_password);
@@ -60,7 +60,7 @@ public class Luna_Member_Remove extends AppCompatActivity {
 
 
         // 메인화면으로 가는 로고버튼튼
-        btn_lunalogo2.setOnClickListener(new View.OnClickListener() {
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent Home_Intent = new Intent(getApplicationContext(),Luna_Main.class);
