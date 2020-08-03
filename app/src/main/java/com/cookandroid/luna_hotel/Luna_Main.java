@@ -136,6 +136,8 @@ public class Luna_Main extends AppCompatActivity {
         lay_hotel_local_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
+                startActivity(intent);
 
             }
         });

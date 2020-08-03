@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Setting extends AppCompatActivity {
 
-    Button btn_back,btn_lunalogo,btn_member_remove,btn_cash_remove,btn_rnjsgks,btn_apply;
+    Button btn_back,btn_lunalogo,btn_cash_remove,btn_rnjsgks,btn_apply;
     Switch switch_SMS_adver, switch_SMS_reser;
 
     @Override
@@ -28,7 +28,6 @@ public class Luna_Setting extends AppCompatActivity {
         btn_apply = (Button) findViewById(R.id.btn_apply);
         btn_cash_remove  = (Button) findViewById(R.id.btn_cash_remove);
         btn_lunalogo  = (Button) findViewById(R.id.btn_lunalogo);
-        btn_member_remove  = (Button) findViewById(R.id.btn_member_remove);
         btn_back  = (Button) findViewById(R.id.btn_back);
         btn_rnjsgks  = (Button) findViewById(R.id.btn_rnjsgks);
 
@@ -118,31 +117,6 @@ public class Luna_Setting extends AppCompatActivity {
         });
 
 
-        // 회원 탈퇴 버튼 클릭 이벤트입니다.
-        // 누르면 로그인여부부터 확인해야함.
-        btn_member_remove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Setting.this);
-                    builder.setMessage("로그인이 필요합니다.");
-
-                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
-                            startActivity(intent);
-                        }
-                    });
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                } else {
-                    Intent Intent = new Intent(getApplicationContext(),Luna_Member_Remove.class);
-                    startActivity(Intent);
-                }
-            }
-        });
     }
 
 

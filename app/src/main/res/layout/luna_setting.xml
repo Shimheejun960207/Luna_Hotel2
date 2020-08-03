@@ -80,8 +80,7 @@
             android:text="SMS 광고수신"
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20sp" />
         
         <Switch
             android:layout_width="wrap_content"
@@ -106,8 +105,7 @@
             android:text="SMS 예약정보수신"
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20sp" />
 
         <Switch
             android:layout_width="wrap_content"
@@ -132,10 +130,8 @@
         android:text="기타"
         android:layout_marginTop="10dip"
         android:layout_marginLeft="20dip"
-        android:textColor="#540dcb"
-        android:textSize="20sp"
-        android:fontFamily="@font/thechocobbangr"
-        android:textStyle="bold"/>
+        android:textColor="#100c3e"
+        android:textSize="20sp" />
 
     // 기다 : 권한설정
     <LinearLayout
@@ -149,16 +145,14 @@
             android:text="권한 설정"
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
-            android:textStyle="bold"/>
+            android:textSize="17sp" />
 
         // 권한 설정 버튼인데 영어로 넣으면 오류나서 한글로쳤어요
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00ff0000"
-            android:textColor="#540dcb"
+            android:textColor="#100c3e"
            android:text=">"
             android:textSize="30sp"
             android:layout_marginLeft="250dp"
@@ -180,9 +174,7 @@
             android:text="캐시 삭제"
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
-            android:textStyle="bold"/>
+            android:textSize="17sp" />
 
         // 권한 설정 버튼인데 영어로 넣으면 오류나서 한글로쳤어요
         <Button
@@ -190,53 +182,18 @@
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_noneborder"
-            android:textColor="#540dcb"
-            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#100c3e"
             android:text="삭제"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_marginLeft="250dp"
             android:layout_marginRight="10dp"
-            android:thumbTint="#540dcb"
             android:id="@+id/btn_cash_remove"
             />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="회원 탈퇴"
-            android:layout_marginLeft="20dip"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
-            android:textStyle="bold"/>
-
-        // 권한 설정 버튼인데 영어로 넣으면 오류나서 한글로쳤어요
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_noneborder"
-            android:textColor="#540dcb"
-            android:fontFamily="@font/thechocobbangr"
-            android:text="탈퇴"
-            android:layout_marginRight="10dp"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginLeft="253dp"
-            android:thumbTint="#540dcb"
-            android:id="@+id/btn_member_remove"
-            />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -249,21 +206,17 @@
             android:text="버전 정보"
             android:layout_marginLeft="20dip"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:fontFamily="@font/thechocobbangr"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textSize="17sp"
+            android:layout_marginTop="10dp" />
 
         // 권한 설정 버튼인데 영어로 넣으면 오류나서 한글로쳤어요
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#540dcb"
-            android:fontFamily="@font/thechocobbangr"
+            android:textColor="#100c3e"
             android:layout_marginTop="10dp"
             android:text="버전 V 1.0.0"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_marginLeft="225dp"
 
             />

@@ -252,6 +252,8 @@ public class Luna_menu extends AppCompatActivity {
         btn_hotel_local_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
+                startActivity(intent);
 
             }
         });
@@ -281,7 +283,8 @@ public class Luna_menu extends AppCompatActivity {
         btn_establishment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Establishment_Info.class);
+                startActivity(intent);
             }
         });
         // 이용약관
@@ -295,7 +298,8 @@ public class Luna_menu extends AppCompatActivity {
         btn_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://plus.kakao.com/home/@hotel_luna"));
+                startActivity(i);
             }
         });
         // 공지사항
