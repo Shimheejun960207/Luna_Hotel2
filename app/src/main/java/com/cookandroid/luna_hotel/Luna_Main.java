@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Build;
@@ -27,6 +28,12 @@ import java.util.Date;
 
 public class Luna_Main extends AppCompatActivity {
 
+    Button  btn_lunalogo,btn_menu,btn_setting,btn_reser;
+    TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr;
+    TextView t_date,t_month,t_year,t_checkin,t_checkout;
+    LinearLayout lay_checkin,lay_checkout,lay_reser_check,lay_hotel_info,lay_room_info,lay_chat,lay_call,lay_hotel_local_info;
+    Spinner spn_hotel_name;
+
     private int tnrqkr = 0; // 숙박 몇박 변수
     private  int hotel_number = 0; // 호텔 지점 번호입니다
     private String put_checkin =null; // 예약한 날짜를 보낼 변수
@@ -40,7 +47,6 @@ public class Luna_Main extends AppCompatActivity {
     private  int month_int = 0;
     private  int year_int = 0;
 
-
     private static final String TAG = "Luna_SelectDate";
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -49,16 +55,10 @@ public class Luna_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_main);
 
-
-        Button  btn_lunalogo,btn_menu,btn_setting,btn_reser;
-
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
         btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_reser = (Button)findViewById(R.id.btn_reser);
-
-        final TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr;
-        final TextView t_date,t_month,t_year,t_checkin,t_checkout;
 
         t_checkin = (TextView) findViewById(R.id.t_checkin);
         t_checkout = (TextView) findViewById(R.id.t_checkout);
@@ -71,8 +71,6 @@ public class Luna_Main extends AppCompatActivity {
         text_checkin_yy = (TextView) findViewById(R.id.text_checkin_yy);
         text_tnrqkr = (TextView) findViewById(R.id.text_tnrqkr);
 
-        LinearLayout lay_checkin,lay_checkout,lay_reser_check,lay_hotel_info,lay_room_info,lay_chat,lay_call,lay_hotel_local_info;
-
         lay_call = (LinearLayout)findViewById(R.id.lay_call);
         lay_chat = (LinearLayout)findViewById(R.id.lay_chat);
         lay_checkin = (LinearLayout)findViewById(R.id.lay_checkin);
@@ -82,7 +80,6 @@ public class Luna_Main extends AppCompatActivity {
         lay_hotel_local_info= (LinearLayout)findViewById(R.id.lay_hotel_local_info);
         lay_room_info = (LinearLayout)findViewById(R.id.lay_room_info);
 
-        Spinner spn_hotel_name;
         spn_hotel_name = (Spinner) findViewById(R.id.spn_hotel_name);
 
         // 대화상자 선택 이벤트트
@@ -261,6 +258,7 @@ public class Luna_Main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_menu.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
 

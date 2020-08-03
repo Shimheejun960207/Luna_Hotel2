@@ -1,5 +1,6 @@
 package com.cookandroid.luna_hotel;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Myinfo extends AppCompatActivity {
@@ -124,10 +126,21 @@ public class Luna_Myinfo extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                // 뒤로가기 하면 수정하는 창이 한 번 더 떠서
+                // 뒤로가기 하면 메뉴로 이동되게 했습니다.
+                Intent intent = new Intent(getApplicationContext(), Luna_menu.class);
+                startActivity(intent);
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
+    }
+
+
+    // 단말기 자체 뒤로가기를 누르면 메인 화면으로 이동되게 했습니다.
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
+        startActivity(intent);
     }
 }
