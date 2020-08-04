@@ -37,6 +37,7 @@
             android:layout_marginTop="10dip"
             android:background="@drawable/setting"
             android:id="@+id/btn_setting"
+            android:visibility="invisible"
             />
         //로고버튼 아이디지정
 

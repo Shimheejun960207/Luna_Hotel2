@@ -497,7 +497,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
 

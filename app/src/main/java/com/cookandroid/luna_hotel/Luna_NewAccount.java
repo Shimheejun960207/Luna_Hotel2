@@ -55,7 +55,7 @@ public class Luna_NewAccount extends AppCompatActivity {
                         public void onClick(View view) {
                             Intent Intent = new Intent(getApplicationContext(), Luna_NewAccount2.class);
                             startActivity(Intent);
-                            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+                            overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
                     });
                 }
@@ -91,7 +91,7 @@ public class Luna_NewAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
 
