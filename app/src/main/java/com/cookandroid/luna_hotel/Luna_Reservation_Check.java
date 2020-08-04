@@ -39,12 +39,13 @@ public class Luna_Reservation_Check extends AppCompatActivity {
         // 그리고 나머지 밑에 4개 텍스트뷰 위젯은 보이지 않아야합니다.
         // 안보이는 코드는 ex) edit.setVisibility(View.INVISIBLE); 입니다.
 
-
-        // 뒤로가기 버튼 이벤트
+        //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+                //액티비티 전환 애니메이션 설정하는 부분
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
 
@@ -80,5 +81,13 @@ public class Luna_Reservation_Check extends AppCompatActivity {
                startActivity(Intent);
            }
         });
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }

@@ -68,9 +68,9 @@ public class Luna_Reservation_pay extends AppCompatActivity {
         // 객실 번호 불러온다
         roomNum = intent.getIntExtra("roomNum",0);
 
-        Button  btn_lunalogo,btn_menu,btn_setting, btn_next;
+        Button  btn_lunalogo,btn_back,btn_setting, btn_next;
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
         btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_next = (Button) findViewById(R.id. btn_next);
 
@@ -91,6 +91,26 @@ public class Luna_Reservation_pay extends AppCompatActivity {
         final Spinner spn_card_name,spn_pay_name;
         spn_card_name = (Spinner)findViewById(R.id.spn_card_name);
         spn_pay_name = (Spinner)findViewById(R.id.spn_pay_name);
+
+        //뒤로버튼 클릭 메소드
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //액티비티 전환 애니메이션 설정하는 부분
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+            }
+        });
+
+        // 메인화면으로 가는 로고버튼튼
+        btn_lunalogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Home_Intent = new Intent(getApplicationContext(),Luna_Main.class);
+                startActivity(Home_Intent);
+            }
+        });
+
 
 
         // 날짜 표시하는곳에 텍스트 담기.
@@ -252,5 +272,13 @@ public class Luna_Reservation_pay extends AppCompatActivity {
 
 
 
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }

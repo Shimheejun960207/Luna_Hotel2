@@ -82,7 +82,7 @@ public class Luna_menu extends AppCompatActivity {
 
         // 엑티비티가 호출됨과 동시에 조건문으로 전역변수의 값여부를 확인합니다
         if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
-            image_gender.setImageResource(R.drawable.man);  // GUEST 계정이면 남자 사진을 사용합니다.
+            image_gender.setImageResource(R.drawable.guest);  // GUEST 계정이면 손님 사진을 사용합니다.
             btn_new_acoout.setVisibility(View.VISIBLE); // 회원가입 버튼이 보이게함
             text_hi.setVisibility(View.INVISIBLE); // 안녕하세요 문구가 안보이게함
             btn_login_logout.setText("로그인");
@@ -136,6 +136,7 @@ public class Luna_menu extends AppCompatActivity {
                             Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
                             startActivity(goMain);
                             finish();
+                            overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
                     });
                     builder.setNegativeButton("아니요",null);
@@ -253,6 +254,7 @@ public class Luna_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_Info_Hotel.class);
                 startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -263,6 +265,7 @@ public class Luna_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_Info_Room.class);
                 startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -272,6 +275,7 @@ public class Luna_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
             }
         });
@@ -279,14 +283,18 @@ public class Luna_menu extends AppCompatActivity {
         btn_promotion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Intent = new Intent(getApplicationContext(),Luna_Promotion.class);
+                startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         // FAQ
         btn_faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Intent = new Intent(getApplicationContext(),Luna_FAQ.class);
+                startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         // 전화하기
@@ -336,13 +344,16 @@ public class Luna_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Establishment_Info.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         // 이용약관
         btn_clause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Intent = new Intent(getApplicationContext(),Luna_Clause.class);
+                startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         // 1대1 상담
@@ -357,6 +368,9 @@ public class Luna_menu extends AppCompatActivity {
         btn_news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent Intent = new Intent(getApplicationContext(),Luna_News.class);
+                startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
             }
         });
@@ -366,6 +380,7 @@ public class Luna_menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_NewAccount.class);
                 startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 

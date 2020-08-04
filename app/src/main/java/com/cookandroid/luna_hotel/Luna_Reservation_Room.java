@@ -451,4 +451,12 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             }
         });
     }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
 }

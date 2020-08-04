@@ -50,11 +50,13 @@ public class Luna_Member_Remove extends AppCompatActivity {
         final String RemoveID = Login_gloval.login_id;
 
 
-        // 뒤로가는버튼
+        //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish(); // 창이 종료됩니다.
+                finish();
+                //액티비티 전환 애니메이션 설정하는 부분
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
 
@@ -158,5 +160,13 @@ public class Luna_Member_Remove extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }

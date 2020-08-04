@@ -4,13 +4,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Luna_Establishment_Info extends AppCompatActivity {
+public class Luna_FAQ extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.luna_establishment_info);
-
+        setContentView(R.layout.luna_faq);
 
     }
 
@@ -20,4 +19,5 @@ public class Luna_Establishment_Info extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
+
 }

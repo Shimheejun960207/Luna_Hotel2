@@ -55,7 +55,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:src="@drawable/lady"/>
+        android:src="@drawable/guest"/>
 
     // 회원이름과 이메일이 들어갈 레이아웃입니다.
     <LinearLayout

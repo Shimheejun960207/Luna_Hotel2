@@ -19,8 +19,8 @@
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/menu"
-            android:id="@+id/btn_menu"> //메뉴버튼 아이디지정
+            android:background="@drawable/btn_back"
+            android:id="@+id/btn_back"> //메뉴버튼 아이디지정
         </Button>
 
         <Button

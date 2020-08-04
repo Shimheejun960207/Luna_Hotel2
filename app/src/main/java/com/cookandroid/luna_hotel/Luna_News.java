@@ -4,13 +4,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Luna_Establishment_Info extends AppCompatActivity {
+public class Luna_News extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.luna_establishment_info);
-
+        setContentView(R.layout.luna_news);
 
     }
 

@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Room extends AppCompatActivity {
 
-    Button btn_menu, btn_lunalogo;
+    Button btn_back, btn_lunalogo;
     TextView text_luxury_room,text_single_room,text_double_room,text_family_room;
     TextView text_info_luxury,text_info_single,text_info_double,text_info_family;
 
@@ -37,7 +37,7 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_double = (TextView) findViewById(R.id.text_info_double);
 
 
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
 
@@ -93,12 +93,11 @@ public class Luna_Info_Room extends AppCompatActivity {
 
 
 
-        //메뉴버튼 클릭 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        //뒤로버튼 클릭 메소드
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
+                finish();
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
@@ -113,5 +112,13 @@ public class Luna_Info_Room extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }

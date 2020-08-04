@@ -164,6 +164,7 @@ public class Luna_Main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Hotel.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         // 지점안내
@@ -171,47 +172,12 @@ public class Luna_Main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               // Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
-                // startActivity(intent);
-
-                AlertDialog.Builder dlg = new AlertDialog.Builder(Luna_Main.this);
-                dlg.setTitle("지점을 선택해 주세요"); //제목
-                final String[] versionArray = new String[] {"호텔 루나 - 서울 점  ","호텔 루나 - 부산 점 ",
-                        "호텔 루나 - 제주 점 ","호텔 루나 - 속초 점 "};
-
-                dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        if (which == 0) // 서울점
-                        {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Seoul.class);
-                            startActivity(intent);
-                        }
-                        else if (which == 1) // 부산점
-                        {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Busan.class);
-                            startActivity(intent);
-                        }
-                        else if (which == 2) // 제주점
-                        {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Jeju.class);
-                            startActivity(intent);
-                        }
-                        else if (which == 3) // 속초점
-                        {
-                            Intent intent = new Intent(getApplicationContext(), Luna_Map_Sokcho.class);
-                            startActivity(intent);
-                        }
-                        else{}
-                    }
-                });
-//                버튼 클릭시 동작
-                dlg.setPositiveButton("취소",null);
-                dlg.show();
-
+               Intent intent = new Intent(getApplicationContext(), Luna_Local_Hotel_Info.class);
+                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
+
         // 예약확인
         lay_reser_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,6 +209,7 @@ public class Luna_Main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Room.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -251,6 +218,7 @@ public class Luna_Main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Setting.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
         btn_menu.setOnClickListener(new View.OnClickListener() {
@@ -317,6 +285,7 @@ public class Luna_Main extends AppCompatActivity {
                         intent.putExtra("date_int",date_int); // 일자 정수형 변수다 이변수는 나중에 랜덤한 방 예약을 위한 변수.
 
                         startActivity(intent);
+                        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                     }
 
                 }

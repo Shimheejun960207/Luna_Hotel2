@@ -506,6 +506,14 @@ public class Luna_NewAccount2 extends AppCompatActivity {
     }
 
 
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
+
     // gotoDatabase 함수 구현
     private void gotoDatabase(String userID, String userName, String userPW, String userSsn, String userGender, String userHP, String userEmail) {
 

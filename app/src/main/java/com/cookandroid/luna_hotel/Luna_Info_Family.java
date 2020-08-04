@@ -28,11 +28,11 @@ public class Luna_Info_Family extends AppCompatActivity {
 
         text_info.bringToFront();
 
-        //메뉴버튼 클릭 메소드
+        //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              finish();
+                finish();
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }

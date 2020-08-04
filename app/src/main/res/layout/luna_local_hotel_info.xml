@@ -251,7 +251,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="50dp"
-                                    android:text="서울특별시 중구 을지로 30, 호텔루나 서울 / TEL : +82-2-771-1000 \n Room Reservation TEL : +82-2-759-7311~5"
+                                    android:text="서울특별시 서초구 반포3동, 호텔루나 서울 / TEL : 010-3826-6515 \n Room Reservation TEL : 010-3826-6515"
                                     android:textColor="#000000"
                                     android:textSize="10dp" />
 
@@ -442,7 +442,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="50dp"
-                                    android:text="부산광역시 부산진구 가야대로 772, 호텔루나 부산 / TEL : +82-51-810-1000 \n Room Reservation TEL : +82-51-810-1100"
+                                    android:text="부산광역시 해운대구 우1동 628-1, 호텔루나 부산 / TEL :  010-4993-0654 \n Room Reservation TEL :  010-4993-0654"
                                     android:textColor="#000000"
                                     android:textSize="10dp" />
 
@@ -642,7 +642,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="50dp"
-                                    android:text="제주특별자치도 서귀포시 중문관광로 72번길 35, 호텔루나 제주 / TEL : +82-64-731-1000 \n Room Reservation TEL : 1577-0360"
+                                    android:text="제주특별자치도 서귀포시 천지동 820, 호텔루나 제주 / TEL : 010-5480-7429 \n Room Reservation TEL : 010-5480-7429"
                                     android:textColor="#000000"
                                     android:textSize="10dp" />
 
@@ -835,7 +835,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="50dp"
-                                    android:text="강원도 속초시 대포항길 186, 호텔루나 속초 / TEL : +82-064-731-2000 \n Room Reservation TEL : 1588-4355"
+                                    android:text="강원도 속초시 조양동 1391-12, 호텔루나 속초 / TEL : 010-4122-9142 \n Room Reservation TEL : 010-4122-9142"
                                     android:textColor="#000000"
                                     android:textSize="10dp" />
 

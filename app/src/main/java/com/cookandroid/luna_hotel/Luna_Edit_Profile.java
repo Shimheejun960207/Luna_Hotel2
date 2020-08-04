@@ -213,6 +213,14 @@ public class Luna_Edit_Profile extends AppCompatActivity {
     }
 
 
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
+
     // UpdateData 메소드는 회원 변경 창에서 받은 데이터 값을 서버로 넘기는 메소드 입니다.
     // UpdateData 메소드를 통해 회원의 이름, 전화번호, 이메일 변경 값을 데이터베이스에 전송합니다.
     private void UpdateData(String userName, String userHP, String userEmail, final String userID) {

@@ -18,7 +18,7 @@ public class Luna_Map_Jeju extends AppCompatActivity implements OnMapReadyCallba
    // 지도 변수 선언
     GoogleMap gMap;
     MapFragment mapFrag;
-    Button btn_lunalogo, btn_menu;
+    Button btn_lunalogo, btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Luna_Map_Jeju extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.luna_map_jeju);
 
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
 
 
         // 지도 변수 대입
@@ -35,13 +35,11 @@ public class Luna_Map_Jeju extends AppCompatActivity implements OnMapReadyCallba
 
 
 
-
-        //메뉴버튼 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        //뒤로버튼 클릭 메소드
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
+                finish();
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
@@ -55,6 +53,14 @@ public class Luna_Map_Jeju extends AppCompatActivity implements OnMapReadyCallba
                 startActivity(Home_Intent);
             }
         });
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 
     // 추상메소드 초기화 - 구글맵 초기값 설정 -

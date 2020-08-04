@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Luna_Info_Hotel extends AppCompatActivity {
 
-    Button btn_menu, btn_lunalogo;
+    Button btn_back, btn_lunalogo;
     TextView hotel_info_line1, welcome_line1, vision_line1, misson_line1, luna_hotel_line1;
 
     @Override
@@ -25,7 +25,7 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_info_hotel);
 
-        btn_menu = (Button)findViewById(R.id.btn_menu);
+        btn_back = (Button)findViewById(R.id.btn_back);
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
         hotel_info_line1 = (TextView)findViewById(R.id.Hotel_info_line1);
@@ -41,13 +41,11 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         misson_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Misson" + "</u></font>"));
         luna_hotel_line1.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
 
-
-        //메뉴버튼 클릭 메소드
-        btn_menu.setOnClickListener(new View.OnClickListener() {
+        //뒤로버튼 클릭 메소드
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getApplicationContext(),Luna_menu.class);
-                startActivity(Intent);
+                finish();
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
@@ -61,6 +59,14 @@ public class Luna_Info_Hotel extends AppCompatActivity {
                 startActivity(Home_Intent);
             }
         });
+    }
+
+
+    // 취소버튼 누를때 생기는 애니메이션
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 }
 

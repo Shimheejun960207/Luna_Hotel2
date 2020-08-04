@@ -28,7 +28,7 @@ public class Luna_Info_Single extends AppCompatActivity {
 
         text_info.bringToFront();
 
-        //메뉴버튼 클릭 메소드
+        //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

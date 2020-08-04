@@ -166,6 +166,7 @@ public class Luna_Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(), Luna_Account_Search.class);
                 startActivity(Intent);
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
 
         });
@@ -177,6 +178,7 @@ public class Luna_Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent Setting_Intent = new Intent(getApplicationContext(),Luna_NewAccount.class);
                 startActivity(Setting_Intent);
+                overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
 
         });

@@ -47,6 +47,7 @@ public class Luna_Subscription extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent Home_Intent = new Intent(getApplicationContext(), Luna_Login.class);
                 startActivity(Home_Intent);
+                    overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
         dlg.setNegativeButton("취소",null);

@@ -28,7 +28,7 @@ public class Luna_Info_Double extends AppCompatActivity {
 
         text_info.bringToFront();
 
-        //메뉴버튼 클릭 메소드
+        //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,6 @@ public class Luna_Info_Double extends AppCompatActivity {
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             }
         });
-
 
         // 로고를 누르면 홈화면으로 이동하면 코드
         btn_lunalogo.setOnClickListener(new View.OnClickListener() {

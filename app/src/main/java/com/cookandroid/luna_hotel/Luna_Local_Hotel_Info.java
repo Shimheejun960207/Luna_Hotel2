@@ -64,7 +64,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         btn_seoulmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Map_Seoul.class);
+                startActivity(intent);
             }
         });
 
@@ -91,7 +92,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         btn_busanmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Map_Busan.class);
+                startActivity(intent);
             }
         });
 
@@ -118,7 +120,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         btn_jejumap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Map_Jeju.class);
+                startActivity(intent);
             }
         });
 
@@ -145,7 +148,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         btn_sokchomap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Luna_Map_Sokcho.class);
+                startActivity(intent);
             }
         });
 

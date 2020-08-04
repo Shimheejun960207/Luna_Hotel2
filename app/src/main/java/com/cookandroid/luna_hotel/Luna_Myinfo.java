@@ -82,6 +82,7 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Change_Password.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -91,6 +92,7 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Edit_Profile.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
             }
         });
@@ -101,6 +103,7 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Member_Remove.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -110,6 +113,7 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -138,6 +142,7 @@ public class Luna_Myinfo extends AppCompatActivity {
 
 
     // 단말기 자체 뒤로가기를 누르면 메인 화면으로 이동되게 했습니다.
+    // 이유는?
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
