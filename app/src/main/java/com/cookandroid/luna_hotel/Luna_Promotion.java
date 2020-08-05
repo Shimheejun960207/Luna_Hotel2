@@ -41,7 +41,9 @@ public class Luna_Promotion extends AppCompatActivity {
         btn_copy2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Copy2.class);
+                startActivity(Home_Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -49,7 +51,9 @@ public class Luna_Promotion extends AppCompatActivity {
         btn_copy3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Copy3.class);
+                startActivity(Home_Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 
@@ -57,7 +61,9 @@ public class Luna_Promotion extends AppCompatActivity {
         btn_copy4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Copy4.class);
+                startActivity(Home_Intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
 

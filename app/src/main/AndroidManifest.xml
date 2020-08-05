@@ -31,6 +31,12 @@
         <meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity android:name=".Luna_Myinfo">
         </activity>
+        <activity android:name=".Luna_Copy4">
+        </activity>
+        <activity android:name=".Luna_Copy3">
+        </activity>
+        <activity android:name=".Luna_Copy2">
+        </activity>
         <activity android:name=".Luna_Copy1">
         </activity>
         <activity android:name=".Luna_FAQ">

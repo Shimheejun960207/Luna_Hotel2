@@ -64,14 +64,14 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="235dp"
-                android:src="@drawable/copy1"/>
+                android:src="@drawable/copy2"/>
 
             <TextView
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="삼성페이 제휴 EVENT"
+                android:text="호텔루나 - 부산 -  Grand Open!"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="#000000"
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2020.06.10 ~ 2020.12.31"
+                android:text="2020.08.02 ~ 2020.12.31"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginStart="20dp" />
@@ -95,8 +95,8 @@
             <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/copy1_2"
+                android:layout_height="200dp"
+                android:src="@drawable/h_busan1"
                 />
 
             <TextView
@@ -104,7 +104,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="예약도 간편하게, 삼성페이로 한 번에"
+                android:text="해운대의 아름다운 뷰를 루나에서!"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:textColor="#000000" />
@@ -115,7 +115,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="온라인, 오프라인 간편한 결제는 기본, \n 호텔 루나도 삼성페이로 이용하세요!"
+                android:text="호텔 루나 부산점이 20년 8월 2일 \n 새롭게 여러분을 찾아갑니다."
                 android:textSize="15sp"
                 android:textColor="#000000" />
 
@@ -123,7 +123,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/copy1_1"
+                android:src="@drawable/h_busan2"
                 />
 
             <TextView
@@ -132,7 +132,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="호텔루나와 삼성페이의 제휴로 \n 예약시 10% 할인된 가격이 적용됩니다.\n 지금바로 예약하세요!"
+                android:text="오픈 기념  행사와 다양한 이벤트가 준비되어 있으니\n 많은 관심 부탁드립니다."
                 android:textSize="15sp"
                 android:textColor="#000000" />
 

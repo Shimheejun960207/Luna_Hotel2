@@ -64,14 +64,14 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="235dp"
-                android:src="@drawable/copy1"/>
+                android:src="@drawable/copy4"/>
 
             <TextView
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="삼성페이 제휴 EVENT"
+                android:text="2020년 시즌 전 지점 와인바 무료제공 서비스"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="#000000"
@@ -95,8 +95,8 @@
             <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/copy1_2"
+                android:layout_height="235dp"
+                android:src="@drawable/copy4_1"
                 />
 
             <TextView
@@ -104,7 +104,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="예약도 간편하게, 삼성페이로 한 번에"
+                android:text="2020년 최고의 순간을 호텔 루나에서"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:textColor="#000000" />
@@ -115,15 +115,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="온라인, 오프라인 간편한 결제는 기본, \n 호텔 루나도 삼성페이로 이용하세요!"
+                android:text="2020년 코로나19로 힘든 고객분들을 위해\n 모든 지점 루프탑 와인바 서비스를 \n 무료 제공합니다."
                 android:textSize="15sp"
                 android:textColor="#000000" />
 
             <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/copy1_1"
+                android:layout_height="280dp"
+                android:src="@drawable/copy4_2"
                 />
 
             <TextView
@@ -132,7 +132,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="호텔루나와 삼성페이의 제휴로 \n 예약시 10% 할인된 가격이 적용됩니다.\n 지금바로 예약하세요!"
+                android:text=" 호텔 루나와 함께 2020년 최고의 하루를 만드세요 \n 최고의 서비스로 보답하겠습니다!"
                 android:textSize="15sp"
                 android:textColor="#000000" />
 

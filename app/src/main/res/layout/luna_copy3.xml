@@ -64,14 +64,14 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="235dp"
-                android:src="@drawable/copy1"/>
+                android:src="@drawable/copy3"/>
 
             <TextView
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="삼성페이 제휴 EVENT"
+                android:text="호텔 델루나 아이유 x 여진구 초청공연"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="#000000"
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2020.06.10 ~ 2020.12.31"
+                android:text="2020.09.14 ~ 2020.11.31"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginStart="20dp" />
@@ -95,19 +95,10 @@
             <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/copy1_2"
+                android:layout_height="220dp"
+                android:src="@drawable/copy3_1"
                 />
 
-            <TextView
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="예약도 간편하게, 삼성페이로 한 번에"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:textColor="#000000" />
 
             <TextView
                 android:textAlignment="center"
@@ -115,7 +106,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="온라인, 오프라인 간편한 결제는 기본, \n 호텔 루나도 삼성페이로 이용하세요!"
+                android:text="2020년 최고의 드라마!\n 호텔델루나의 주인공 아이유와 여진구가 호텔루나로 찾아옵니다!"
                 android:textSize="15sp"
                 android:textColor="#000000" />
 
@@ -123,7 +114,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/copy1_1"
+                android:src="@drawable/copy3_2"
                 />
 
             <TextView
@@ -132,9 +123,27 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="호텔루나와 삼성페이의 제휴로 \n 예약시 10% 할인된 가격이 적용됩니다.\n 지금바로 예약하세요!"
+                android:text="2020년 9월 14일 서울점 에서 첫 행사를 진행하며\n  다른 지점들도 방문 예정에 있습니다."
                 android:textSize="15sp"
                 android:textColor="#000000" />
+
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/copy3_3"
+                />
+
+            <TextView
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이유와 여진구의 특급 공연 놓치지마세요!"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+
 
 
 
