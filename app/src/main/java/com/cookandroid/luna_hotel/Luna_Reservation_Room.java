@@ -19,6 +19,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
     RadioButton Rbtn_single, Rbtn_luxury,Rbtn_double,Rbtn_family;
     TextView text_info_luxury,text_info_double,text_info_single,text_info_family;
     TextView  text_soldout1,text_soldout2,text_soldout3,text_soldout4;
+    TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr,text_hotel_name;
 
 
     // 예약하기 중요 변수들
@@ -56,8 +57,6 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         Rbtn_luxury = (RadioButton) findViewById(R.id.Rbtn_luxury);
         Rbtn_double = (RadioButton) findViewById(R.id.Rbtn_double);
         Rbtn_family = (RadioButton)findViewById(R.id.Rbtn_family);
-
-        final TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr,text_hotel_name;
 
         // 예약했던 데이터를 불러옵니다.
         Intent intent = getIntent();

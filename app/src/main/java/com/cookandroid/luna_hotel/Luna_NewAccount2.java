@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -28,11 +31,16 @@ import java.util.regex.Pattern;
 public class Luna_NewAccount2 extends AppCompatActivity {
 
     Button btn_join, btn_check, btn_back;
-    EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_gender, edit_hp1, edit_hp2, edit_hp3, edit_email1, edit_email2, edit_email3;
+    EditText edit_id, edit_name, edit_password, edit_passwordcheck, edit_ssn, edit_hp2, edit_hp3, edit_email1;
+    Spinner spinner_gender, spinner_hp1, spinner_email2;
     CheckBox checkbox_id;
 
     // 회원가입 시 뜨는 알림 창을 사용하기 위한 AlertDialog
     AlertDialog dialog;
+
+    String hp1 = null;
+    String gender = null;
+    String email2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +59,12 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         edit_password = (EditText) findViewById(R.id.edit_password);
         edit_passwordcheck = (EditText) findViewById(R.id.edit_passwordcheck);
         edit_ssn = (EditText) findViewById(R.id.edit_ssn);
-        edit_gender = (EditText) findViewById(R.id.edit_gender);
-        edit_hp1 = (EditText) findViewById(R.id.edit_hp1);
+        spinner_gender = (Spinner) findViewById(R.id.spinner_gender);
+        spinner_hp1 = (Spinner) findViewById(R.id.spinner_hp1);
         edit_hp2 = (EditText) findViewById(R.id.edit_hp2);
         edit_hp3 = (EditText) findViewById(R.id.edit_hp3);
         edit_email1 = (EditText) findViewById(R.id.edit_email1);
-        edit_email2 = (EditText) findViewById(R.id.edit_email2);
-        edit_email3 = (EditText) findViewById(R.id.edit_email3);
-
+        spinner_email2 = (Spinner) findViewById(R.id.spinner_email2);
 
         //영문과 숫쟈 허용
         InputFilter filter = new InputFilter() {
@@ -113,20 +119,76 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         edit_password.setFilters(filters);
         edit_ssn.setFilters(new InputFilter[]{filter});
         edit_ssn.setFilters(filters2);
-        edit_gender.setFilters(new InputFilter[]{filter});
-        edit_gender.setFilters(filters3);
-        edit_hp1.setFilters(new InputFilter[]{filter});
-        edit_hp1.setFilters(filters4);
         edit_hp2.setFilters(new InputFilter[]{filter});
         edit_hp2.setFilters(filters5);
         edit_hp3.setFilters(new InputFilter[]{filter});
         edit_hp3.setFilters(filters5);
         edit_email1.setFilters(new InputFilter[]{filter});
         edit_email1.setFilters(filters);
-        edit_email2.setFilters(new InputFilter[]{filter});
-        edit_email2.setFilters(filters2);
-        edit_email3.setFilters(new InputFilter[]{filter});
-        edit_email3.setFilters(filters5);
+
+
+        // 성별 선택 스피너
+        spinner_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 1) { // 1
+                    gender = "1";
+                } else if (position == 2){ // 2
+                    gender = "2";
+                }else if (position == 3) { // 3
+                    gender = "3";
+                }else if (position == 4) { // 4
+                    gender = "4";
+                }else { // 아무것도 선택하지 않음 > -
+                    gender = "-";
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        // 핸드폰 번호 앞 자리 선택 스피너
+        spinner_hp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 1) { // 011
+                    hp1 = "010";
+                } else if (position == 2){ // 016
+                    hp1 = "011";
+                }else if (position == 3) { // 017
+                    hp1 = "016";
+                }else if (position == 4) { // 017
+                    hp1 = "017";
+                }else { // 아무것도 선택하지 않음 > ---
+                    hp1 = "---";
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        // 이메일 선택 스피너
+        spinner_email2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 1) { // 네이버
+                    email2 = "naver.com";
+                } else if (position == 2){ // 구글
+                    email2 = "gmail.com";
+                }else if (position == 3) { // 다음
+                    email2 = "daum.net";
+                }else if (position == 4) { // 네이트트
+                   email2 = "nate.com";
+                }else { // 아무것도 선택하지 않음 > ---------
+                    email2 = "---------";
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
         //중복확인 클릭시 실행되는 코드
@@ -216,12 +278,9 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 // 단순 이메일 영어입력 확인에만 사용하기 때문에 분류 해 두었습니다.
                 // 데이터베이스로 전송하는 값이 아님!!! 단순 가입하기 진행 시 조건에만 사용
                 String userEmail1 = edit_email1.getText().toString();
-                String userEmail2 = edit_email2.getText().toString();
-                String userEmail3 = edit_email3.getText().toString();
 
                 // 단순 전화번호 글자 수 제한에만 사용하기 때문에 분류 해 두었습니다.
                 // 데이터베이스로 전송하는 값이 아님!!! 단순 가입하기 진행 시 조건에만 사용
-                String userHP1 = edit_hp1.getText().toString();
                 String userHP2 = edit_hp2.getText().toString();
                 String userHP3 = edit_hp3.getText().toString();
 
@@ -241,9 +300,9 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 final String userName = edit_name.getText().toString();
                 final String userPW = edit_password.getText().toString();
                 final String userSsn = edit_ssn.getText().toString();
-                final String userGender = edit_gender.getText().toString();
-                final String userHP = (edit_hp1.getText().toString()) + "-" + (edit_hp2.getText().toString()) + "-" + (edit_hp3.getText().toString());
-                final String userEmail = (edit_email1.getText().toString()) + "@" + (edit_email2.getText().toString()) + "." + (edit_email3.getText().toString());
+                final String userGender = gender;
+                final String userHP = (hp1) + "-" + (edit_hp2.getText().toString()) + "-" + (edit_hp3.getText().toString());
+                final String userEmail = (edit_email1.getText().toString()) + "@" + email2;
 
 
                 // 다음은 가입하기 클릭시 실행되는 조건에 대한 코드입니다.
@@ -287,30 +346,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     dialog = builder.setMessage("주민번호를 입력해 주세요.").setPositiveButton("확인", null).create();
                     dialog.show();
                     edit_ssn.requestFocus();
-                    return;
-                }
-
-                if(userGender.equals("")) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("주민번호를 입력해 주세요.").setPositiveButton("확인", null).create();
-                    dialog.show();
-                    edit_gender.requestFocus();
-                    return;
-                }
-
-                if(userHP.equals("")) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("핸드폰 번호를 입력해 주세요.").setPositiveButton("확인", null).create();
-                    dialog.show();
-                    edit_hp1.requestFocus();
-                    return;
-                }
-
-                if(userEmail.equals("")) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("이메일 주소를 입력해 주세요.").setPositiveButton("확인", null).create();
-                    dialog.show();
-                    edit_email1.requestFocus();
                     return;
                 }
 
@@ -369,29 +404,21 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     return;
                 }
 
-                if(!(userGender.equals("1") || userGender.equals("2") || userGender.equals("3") || userGender.equals("4"))) {
+                if(gender.equals("-")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("주민번호 뒷 자리 시작은 1,2,3,4만 가능합니다.").setPositiveButton("확인", null).create();
+                    dialog = builder.setMessage("주민번호 뒷 자리를 선택해 주세요.").setPositiveButton("확인", null).create();
                     dialog.show();
-                    edit_gender.requestFocus();
+                    spinner_gender.requestFocus();
                     return;
                 }
 
 
                 // 6번. 핸드폰번호는 앞 3자리 중간 4자리 마지막 4자리를 입력했는가? : 글자 수 제한
-                if(!(userHP1.length() == 3)) {
+                if(hp1.equals("---")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("핸드폰 번호 앞 자리는 3글자만 가능합니다.").setPositiveButton("확인", null).create();
+                    dialog = builder.setMessage("핸드폰 앞 자리를 선택해 주세요.").setPositiveButton("확인", null).create();
                     dialog.show();
-                    edit_hp1.requestFocus();
-                    return;
-                }
-
-                if(!patternHP.matcher(userHP1).matches()) {    // 이건 핸드폰 번호 숫자만 가능하게
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("핸드폰 번호는 숫자만 가능합니다.").setPositiveButton("확인", null).create();
-                    dialog.show();
-                    edit_hp1.requestFocus();
+                    spinner_hp1.requestFocus();
                     return;
                 }
 
@@ -437,19 +464,11 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     return;
                 }
 
-                if(!patternEmail.matcher(userEmail2).matches()) {
+                if(email2.equals("---------")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("이메일은 영어 소문자 + 숫자만 가능합니다.").setPositiveButton("확인", null).create();
+                    dialog = builder.setMessage("이메일을 지정해 주세요.").setPositiveButton("확인", null).create();
                     dialog.show();
-                    edit_email2.requestFocus();
-                    return;
-                }
-
-                if(!patternEmail.matcher(userEmail3).matches()) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("이메일은 영어 소문자 + 숫자만 가능합니다.").setPositiveButton("확인", null).create();
-                    dialog.show();
-                    edit_email3.requestFocus();
+                    spinner_email2.requestFocus();
                     return;
                 }
 

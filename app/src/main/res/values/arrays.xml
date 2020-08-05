@@ -26,7 +26,28 @@
         <item>▼ 신용카드 </item>
     </string-array>
 
+    <string-array name="email_name">
+        <item> --------- </item>
+        <item> naver.com </item>
+        <item> gmail.com </item>
+        <item> daum.net </item>
+        <item> nate.com </item>
+    </string-array>
 
+    <string-array name="phone_name">
+        <item> --- </item>
+        <item> 010 </item>
+        <item> 011 </item>
+        <item> 016 </item>
+        <item> 017 </item>
+    </string-array>
 
+    <string-array name="gender_name">
+        <item> - </item>
+        <item> 1 </item>
+        <item> 2 </item>
+        <item> 3 </item>
+        <item> 4 </item>
+    </string-array>
 
 </resources>

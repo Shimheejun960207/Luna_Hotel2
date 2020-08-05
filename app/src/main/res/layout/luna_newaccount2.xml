@@ -175,7 +175,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
@@ -200,12 +200,14 @@
             android:text=" - "
             android:textSize="20dp"
             android:textStyle="bold"/>
-        <EditText
-            android:layout_width="25dip"
+        <Spinner
+            android:id="@+id/spinner_gender"
             android:layout_marginTop="10dip"
-            android:layout_height="wrap_content"
-            android:id="@+id/edit_gender"
-            android:background="@drawable/edittext_rounded"/>
+            android:layout_marginLeft="1dip"
+            android:background="@android:drawable/editbox_background"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:entries="@array/gender_name" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -230,16 +232,18 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="65dip"
-            android:layout_height="wrap_content"
+        <Spinner
+            android:id="@+id/spinner_hp1"
             android:layout_marginTop="15dip"
             android:layout_marginLeft="15dip"
-            android:id="@+id/edit_hp1"
-            android:background="@drawable/edittext_rounded"/>
+            android:background="@android:drawable/editbox_background"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:entries="@array/phone_name"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -291,7 +295,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
         <EditText
@@ -311,30 +315,15 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
 
-        <EditText
-            android:layout_width="100dip"
-            android:layout_height="wrap_content"
+        <Spinner
+            android:id="@+id/spinner_email2"
             android:layout_marginTop="15dip"
             android:layout_marginLeft="5dip"
-            android:id="@+id/edit_email2"
-            android:background="@drawable/edittext_rounded"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:text=" . "
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="60dip"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:layout_marginLeft="5dip"
-            android:id="@+id/edit_email3"
-            android:background="@drawable/edittext_rounded"/>
+            android:background="@android:drawable/editbox_background"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+            android:entries="@array/email_name"
+            />
 
     </LinearLayout>
     <LinearLayout
