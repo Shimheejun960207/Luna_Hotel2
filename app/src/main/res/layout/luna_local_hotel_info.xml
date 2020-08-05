@@ -311,7 +311,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="스파, 투숙객 전용 가든 테라스 등 다채로운 부대시설이 시그니엘의"
+                                    android:text="스파, 투숙객 전용 가든 테라스 등 다채로운 부대시설이 시그니엘의 품격과 어우러져"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 
