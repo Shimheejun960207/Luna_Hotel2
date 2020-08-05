@@ -79,7 +79,7 @@
             android:textSize="15sp"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:text="호텔 루나의 예약 서비스를 더 이상 이용하실 수 없게됩니다."/>
+            android:text="호텔 루나의  서비스를 더 이상 이용하실 수 없게됩니다."/>
 
         <TextView
             android:layout_marginTop="25dp"
