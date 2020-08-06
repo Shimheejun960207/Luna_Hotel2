@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.w3c.dom.Text;
 
 public class Luna_Info_Double extends AppCompatActivity {
-
+private int hotel_number = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +26,54 @@ public class Luna_Info_Double extends AppCompatActivity {
         text_info = (TextView) findViewById(R.id.text_info);
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
-
         text_info.bringToFront();
+
+        ImageView image_room_01,image_room_02,image_room_03,image_nightview, image_spa;
+        image_room_01 = (ImageView) findViewById(R.id.image_room_01);
+        image_room_02 = (ImageView) findViewById(R.id.image_room_02);
+        image_room_03 = (ImageView) findViewById(R.id.image_room_03);
+        image_spa= (ImageView) findViewById(R.id.image_spa);
+        image_nightview = (ImageView) findViewById(R.id.image_nightview);
+
+
+
+
+
+        // 이전 페이지에서 받아온 호텔변수를 받는다
+        Intent intent = getIntent();
+        hotel_number = intent.getIntExtra("hotel_number",0);
+
+        if (hotel_number == 1 ) // 서울 지점이면 이미지 변경
+        {
+            image_room_01.setImageResource(R.drawable.r_seoul_3d_1);
+            image_room_02.setImageResource(R.drawable.r_seoul_3d_2);
+            image_room_03.setImageResource(R.drawable.r_seoul_3d_3);
+
+        }
+        else if (hotel_number == 2) // 부산
+        {
+            image_room_01.setImageResource(R.drawable.r_busan_3d_1);
+            image_room_02.setImageResource(R.drawable.r_busan_3d_2);
+            image_room_03.setImageResource(R.drawable.r_busan_3d_3);
+            image_nightview.setImageResource(R.drawable.busan_loop);
+            image_spa.setImageResource(R.drawable.busan_spa);
+        }
+        else if (hotel_number == 3) // 제주
+        {
+            image_room_01.setImageResource(R.drawable.r_jeju_3d_1);
+            image_room_02.setImageResource(R.drawable.r_jeju_3d_2);
+            image_room_03.setImageResource(R.drawable.r_jeju_3d_3);
+            image_nightview.setImageResource(R.drawable.jeju_loop);
+            image_spa.setImageResource(R.drawable.jeju_spa);
+        }
+        else  // 속초
+        {
+            image_room_01.setImageResource(R.drawable.r_sokcho_3d_1);
+            image_room_02.setImageResource(R.drawable.r_sokcho_3d_2);
+            image_room_03.setImageResource(R.drawable.r_sokcho_3d_3);
+            image_nightview.setImageResource(R.drawable.sokcho_loop);
+            image_spa.setImageResource(R.drawable.sokcho_spa);
+        }
 
         //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {

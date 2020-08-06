@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
     TextView text_info_luxury,text_info_double,text_info_single,text_info_family;
     TextView  text_soldout1,text_soldout2,text_soldout3,text_soldout4;
     TextView text_checkin_mmdd,text_checkin_yy,text_checkout_mmdd,text_checkout_yy,text_tnrqkr,text_hotel_name;
+    ImageView image_single, image_double, image_family, image_luxury;
 
 
     // 예약하기 중요 변수들
@@ -57,6 +59,10 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         Rbtn_luxury = (RadioButton) findViewById(R.id.Rbtn_luxury);
         Rbtn_double = (RadioButton) findViewById(R.id.Rbtn_double);
         Rbtn_family = (RadioButton)findViewById(R.id.Rbtn_family);
+        image_single = (ImageView)findViewById(R.id.image_single);
+        image_double = (ImageView)findViewById(R.id.image_double);
+        image_luxury = (ImageView)findViewById(R.id.image_luxury);
+        image_family = (ImageView)findViewById(R.id.image_family);
 
         // 예약했던 데이터를 불러옵니다.
         Intent intent = getIntent();
@@ -89,27 +95,44 @@ public class Luna_Reservation_Room extends AppCompatActivity {
         text_tnrqkr.setText(tnrqkr + "박");
 
         // 호텔번호를 체크해서 호텔이름을 부여한다
+        // 지점마다 다른 사진이 나오게한다
         if (hotel_number == 1) // 서울
         {
             hotel_name = "호텔 루나 서울";
+
+            image_single.setImageResource(R.drawable.r_seoul_4s_1);
+            image_double.setImageResource(R.drawable.r_seoul_3d_1);
+            image_family.setImageResource(R.drawable.r_seoul_2f_1);
+            image_luxury.setImageResource(R.drawable.r_seoul_1l_1);
 
             text_hotel_name.setText("- " +  hotel_name + " -");
         }
         else if (hotel_number == 2) // 부산
         {
             hotel_name = "호텔 루나 부산";
+            image_single.setImageResource(R.drawable.r_busan_4s_1);
+            image_double.setImageResource(R.drawable.r_busan_3d_1);
+            image_family.setImageResource(R.drawable.r_busan_2f_1);
+            image_luxury.setImageResource(R.drawable.r_busan_1l_1);
 
             text_hotel_name.setText("- " +  hotel_name + " -");
         }
         else if (hotel_number == 3) // 제주
         {
             hotel_name = "호텔 루나 제주";
-
+            image_single.setImageResource(R.drawable.r_jeju_4s_1);
+            image_double.setImageResource(R.drawable.r_jeju_3d_1);
+            image_family.setImageResource(R.drawable.r_jeju_2f_1);
+            image_luxury.setImageResource(R.drawable.r_jeju_1l_1);
             text_hotel_name.setText("- " +  hotel_name + " -");
         }
         else  // 속초
         {
             hotel_name = "호텔 루나 속초";
+            image_single.setImageResource(R.drawable.r_sokcho_4s_1);
+            image_double.setImageResource(R.drawable.r_sokcho_3d_1);
+            image_family.setImageResource(R.drawable.r_sokcho_2f_1);
+            image_luxury.setImageResource(R.drawable.r_sokcho_1l_1);
 
             text_hotel_name.setText("- " +  hotel_name + " -");
         }
@@ -232,6 +255,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Luxury.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -242,6 +266,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Family.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
@@ -254,6 +279,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -264,6 +290,7 @@ public class Luna_Reservation_Room extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Double.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 

@@ -43,6 +43,8 @@ public class Luna_Info_Room extends AppCompatActivity {
     ViewFlipper v_fllipper_familyroom; //패밀리룸
     ViewFlipper v_fllipper_doubleroom; //더블룸
 
+    private int hotel_number = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,10 +139,14 @@ public class Luna_Info_Room extends AppCompatActivity {
             fllipperImages_luxuryroom(image_luxuryroom);
         }
         // 럭셔리룸 자세히 보기 이벤트
+        // 페이지가 이동되면서 호텔넘어도 같이 넘긴다.
+        // 이 변수는 지점의 방마다 자바클래스랑 xml을 만들지않고 1개의 페이지에 지점4개의 방을 모두 표현할수 있다.
         text_info_luxury_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 1;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Luxury.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -162,9 +168,12 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_family_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 1;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Family.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+
             }
         });
 
@@ -183,7 +192,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_double_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 1;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Double.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -194,7 +205,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_single_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 1;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -223,7 +236,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_luxury_busan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 2;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Luxury.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -245,7 +260,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_family_busan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 2;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Family.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
@@ -266,7 +283,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_double_busan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 2;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Double.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -277,7 +296,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_single_busan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               hotel_number = 2;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -305,7 +326,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_luxury_jeju.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 3;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Luxury.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -327,7 +350,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_family_jeju.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 3;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Family.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
@@ -348,7 +373,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_double_jeju.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 3;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Double.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -359,7 +386,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_single_jeju.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 3;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -387,7 +416,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_luxury_sokcho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                 hotel_number = 4;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Luxury.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -409,7 +440,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_family_sokcho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Luna_Info_Family.class);
+                 hotel_number = 4;
+                Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
@@ -421,7 +454,7 @@ public class Luna_Info_Room extends AppCompatActivity {
                 R.drawable.r_sokcho_3d_2,
                 R.drawable.r_sokcho_3d_3
         };
-        //더블룸 슬라이드 이미지 연결 코드(소초)
+        //더블룸 슬라이드 이미지 연결 코드(속초)
         v_fllipper_doubleroom = findViewById(R.id.doubleroom_sokcho);
         for (int image : doubleroom_sokcho) {
             fllipperImages_doubleroom(image);
@@ -430,7 +463,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_double_sokcho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hotel_number = 4;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Double.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
@@ -441,7 +476,9 @@ public class Luna_Info_Room extends AppCompatActivity {
         text_info_single_sokcho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               hotel_number = 4;
                 Intent intent = new Intent(getApplicationContext(), Luna_Info_Single.class);
+                intent.putExtra("hotel_number",hotel_number);
                 startActivity(intent);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
