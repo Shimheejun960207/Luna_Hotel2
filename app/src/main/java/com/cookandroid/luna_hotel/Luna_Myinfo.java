@@ -143,6 +143,7 @@ public class Luna_Myinfo extends AppCompatActivity {
 
     // 단말기 자체 뒤로가기를 누르면 메인 화면으로 이동되게 했습니다.
     // 이유는?
+    // 이유 : 뒤로가기를 하면 갱신 된 정보가 아닌 이전 정보가 자꾸 출력되서 그렇게 했어유
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), Luna_Main.class);

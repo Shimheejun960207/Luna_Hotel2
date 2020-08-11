@@ -1,5 +1,6 @@
 package com.cookandroid.luna_hotel;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -83,6 +85,9 @@ public class Luna_Member_Remove extends AppCompatActivity {
                 SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
                 final SharedPreferences.Editor editor = info.edit();
 
+                SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
+                final SharedPreferences.Editor editor2 = reserve.edit();
+
                 // 회원탈퇴 창에서 로그인 된 계정의 비밀번호와 일치하면 밑 구문 실행
                 if(CheckPW.equals(Login_gloval.login_password)) {
 
@@ -121,6 +126,9 @@ public class Luna_Member_Remove extends AppCompatActivity {
 
                                             editor.clear();
                                             editor.commit();
+
+                                            editor2.clear();
+                                            editor2.clear();
 
                                             Intent goLogin = new Intent(getApplicationContext(), Luna_Login.class);
                                             startActivity(goLogin);

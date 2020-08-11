@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
@@ -38,6 +41,9 @@ public class Luna_Login extends AppCompatActivity {
 
     private String jsonString;
     ArrayList<UserInfo> infoArrayList;
+
+    private String jsonString2;
+    ArrayList<ReserveInfo> reserveArrayList;
 
     AlertDialog dialog;
 
@@ -156,6 +162,11 @@ public class Luna_Login extends AppCompatActivity {
                 // 로그인 직후 DB에 저장되어 있는 회원의 데이터를 가져오기 위한 부분입니다.
                 final JsonParse jsonParse = new JsonParse();            // AsyncTask 생성
                 jsonParse.execute("http://52.78.74.201/GetInfo.php");   // AsyncTask 실행
+
+                // 로그인 직후 DB에 저장되어 있는 회원의 예약정보를 가져오기 위한 부분입니다.
+                final GetReserve getReserve = new GetReserve();
+                getReserve.execute("http://52.78.74.201/GetReserve.php");
+
             }
         });
 
@@ -201,7 +212,6 @@ public class Luna_Login extends AppCompatActivity {
     private Toast toast;
 
 
-    // 이 밑은 로그인 할 때 로그인 정보로 회원 정보를 가져오는 구문입니다.
     @Override
     public void onBackPressed(){
         // 기존 뒤로가기 버튼의 기능을 막기위해 주석처리 또는 삭제
@@ -229,6 +239,8 @@ public class Luna_Login extends AppCompatActivity {
 
     }
 
+
+    // 이 밑은 로그인 할 때 로그인 정보로 회원 정보를 가져오는 구문입니다.
 
     // 로그인 직후 회원 정보를 DB에서 가져오는 부분입니다!
     // AsyncTask 클래스 여기다가 구현.
@@ -312,6 +324,7 @@ public class Luna_Login extends AppCompatActivity {
                 // SharedPreferences 를 제어하기 위한 Editor 선언
                 SharedPreferences.Editor editor = info.edit();
 
+                editor.clear();
                 // Editor를 이용해서 userCODE, userID, userName... 등등의 이름으로 회원 정보 저장
                 editor.putString("userCODE", infoArrayList.get(0).getCODE());
                 editor.putString("userID", infoArrayList.get(0).getID());
@@ -367,6 +380,171 @@ public class Luna_Login extends AppCompatActivity {
             }
             // JSON을 가공하여 tmpArray에 넣고 반환.
             return tmpArray;
+        }
+    }
+
+
+    // 로그인 직후 예약 정보를 가져오는 구문입니다!
+    // AsyncTask 클래스 여기다가 구현.
+    public class GetReserve extends AsyncTask<String, Void, String> {
+        String TAG = "Get Reserve Data";
+
+        @Override
+        protected String doInBackground(String... strings) {
+            // execute의 매개변수를 받아와서 사용합니다.
+            String url = strings[0];
+
+            try {
+                // 따옴표 안의 resID= 부분을 통해 DB에서 해당 아이디로 쿼리를 실행합니다.
+                String selectData = "resID=" + user_id.getText().toString();
+
+                // 어플에서 데이터 전송 준비
+                URL serverURL = new URL(url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) serverURL.openConnection();
+
+                httpURLConnection.setReadTimeout(10000);
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.connect();
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(selectData.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+
+                // 어플에서 데이터 전송 시작
+                int responseStatusCode = httpURLConnection.getResponseCode();
+
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else {
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                bufferedReader.close();
+                Log.d(TAG, sb.toString().trim());
+
+                // 받아온 JSON의 공백을 trim()으로 제거합니다.
+                return sb.toString().trim();
+            } catch(Exception e) {
+                Log.d(TAG, "InsertData : Error", e);
+                String errorString = e.toString();
+                return null;
+            }
+        }
+
+        @Override
+        // doInBackgroundString에서 return한 값을 받습니다.
+        protected void onPostExecute(String fromdoInBackgroundString) {
+            super.onPostExecute(fromdoInBackgroundString);
+
+            if(fromdoInBackgroundString == null) {
+                // doInBackgroundString에서 return받은 값이 null값일 경우 에러로 토스트 출력.
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                // null이 아니라면, 밑 문장들 실행
+                jsonString2 = fromdoInBackgroundString;
+                // ArrayList에 값을 넣기 위해 doParse() 메소드 실행.
+                // doParse() 메소드는 밑에 onProgressUpdate 부분에 넣음.
+                reserveArrayList = doParse2();
+
+                // 단말기에 간단한 정보를 저장하는 SharedPreferences 객체를 PRIVATE모드로 선언
+                SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
+                // SharedPreferences 를 제어하기 위한 Editor 선언
+                SharedPreferences.Editor editor = reserve.edit();
+
+                // DB에서 예약정보를 가져오면서 reserveArrayList의 사이즈를 "reserve"라는 int형 SharedPrefereces로 저장합니다.
+                // 쉽게 말해서 배열 크기를 다른 클래스에서도 쓸 수 있게 전역변수처럼 선언한겁니당
+                editor.putInt("reserve", reserveArrayList.size());
+
+                // SharedPreferences에 값을 넣기 전에 한 번 초기화 시켜줍니다.
+                editor.clear();
+
+                // for문을 돌려서 로그인 한 아이디에 해당되는 예약정보들을 모두 불러옵니다.
+                // 한 아이디가 여러개의 예약정보를 가지고 있다면, 배열이 여러개 필요하므로
+                // for 문을 통해 DB에 저장된 배열 갯수만큼 SharedPreferences에 넣습니다.
+                for(int i = 0; i < reserveArrayList.size(); i++) {
+                    editor.putString("resCODE" + i, reserveArrayList.get(i).getResCODE());
+                    editor.putString("resID" + i, reserveArrayList.get(i).getResID());
+                    editor.putString("resHotelNum" + i, reserveArrayList.get(i).getHotelNum());
+                    editor.putString("resHotelName" + i, reserveArrayList.get(i).getHotelName());
+                    editor.putString("resRoomNum" + i, reserveArrayList.get(i).getRoomNum());
+                    editor.putString("resRoomName" + i, reserveArrayList.get(i).getRoomName());
+                    editor.putString("resIN_year" + i, reserveArrayList.get(i).getIn_year());
+                    editor.putString("resIN_month" + i, reserveArrayList.get(i).getIn_month());
+                    editor.putString("resIN_date" + i, reserveArrayList.get(i).getIn_date());
+                    editor.putString("resOUT_year" + i, reserveArrayList.get(i).getOut_year());
+                    editor.putString("resOUT_month" + i, reserveArrayList.get(i).getOut_month());
+                    editor.putString("resOUT_date" + i, reserveArrayList.get(i).getOut_date());
+                    editor.putString("resTnrqkr" + i, reserveArrayList.get(i).getTnrqkr());
+                    editor.putString("resPrice" + i, reserveArrayList.get(i).getPrice());
+                }
+
+                // SharedPreferencs 저장.
+                editor.commit();
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        private ArrayList<ReserveInfo> doParse2() {
+
+            // ArrayList에 값을 넣기 위해 임시 ArrayList를 만듬
+            ArrayList<ReserveInfo> tmpArray2 = new ArrayList<ReserveInfo>();
+
+            try {
+                JSONObject jsonObject = new JSONObject(jsonString2);
+                // PHP 구문을 통해 받은 결과인 result라는 이름의 JSONArray를 받아옴.
+                JSONArray jsonArray = jsonObject.getJSONArray("result");
+
+                // 값들을 복사해서 넣는 과정.
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    ReserveInfo tmpinfo = new ReserveInfo();
+                    JSONObject item = jsonArray.getJSONObject(i);
+
+                    tmpinfo.setResCODE(item.getString("resCODE"));
+                    tmpinfo.setResID(item.getString("resID"));
+                    tmpinfo.setHotelNum(item.getString("resHotelNum"));
+                    tmpinfo.setHotelName(item.getString("resHotelName"));
+                    tmpinfo.setRoomNum(item.getString("resRoomNum"));
+                    tmpinfo.setRoomName(item.getString("resRoomName"));
+                    tmpinfo.setIn_year(item.getString("resIN_year"));
+                    tmpinfo.setIn_month(item.getString("resIN_month"));
+                    tmpinfo.setIn_date(item.getString("resIN_date"));
+                    tmpinfo.setOut_year(item.getString("resOUT_year"));
+                    tmpinfo.setOut_month(item.getString("resOUT_month"));
+                    tmpinfo.setOut_date(item.getString("resOUT_date"));
+                    tmpinfo.setTnrqkr(item.getString("resTnrqkr"));
+                    tmpinfo.setPrice(item.getString("resPrice"));
+
+                    tmpArray2.add(tmpinfo);
+                }
+            } catch(JSONException e) {
+                e.printStackTrace();
+            }
+            // JSON을 가공하여 tmpArray에 넣고 반환.
+            return tmpArray2;
         }
     }
 }
