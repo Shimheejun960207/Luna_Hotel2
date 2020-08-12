@@ -172,7 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="GUEST 로 로그인하기"
+            android:text="GUEST 로 이용하기"
             android:textColor="#f0f0f0"
             android:textStyle="bold"
             android:textSize="25dp"

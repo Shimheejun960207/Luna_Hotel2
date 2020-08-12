@@ -64,7 +64,7 @@ public class Luna_Login extends AppCompatActivity {
         //하얀색 밑줄
         btn_account_find.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "계정찾기" + "</u></font>"));
         btn_Sign_up.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "회원가입" + "</u></font>"));
-        text_guest_login.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "GUEST 로 로그인하기" + "</u></font>"));
+        text_guest_login.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "GUEST 로 이용하기" + "</u></font>"));
 
         //영문과 숫쟈 허용
         InputFilter filter = new InputFilter() {

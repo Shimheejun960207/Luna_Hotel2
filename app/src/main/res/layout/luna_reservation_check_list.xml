@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -17,6 +18,8 @@
             android:orientation="horizontal"
             android:layout_weight="10">
 
+
+            // 원래 컬러값 #33aabb 입니다
         <TextView
             android:id="@+id/list_code2"
             android:layout_width="match_parent"
@@ -27,7 +30,7 @@
             android:paddingLeft="10dp"
             android:paddingBottom="10dp"
             android:textStyle="bold"
-            android:textColor="#33aabb" />
+            android:textColor="#100c3e" />
 
         <TextView
             android:id="@+id/list_code"
@@ -39,7 +42,7 @@
             android:paddingLeft="10dp"
             android:paddingBottom="10dp"
             android:textStyle="bold"
-            android:textColor="#33aabb" />
+            android:textColor="#100c3e" />
 
             </LinearLayout>
 
@@ -96,13 +99,18 @@
 
     </LinearLayout>
 
+    // 버튼 마진 원래 탑 20 바텀 20 이였음
     <Button
         android:id="@+id/list_cancel"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="취소"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
+        android:text="예약 취소"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#100c3e"
+        android:background="@drawable/btn_noneborder"
         android:layout_weight="20" />
     <View
         android:layout_width="0dp"
