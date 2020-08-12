@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
 
+//FAQ할때 필요한 JAVA파일
 public class MainAdapter extends BaseExpandableListAdapter {
 
     Context context;
