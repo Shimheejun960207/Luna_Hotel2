@@ -25,21 +25,9 @@ public class Luna_Info_Hotel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_info_hotel);
 
-        btn_back = (Button)findViewById(R.id.btn_back);
+        btn_back = (Button) findViewById(R.id.btn_back);
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
-        hotel_info_line1 = (TextView)findViewById(R.id.Hotel_info_line1);
-        welcome_line1 = (TextView)findViewById(R.id.Welcom_line1);
-        vision_line1 = (TextView)findViewById(R.id.Vison_line1);
-        misson_line1 = (TextView)findViewById(R.id.Misson_line1);
-        luna_hotel_line1 = (TextView)findViewById(R.id.LunaHotel_line1);
-
-        //밑줄 색깔 코딩
-        welcome_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Welcome to the LunaHotel" + "</u></font>"));
-        vision_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Vision" + "</u></font>"));
-        hotel_info_line1.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
-        misson_line1.setText(Html.fromHtml("<font color=#540dcb><u>" + "Misson" + "</u></font>"));
-        luna_hotel_line1.setText(Html.fromHtml("</b><font color=#540dcb><u>" + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + "</u></font></b>"));
 
         //뒤로버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
