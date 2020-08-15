@@ -76,6 +76,7 @@ public class Luna_Reservation_ListAdapter extends BaseAdapter {
         View view = mLayoutInflater.inflate(R.layout.luna_reservation_check_list, null);
 
         final TextView resCode = (TextView) view.findViewById(R.id.list_code);
+        TextView resName = (TextView) view.findViewById(R.id.list_name);
         TextView resHotelName = (TextView) view.findViewById(R.id.list_hotel);
         TextView resRoomName = (TextView) view.findViewById(R.id.list_room);
         TextView resReserveDate = (TextView) view.findViewById(R.id.list_reservedate);
@@ -84,6 +85,7 @@ public class Luna_Reservation_ListAdapter extends BaseAdapter {
         Button btn_cancel = (Button) view.findViewById(R.id.list_cancel);
 
         resCode.setText(sample.get(position).getStrList_Code());
+        resName.setText(sample.get(position).getStrList_Name());
         resHotelName.setText(sample.get(position).getStrList_Hotel());
         resRoomName.setText(sample.get(position).getStrList_Room());
         resReserveDate.setText(sample.get(position).getStrList_reserveDate());
@@ -272,6 +274,7 @@ public class Luna_Reservation_ListAdapter extends BaseAdapter {
                 for(int i = 0; i < reserveArrayList.size(); i++) {
                     editor.putString("resCODE" + i, reserveArrayList.get(i).getResCODE());
                     editor.putString("resID" + i, reserveArrayList.get(i).getResID());
+                    editor.putString("resName" + i, reserveArrayList.get(i).getResName());
                     editor.putString("resHotelNum" + i, reserveArrayList.get(i).getHotelNum());
                     editor.putString("resHotelName" + i, reserveArrayList.get(i).getHotelName());
                     editor.putString("resRoomNum" + i, reserveArrayList.get(i).getRoomNum());
@@ -318,6 +321,7 @@ public class Luna_Reservation_ListAdapter extends BaseAdapter {
 
                     tmpinfo.setResCODE(item.getString("resCODE"));
                     tmpinfo.setResID(item.getString("resID"));
+                    tmpinfo.setResName(item.getString("resName"));
                     tmpinfo.setHotelNum(item.getString("resHotelNum"));
                     tmpinfo.setHotelName(item.getString("resHotelName"));
                     tmpinfo.setRoomNum(item.getString("resRoomNum"));

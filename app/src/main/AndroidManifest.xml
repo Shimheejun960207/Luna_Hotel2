@@ -71,6 +71,8 @@
         </activity>
         <activity android:name=".Luna_Member_Remove">
         </activity>
+        <activity android:name=".Luna_Reservation_Check_Nothing">
+        </activity>
         <activity android:name=".Luna_Account_Search">
         </activity>
         <activity android:name=".Luna_Subscription">

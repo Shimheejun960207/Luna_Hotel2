@@ -1,33 +1,14 @@
 package com.cookandroid.luna_hotel;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class Luna_Reservation_Check extends AppCompatActivity {
@@ -71,11 +52,11 @@ public class Luna_Reservation_Check extends AppCompatActivity {
 
         // 로고버튼 이벤트
         btn_lunalogo.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
-               startActivity(Intent);
-           }
+            @Override
+            public void onClick(View view) {
+                Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
+                startActivity(Intent);
+            }
         });
     }
 
@@ -105,7 +86,7 @@ public class Luna_Reservation_Check extends AppCompatActivity {
         // 해당되는 배열리스트의 사이즈 만큼 반복을 통해 리스트뷰에 각 데이터들을 넣습니다.
         // 예를 들어 resID = 1234는 예약을 총 3개 했으니 size는 3이 되고, 3번 반복해서 리스트뷰에 데이터를 넣음으로서 총 3개의 리스트가 생성됩니다.
         for(int i = 0; i < size; i++) {
-            dataList.add(new Luna_Reservation_ItemData(reserve.getString("resCODE" + i, ""),
+            dataList.add(new Luna_Reservation_ItemData(reserve.getString("resCODE" + i, ""), "예약자명 : " + reserve.getString("resName" + i, ""),
                     "지점 : " + reserve.getString("resHotelName" + i, ""), "룸 : " + reserve.getString("resRoomName" + i, ""),
                     reserve.getString("resIN_year" + i, "") + "년 " + reserve.getString("resIN_month" + i, "") + "월 " + reserve.getString("resIN_date" + i, "") + "일  ~  "
                             + reserve.getString("resOUT_year" + i, "") + "년 " + reserve.getString("resOUT_month" + i, "") + "월 " + reserve.getString("resOUT_date" + i, "") + "일 총 " + reserve.getString("resTnrqkr" + i, "") +"박",

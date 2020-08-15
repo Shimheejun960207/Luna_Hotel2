@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +28,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
@@ -134,10 +131,18 @@ public class Luna_Login extends AppCompatActivity {
                                 String userID = jsonResponse.getString("userID");
                                 String userPW = jsonResponse.getString("userPW");
 
+                                // 유저 정보가 저장되어 있는 info 저장소를 불러옵니다.
+                                SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
+
                                 Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
-                                //  전연변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
+                                //  전역변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
                                 Login_gloval.login_id = userID;
                                 Login_gloval.login_password = userPW;
+
+                                // 전역변수에 가져온 유저 정보 중 이름 값을 resName 전역변수에 넣습니다.
+                                // 이 저장된 이름은 예약할 때 예약자 명이 들어가는 부분에서 사용됩니다.
+                                Login_gloval.Login_resName = info.getString("userName", "");
+
                                 // 여기까지.
                                 Luna_Login.this.startActivity(loginintent);
                             }
@@ -166,7 +171,6 @@ public class Luna_Login extends AppCompatActivity {
                 // 로그인 직후 DB에 저장되어 있는 회원의 예약정보를 가져오기 위한 부분입니다.
                 final GetReserve getReserve = new GetReserve();
                 getReserve.execute("http://52.78.74.201/GetReserve.php");
-
             }
         });
 
@@ -478,6 +482,7 @@ public class Luna_Login extends AppCompatActivity {
                 // for 문을 통해 DB에 저장된 배열 갯수만큼 SharedPreferences에 넣습니다.
                 for(int i = 0; i < reserveArrayList.size(); i++) {
                     editor.putString("resCODE" + i, reserveArrayList.get(i).getResCODE());
+                    editor.putString("resName" + i, reserveArrayList.get(i).getResName());
                     editor.putString("resID" + i, reserveArrayList.get(i).getResID());
                     editor.putString("resHotelNum" + i, reserveArrayList.get(i).getHotelNum());
                     editor.putString("resHotelName" + i, reserveArrayList.get(i).getHotelName());
@@ -491,7 +496,7 @@ public class Luna_Login extends AppCompatActivity {
                     editor.putString("resOUT_date" + i, reserveArrayList.get(i).getOut_date());
                     editor.putString("resTnrqkr" + i, reserveArrayList.get(i).getTnrqkr());
                     editor.putString("resPrice" + i, reserveArrayList.get(i).getPrice());
-                }
+            }
 
                 // SharedPreferencs 저장.
                 editor.commit();
@@ -525,6 +530,7 @@ public class Luna_Login extends AppCompatActivity {
 
                     tmpinfo.setResCODE(item.getString("resCODE"));
                     tmpinfo.setResID(item.getString("resID"));
+                    tmpinfo.setResName(item.getString("resName"));
                     tmpinfo.setHotelNum(item.getString("resHotelNum"));
                     tmpinfo.setHotelName(item.getString("resHotelName"));
                     tmpinfo.setRoomNum(item.getString("resRoomNum"));

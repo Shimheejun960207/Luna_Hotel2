@@ -16,8 +16,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import org.w3c.dom.Text;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -47,6 +45,9 @@ public class Luna_menu extends AppCompatActivity {
         // 회원 정보를 읽어오기 위한 SharedPreferences 선언
         SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
         final SharedPreferences.Editor editor = info.edit();
+
+        SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
+        final SharedPreferences.Editor editor2 = reserve.edit();
 
         image_gender = (ImageView)findViewById(R.id.image_gender);
         menu_id = (TextView) findViewById(R.id.menu_id);
@@ -127,13 +128,19 @@ public class Luna_menu extends AppCompatActivity {
                             Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
                             accountToast.show();
 
-                            Login_gloval.login_id =null;
-                            Login_gloval.login_password=null;
+                            Login_gloval.login_id = null;
+                            Login_gloval.login_password = null;
+
+                            Login_gloval.Login_resName = null;
 
                             editor.clear();
                             editor.commit();
 
+                            editor2.clear();
+                            editor2.commit();
+
                             Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
+                            goMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(goMain);
                             finish();
                             overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -190,6 +197,8 @@ public class Luna_menu extends AppCompatActivity {
         btn_res_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
+
                 // 로그인 여부를 확인허는 if ~ else 문
                 if (Login_gloval.login_id == null) {    // 널값이면 로그인이 필요하다는 뜻입니다
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_menu.this);
@@ -204,9 +213,17 @@ public class Luna_menu extends AppCompatActivity {
                     builder.setNegativeButton("취소",null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                } else {
-                    Intent Intent = new Intent(getApplicationContext(),Luna_Reservation_Check.class);
-                    startActivity(Intent);
+                }
+                // 가져온 예약 정보의 resCODE, 즉 예약번호가 하나라도 없다면 (=공백이라면) 밑 else if문 실행
+                else if (reserve.getString("resCODE0", "").equals("")) {
+                    // 예약확인을 눌렀을 때 접수된 예약이 없다고 뜨는 TextView가 있는 액티비티로 넘어갑니다.
+                    Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check_Nothing.class);
+                    startActivity(intent);
+                }
+                // 로그인도 되어있고 가져온 예약 정보가 하나라도 있다면 예약확인 액티비티로 이동
+                else {
+                    Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
+                    startActivity(intent);
                 }
             }
         });

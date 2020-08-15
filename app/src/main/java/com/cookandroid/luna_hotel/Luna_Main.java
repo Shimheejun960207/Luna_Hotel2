@@ -182,7 +182,9 @@ public class Luna_Main extends AppCompatActivity {
         lay_reser_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 로그인 여부확인
+                SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
+
+                // 로그인이 안되어있다면
                 if(Login_gloval.login_id == null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Main.this);
                     builder.setMessage("로그인이 필요합니다.");
@@ -194,10 +196,19 @@ public class Luna_Main extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+
                     builder.setNegativeButton("취소",null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }else {
+                }
+                // 가져온 예약 정보의 resCODE, 즉 예약번호가 하나라도 없다면 (=공백이라면) 밑 else if문 실행
+                else if (reserve.getString("resCODE0", "").equals("")) {
+                    // 예약확인을 눌렀을 때 접수된 예약이 없다고 뜨는 TextView가 있는 액티비티로 넘어갑니다.
+                    Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check_Nothing.class);
+                    startActivity(intent);
+                }
+                // 로그인도 되어있고 가져온 예약 정보가 하나라도 있다면 예약확인 액티비티로 이동
+                else {
                     Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                     startActivity(intent);
                 }

@@ -1,11 +1,9 @@
 package com.cookandroid.luna_hotel;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -274,16 +272,18 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                     String hotelN;
                     String Tnrqkr;
 
+                    String resName = Login_gloval.Login_resName;
+
                     // int형 자료들 String으로 변환해서 DB에 넣으려구 변환시켰습니다!
                     roomN = Integer.toString(roomNum);
                     hotelN = Integer.toString(hotel_number);
                     Tnrqkr = Integer.toString(tnrqkr);
 
                     // 범준아 여기에 예약 DB 넣으면된다. 변수는 위에서 봐라 주석달았다.
-                    Reserve(resID, hotelN, hotel_name, roomN, room_name, year_s_in, month_s_in, date_s_in, year_s_out, month_s_out, date_s_out, total_price_string, Tnrqkr);
+                    Reserve(resID, resName, hotelN, hotel_name, roomN, room_name, year_s_in, month_s_in, date_s_in, year_s_out, month_s_out, date_s_out, total_price_string, Tnrqkr);
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Reservation_pay.this);
-                    builder.setMessage("예약되셨습니다. ");
+                    builder.setMessage("예약되셨습니다.");
                     builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -406,6 +406,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                 for(int i = 0; i < reserveArrayList.size(); i++) {
                     editor.putString("resCODE" + i, reserveArrayList.get(i).getResCODE());
                     editor.putString("resID" + i, reserveArrayList.get(i).getResID());
+                    editor.putString("resName" + i, reserveArrayList.get(i).getResName());
                     editor.putString("resHotelNum" + i, reserveArrayList.get(i).getHotelNum());
                     editor.putString("resHotelName" + i, reserveArrayList.get(i).getHotelName());
                     editor.putString("resRoomNum" + i, reserveArrayList.get(i).getRoomNum());
@@ -451,6 +452,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
 
                     tmpinfo.setResCODE(item.getString("resCODE"));
                     tmpinfo.setResID(item.getString("resID"));
+                    tmpinfo.setResName(item.getString("resName"));
                     tmpinfo.setHotelNum(item.getString("resHotelNum"));
                     tmpinfo.setHotelName(item.getString("resHotelName"));
                     tmpinfo.setRoomNum(item.getString("resRoomNum"));
@@ -477,7 +479,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
 
     // 예약하기를 누르면 입력한 데이터들이 DB에 들어가는 매소드입니다.
     // Reserve 함수 구현
-    private void Reserve(String resID, String resHotelNum, String resHotelName, String resRoomNum, String resRoomName, String resIN_year, String resIN_month, String resIN_date, String resOUT_year, String resOUT_month, String resOUT_date, String resPrice, String resTnrqkr) {
+    private void Reserve(String resID, String resName, String resHotelNum, String resHotelName, String resRoomNum, String resRoomName, String resIN_year, String resIN_month, String resIN_date, String resOUT_year, String resOUT_month, String resOUT_date, String resPrice, String resTnrqkr) {
 
         // InsertData 클래스 선언, AsyncTask를 이용해 백그라운드에서 인터넷 통신으로 값을 넘김
         class ReserveHotel extends AsyncTask<String, Void, String> {
@@ -501,24 +503,26 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                 try {
                     // String 값들을 배열에 넣습니다.
                     String resID = (String) params[0];
-                    String resHotelNum = (String) params[1];
-                    String resHotelName = (String) params[2];
-                    String resRoomNum = (String) params[3];
-                    String resRoomName = (String) params[4];
-                    String resIN_year = (String) params[5];
-                    String resIN_month = (String) params[6];
-                    String resIN_date = (String) params[7];
-                    String resOUT_year = (String) params[8];
-                    String resOUT_month = (String) params[9];
-                    String resOUT_date = (String) params[10];
-                    String resPrice = (String) params[11];
-                    String resTnrqkr = (String) params[12];
+                    String resName = (String) params[1];
+                    String resHotelNum = (String) params[2];
+                    String resHotelName = (String) params[3];
+                    String resRoomNum = (String) params[4];
+                    String resRoomName = (String) params[5];
+                    String resIN_year = (String) params[6];
+                    String resIN_month = (String) params[7];
+                    String resIN_date = (String) params[8];
+                    String resOUT_year = (String) params[9];
+                    String resOUT_month = (String) params[10];
+                    String resOUT_date = (String) params[11];
+                    String resPrice = (String) params[12];
+                    String resTnrqkr = (String) params[13];
 
                     // 서버 안에 있는 Register.php의 주소를 link 안에 저장합니다.
                     String link = "http://52.78.74.201/Reserve.php";
 
                     // data라는 String 형태 변수 안에 배열의 내용들을 쭉 나열하여 넣습니다.
                     String data = URLEncoder.encode("resID", "UTF-8") + "=" + URLEncoder.encode(resID, "UTF-8");
+                    data += "&" + URLEncoder.encode("resName", "UTF-8") + "=" + URLEncoder.encode(resName, "UTF-8");
                     data += "&" + URLEncoder.encode("resHotelNum", "UTF-8") + "=" + URLEncoder.encode(resHotelNum, "UTF-8");
                     data += "&" + URLEncoder.encode("resHotelName", "UTF-8") + "=" + URLEncoder.encode(resHotelName, "UTF-8");
                     data += "&" + URLEncoder.encode("resRoomNum", "UTF-8") + "=" + URLEncoder.encode(resRoomNum, "UTF-8");
@@ -560,6 +564,6 @@ public class Luna_Reservation_pay extends AppCompatActivity {
 
         // 백그라운드에서 실행할 수 있게 InsertData 클래스의 인스턴스를 생성하여 execute로 실행합니다.
         ReserveHotel reserve = new ReserveHotel();
-        reserve.execute(resID, resHotelNum, resHotelName, resRoomNum, resRoomName, resIN_year, resIN_month, resIN_date, resOUT_year, resOUT_month, resOUT_date, resPrice, resTnrqkr);
+        reserve.execute(resID, resName, resHotelNum, resHotelName, resRoomNum, resRoomName, resIN_year, resIN_month, resIN_date, resOUT_year, resOUT_month, resOUT_date, resPrice, resTnrqkr);
     }
 }

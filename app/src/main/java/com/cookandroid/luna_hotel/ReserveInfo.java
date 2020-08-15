@@ -5,6 +5,7 @@ package com.cookandroid.luna_hotel;
 public class ReserveInfo {
 
     public String ResCODE;
+    public String ResName;
     public String ResID;
     public String HotelNum;
     public String HotelName;
@@ -25,6 +26,14 @@ public class ReserveInfo {
 
     public void setResCODE(String ResCODE) {
         this.ResCODE = ResCODE;
+    }
+
+    public String getResName() {
+        return ResName;
+    }
+
+    public void setResName(String ResName) {
+        this.ResName = ResName;
     }
 
     public String getResID() {
