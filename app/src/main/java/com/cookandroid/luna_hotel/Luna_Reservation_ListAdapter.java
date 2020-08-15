@@ -5,12 +5,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -108,58 +113,89 @@ public class Luna_Reservation_ListAdapter extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        // 서버와 통신하는 부분
-                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        final EditText et = new EditText(mContext);
+
+                        androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
+                        builder1.setTitle("비밀번호 확인");
+                        builder1.setMessage("비밀번호를 입력해 주세요.");
+                        InputFilter[] EditFilter = new InputFilter[1];
+                        EditFilter[0] = new InputFilter.LengthFilter(16);
+                        et.setFilters(EditFilter);
+                        et.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
+                        et.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        et.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        et.setFocusable(true);
+
+                        builder1.setView(et);
+                        builder1.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject jsonResponse2 = new JSONObject(response);
-                                    boolean success = jsonResponse2.getBoolean("success");
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(et.getText().toString().equals(Login_gloval.login_password)) {
+                                    // 서버와 통신하는 부분
+                                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            try {
+                                                JSONObject jsonResponse2 = new JSONObject(response);
+                                                boolean success = jsonResponse2.getBoolean("success");
 
-                                    // 서버와 연결이 제대로 되지 않았을 경우
-                                    if(success) {
-                                        androidx.appcompat.app.AlertDialog.Builder builder2 = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
-                                        builder2.setMessage("취소 과정에서 오류가 발생했습니다.");
-                                        builder2.setPositiveButton("확인", null);
-                                        androidx.appcompat.app.AlertDialog dialog1 = builder2.create();
-                                        dialog1.show();
-                                    }
+                                                // 서버와 연결이 제대로 되지 않았을 경우
+                                                if(success) {
+                                                    androidx.appcompat.app.AlertDialog.Builder builder2 = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
+                                                    builder2.setMessage("취소 과정에서 오류가 발생했습니다.");
+                                                    builder2.setPositiveButton("확인", null);
+                                                    androidx.appcompat.app.AlertDialog dialog1 = builder2.create();
+                                                    dialog1.show();
+                                                }
 
-                                    // 서버와 연결이 되어 쿼리가 실행 될 경우
-                                    // 여기서는 delete from reserve where resCODE= **** 쿼리가 실행됩니다.
-                                    // 즉, 예약 취소를 누른 예약정보는 DB에서 삭제됩니다.
-                                    else {
-                                        androidx.appcompat.app.AlertDialog.Builder builder2 = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
-                                        builder2.setMessage("예약이 취소되었습니다.");
+                                                // 서버와 연결이 되어 쿼리가 실행 될 경우
+                                                // 여기서는 delete from reserve where resCODE= **** 쿼리가 실행됩니다.
+                                                // 즉, 예약 취소를 누른 예약정보는 DB에서 삭제됩니다.
+                                                else {
+                                                    androidx.appcompat.app.AlertDialog.Builder builder2 = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
+                                                    builder2.setMessage("예약이 취소되었습니다.");
 
-                                        // 탈퇴 버튼을 누를 경우 탈퇴 진행
-                                        builder2.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                // 삭제 된 DB가 있기 때문에 다시 예약정보를 가져오기 위한 GetReserve 클래스 실행.
-                                                final GetReserve getReserve = new GetReserve();
-                                                getReserve.execute("http://52.78.74.201/GetReserve.php");
+                                                    // 확인 버튼을 누를 경우 예약 취소 진행
+                                                    builder2.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            // 삭제 된 DB가 있기 때문에 다시 예약정보를 가져오기 위한 GetReserve 클래스 실행.
+                                                            final GetReserve getReserve = new GetReserve();
+                                                            getReserve.execute("http://52.78.74.201/GetReserve.php");
 
-                                                // 대화상자에서 확인 누르면 메인 화면으로 이동됩니다.
-                                                // 갱신 찾아보면서 했는데 너무 어려워서 일단은 메인으로 이동해서 다시 확인하면 갱신되는 방향으로 했습니다...
-                                                Intent intent = new Intent(mContext, Luna_Main.class);
-                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                mContext.startActivity(intent);
+                                                            // 대화상자에서 확인 누르면 메인 화면으로 이동됩니다.
+                                                            // 갱신 찾아보면서 했는데 너무 어려워서 일단은 메인으로 이동해서 다시 확인하면 갱신되는 방향으로 했습니다...
+                                                            Intent intent = new Intent(mContext, Luna_Main.class);
+                                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                            mContext.startActivity(intent);
+                                                        }
+                                                    });
+                                                    AlertDialog dialog1 = builder2.create();
+                                                    dialog1.show();
+                                                }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
                                             }
-                                        });
-                                        AlertDialog dialog1 = builder2.create();
-                                        dialog1.show();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                                        }
+                                    };
+
+                                    // 해당 resCODE를 넘겨서 Delete 쿼리 실행하는 queue 생성.
+                                    ValidateRequest_RemoveReserve validateRequest_removeReserve = new ValidateRequest_RemoveReserve(code, responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(v.getContext());
+                                    queue.add(validateRequest_removeReserve);
+                                } else {
+                                    androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(v.getContext());
+                                    builder.setMessage("비밀번호가 일치하지 않습니다.");
+                                    builder.setPositiveButton("확인", null);
+                                    androidx.appcompat.app.AlertDialog dialog2 = builder.create();
+                                    dialog2.show();
                                 }
                             }
-                        };
+                        });
 
-                        // 해당 resCODE를 넘겨서 Delete 쿼리 실행하는 queue 생성.
-                        ValidateRequest_RemoveReserve validateRequest_removeReserve = new ValidateRequest_RemoveReserve(code, responseListener);
-                        RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                        queue.add(validateRequest_removeReserve);
+                        builder1.setNegativeButton("취소", null);
+                        AlertDialog dialog2 = builder1.create();
+                        dialog2.show();
                     }
                 });
 
