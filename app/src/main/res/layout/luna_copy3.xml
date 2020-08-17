@@ -71,7 +71,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="호텔 델루나 아이유 x 여진구 초청공연"
+                android:text="호텔 델루나 아이유 초청공연"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="#000000"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2020년 최고의 드라마!\n 호텔델루나의 주인공 아이유와 여진구가 호텔루나로 찾아옵니다!"
+                android:text="2020년 최고의 드라마!\n 호텔델루나의 주인공 아이유가 호텔루나로 찾아옵니다!"
                 android:textSize="15sp"
                 android:textColor="#000000" />
 
@@ -140,7 +140,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아이유와 여진구의 특급 공연 놓치지마세요!"
+                android:text="아이유의 특급 공연 놓치지마세요!"
                 android:textSize="15sp"
                 android:textColor="#000000" />
 

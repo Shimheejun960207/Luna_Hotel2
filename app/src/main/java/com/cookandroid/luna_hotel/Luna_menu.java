@@ -158,6 +158,8 @@ public class Luna_menu extends AppCompatActivity {
         pagerAdapter = new TextViewPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
 
+
+
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             @Override

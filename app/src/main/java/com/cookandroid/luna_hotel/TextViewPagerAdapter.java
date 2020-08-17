@@ -35,13 +35,25 @@ public class TextViewPagerAdapter extends PagerAdapter {
 
             // 포지션 마다 바꿔줄 이미지 설정
             if (position == 0)
-                imageView.setImageResource(R.drawable.copy2);
+            {
+                imageView.setImageResource(R.drawable.copy2); // 부산
+            }
+
             else if (position == 1)
-            imageView.setImageResource(R.drawable.copy4);
+            {
+                 imageView.setImageResource(R.drawable.copy1); // 삼성페이
+            }
+
                  else if (position == 2)
-                imageView.setImageResource(R.drawable.copy1);
+            {
+                imageView.setImageResource(R.drawable.copy3); // 아이유
+            }
+
                       else if (position == 3)
-                imageView.setImageResource(R.drawable.copy3);
+            {
+                imageView.setImageResource(R.drawable.copy4); // 와인바
+            }
+
 
         }
 
