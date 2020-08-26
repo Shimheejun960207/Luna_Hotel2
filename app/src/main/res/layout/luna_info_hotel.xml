@@ -4,33 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#f7f7f7">
+    android:background="#f7f7f7"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#100c3e">
+        android:background="#100c3e"
+        android:orientation="horizontal">
 
         <!-- 상단바 버튼 값의 설정 -->
         <Button
+            android:id="@+id/btn_back"
             android:layout_width="40dip"
             android:layout_height="40dip"
             android:layout_marginLeft="20dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/btn_back"
-            android:id="@+id/btn_back"> //메뉴버튼 아이디지정
-        </Button>
+            android:background="@drawable/btn_back">//메뉴버튼 아이디지정</Button>
 
         <Button
+            android:id="@+id/btn_lunalogo"
             android:layout_width="120dip"
             android:layout_height="70dip"
             android:layout_marginLeft="80dip"
             android:layout_marginTop="10dip"
-            android:background="@drawable/lunalogo"
-            android:id="@+id/btn_lunalogo"> //로고버튼 아이디지정
+            android:background="@drawable/lunalogo">//로고버튼 아이디지정
         </Button>
 
     </LinearLayout>
@@ -39,23 +38,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#100c3e">
+        android:background="#100c3e"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:text="- 호텔 소개 -"
             android:textColor="#ffffff"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:text="- 호텔 소개 -"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
-
-
-
 
 
     <ScrollView
@@ -83,11 +80,11 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="250dip"
-                android:src="@drawable/info_hotel_main"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/info_hotel_main" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,6 +103,7 @@
                 android:text="이제 아시아를 넘어 세계로 뻗어가는 글로벌 호텔로서 전세계 어디에서나"
                 android:textColor="#000000"
                 android:textSize="13sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,6 +139,7 @@
                 android:text="묻어나는 서비스를 준비합니다."
                 android:textColor="#000000"
                 android:textSize="13sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -177,6 +176,188 @@
                 android:layout_marginTop="70dip"
                 android:background="#D3D3D3" />
 
+            // CEO인사말
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="  CEO 인사말  "
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Button
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ceo" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="지금 루나호텔의 발걸음은 세계를 향하고 있습니다."
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="2020년 설립된 루나호텔은 고객님의 사랑과 성원에 힘입어 세계적 수준의 경쟁력을"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="갖춘 글로벌 체인 호텔 브랜드로 성장했습니다. 2021년 러시아의 루나호텔 모스크바"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오픈을 시작으로 미국 뉴욕, 베트남 하노이, 미얀마 양곤 등 총 7개국, 30개의 호텔과"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="리조트를 성공적으로 운영할 것입니다."
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="또한, 2022년 국내 호텔 브랜드 두번째로 미국의 상업과 금융의 중심지인 뉴욕에"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="루나뉴욕팰리스호텔을 오픈하여 전세계인의 시선을 받을 것이며 앞으로도"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="루나호텔은 국내를 넘어 해외 관광 업계에서 대한민국 대표 호텔 브랜드로서의"
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="위상을 공고히 해나갈 것입니다."
+                        android:textColor="#000000"
+                        android:textSize="8.5sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:text="급변하는 환경 속에서도 변하지 않는 것은 고객님을 향한 진심 어린 마음입니다."
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="루나호텔을 찾아주신 고객님께 특별한 감동을 선사해 드리기 위해 전 임직원이 한결 같은"
+                    android:textColor="#000000"
+                    android:textSize="8.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="마음으로 노력하고 있습니다. 아울러 루나호텔은 최상급 럭셔리 호텔 ‘시그니엘’, 5성급"
+                    android:textColor="#000000"
+                    android:textSize="8.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="‘루나호텔’, 라이프 스타일 호텔 ‘L7’, 프리미엄 비즈니스 호텔 ‘루나시티호텔’,"
+                    android:textColor="#000000"
+                    android:textSize="8.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="‘루나리조트’까지 다양한 여행객의 니즈를 만족시킬 수 있는 브랜드 포트폴리오를 갖추고."
+                    android:textColor="#000000"
+                    android:textSize="8.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="있습니다. 전세계 어디에서나 흔들림 없는 진심으로 고객님을 모시겠습니다. 감사합니다."
+                    android:textColor="#000000"
+                    android:textSize="8.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dip"
+                    android:text="㈜호텔루나 대표이사 심희준"
+                    android:textColor="#808080"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="70dip"
+                android:background="#D3D3D3" />
+
 
             //(- Vision -)
 
@@ -188,7 +369,7 @@
                 android:text=" - Vision - "
                 android:textColor="#000000"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
             <TextView
@@ -222,12 +403,12 @@
                 android:textStyle="bold" />
 
             // 비전 아이콘 -시작-
+
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -244,34 +425,30 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <Button
-                        android:gravity="center"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/vision2"
-                        />
+                        android:gravity="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <Button
-                        android:gravity="center"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/vision3"
-                        />
+                        android:gravity="center" />
 
                 </LinearLayout>
 
@@ -279,65 +456,57 @@
             // 비전 아이콘 -끝-
 
             // 비전 텍스트 -시작-
+
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="세게 TOP1 \n브랜드 호텔"
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="고품격 경영 \n업계선도"
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="고객 중심, \n효율 중심 \n경쟁력 강화"
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
@@ -394,11 +563,12 @@
                 android:textSize="13sp" />
 
             //비전 끝 구분선
+
             <View
-                android:layout_marginTop="70dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
                 android:background="#D3D3D3" />
 
             //철학(- philosophy -)
@@ -411,7 +581,7 @@
                 android:text=" - Philosophy - "
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
             <TextView
@@ -445,12 +615,12 @@
                 android:textStyle="bold" />
 
             // 철학 아이콘 -시작-
+
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -467,34 +637,30 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <Button
-                        android:gravity="center"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/philosophy2"
-                        />
+                        android:gravity="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <Button
-                        android:gravity="center"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/philosophy3"
-                        />
+                        android:gravity="center" />
 
                 </LinearLayout>
 
@@ -502,65 +668,57 @@
             // 철학 아이콘 -끝-
 
             // 철학 텍스트 -시작-
+
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="고객에게 \n감동을 \n주는 최고의 \n호텔리어가 \n된다."
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="고객으로부터 \n신뢰받는 \n프로로서의 \n자부심과 \n열정을 잊지 \n않는다."
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    >
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="고객보다 앞선 \n행동과 밝은 \n미소로 세계 \n최고의 \n루나호텔을 \n만든다."
                         android:textColor="#000000"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
@@ -616,15 +774,17 @@
                 android:textSize="13sp" />
 
             // 철학 끝 구분선
+
             <View
-                android:layout_marginTop="70dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
                 android:background="#D3D3D3" />
 
 
             //루나 어원
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -633,7 +793,7 @@
                 android:text=" - 루나 어원 - "
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -692,7 +852,6 @@
                 android:text="호텔이 되기 위해서 '호텔 루나'가 되었습니다."
                 android:textColor="#000000"
                 android:textSize="13sp" />
-
 
 
         </LinearLayout>
