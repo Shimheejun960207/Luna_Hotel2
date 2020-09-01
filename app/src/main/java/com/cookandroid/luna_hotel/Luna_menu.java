@@ -49,6 +49,11 @@ public class Luna_menu extends AppCompatActivity {
         SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
         final SharedPreferences.Editor editor2 = reserve.edit();
 
+
+        // 자동로그인 정보를 읽기 위한 SharedPreferences 선언
+        final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
+        final SharedPreferences.Editor editor3 = logininfo.edit(); // 에디터 연결합니다.
+
         image_gender = (ImageView)findViewById(R.id.image_gender);
         menu_id = (TextView) findViewById(R.id.menu_id);
         menu_email = (TextView) findViewById(R.id.menu_email);
@@ -138,6 +143,12 @@ public class Luna_menu extends AppCompatActivity {
 
                             editor2.clear();
                             editor2.commit();
+
+                            // 자동로그인 파일 내용 전부삭제
+                            editor3.clear();
+                            editor3.commit();
+
+
 
                             Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
                             goMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

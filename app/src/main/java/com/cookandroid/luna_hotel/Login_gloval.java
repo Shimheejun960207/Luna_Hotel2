@@ -1,6 +1,7 @@
 package com.cookandroid.luna_hotel;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 
 public class Login_gloval extends Application {
 
@@ -10,6 +11,8 @@ public class Login_gloval extends Application {
     public static String login_id;  // 아이디 전역변수 입니다.
     public static String login_password; // 비밀번호 전역변수 입니다.
     public static String Login_resName;  // 예약확인 할 때 예약자 명을 불러오기 위한 전역변수 입니다.
+
+
 
     @Override
     public void onCreate(){

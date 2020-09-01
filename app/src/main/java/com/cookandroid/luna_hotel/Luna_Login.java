@@ -10,6 +10,7 @@ import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,11 +31,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+
 public class Luna_Login extends AppCompatActivity {
+
+
 
     Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
     EditText user_id, user_pw;
     TextView text_guest_login;
+    CheckBox check_auto_login;
 
     private String jsonString;
     ArrayList<UserInfo> infoArrayList;
@@ -49,6 +54,24 @@ public class Luna_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_login);
 
+        //자동로그인을 위한 SharedPreferences 선언
+        final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
+        final SharedPreferences.Editor editor = logininfo.edit(); // 에디터 연결합니다.
+
+
+        // 자동로그인 SharedPreferences 에 이미 값이 있으면 ?
+        if(logininfo.contains("id")&& logininfo.contains("pw"))
+        {
+            // 로그인 전역변수에 아이디랑 비밀번호 값을 넣는다
+            Login_gloval.login_id = logininfo.getString("id",null);
+            Login_gloval.login_password = logininfo.getString("pw",null);
+            // 메인화면으로 바로 이동한다.
+            Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
+            startActivity(Intent);
+            //액티비티 전환 애니메이션 설정하는 부분
+            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        }
+
         btn_Login = (Button) findViewById(R.id.btn_login);
         btn_account_find = (Button) findViewById(R.id.btn_account_find);
         btn_Sign_up = (Button) findViewById(R.id.btn_Sign_Up);
@@ -57,6 +80,7 @@ public class Luna_Login extends AppCompatActivity {
         text_guest_login = (TextView) findViewById(R.id.text_guest_login);
         user_id = (EditText) findViewById(R.id.Id_info);
         user_pw = (EditText) findViewById(R.id.Password_info);
+        check_auto_login = (CheckBox)findViewById(R.id.check_auto_login);
 
         //하얀색 밑줄
         btn_account_find.setText(Html.fromHtml("<font color=#f0f0f0><u>" + "계정찾기" + "</u></font>"));
@@ -126,6 +150,15 @@ public class Luna_Login extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success) {
+                                // 자동로그인 체크되어있으면 실행되는 코드
+                                if(check_auto_login.isChecked())
+                                {
+                                    // SharedPreferences 에 값 저장하기
+                                    editor.putString("id",userID); // 유저 파일에 로그인한 id 저장
+                                    editor.putString("pw",userPW); // 유저 파일에 로그인한 id 저장
+                                    editor.commit(); // 저장하기
+                                }
+
                                 Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
                                 String userID = jsonResponse.getString("userID");
