@@ -135,7 +135,7 @@ public class Luna_Account_Search extends AppCompatActivity {
                     String userName = (String) strings[0];
                     String userEmail = (String) strings[1];
 
-                    String url = "http://52.78.74.201/IDSearch.php";
+                    String url = "http://3.34.197.68/IDSearch.php";
 
                     String data = URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
                     data += "&" + URLEncoder.encode("userEmail", "UTF-8") + "=" + URLEncoder.encode(userEmail, "UTF-8");
@@ -268,7 +268,7 @@ public class Luna_Account_Search extends AppCompatActivity {
                     String userName = (String) strings[1];
                     String userEmail = (String) strings[2];
 
-                    String url = "http://52.78.74.201/PWSearch.php";
+                    String url = "http://3.34.197.68/PWSearch.php";
 
                     String data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");
                     data += "&" + URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");

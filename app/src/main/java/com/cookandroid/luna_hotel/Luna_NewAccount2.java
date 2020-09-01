@@ -566,7 +566,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     String userEmail = (String) params[6];
 
                     // 서버 안에 있는 Register.php의 주소를 link 안에 저장합니다.
-                    String link = "http://52.78.74.201/Register.php";
+                    String link = "http://3.34.197.68/Register.php";
 
                     // data라는 String 형태 변수 안에 배열의 내용들을 쭉 나열하여 넣습니다.
                     String data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");

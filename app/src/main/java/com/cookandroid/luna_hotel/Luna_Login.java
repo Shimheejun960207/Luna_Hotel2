@@ -166,11 +166,11 @@ public class Luna_Login extends AppCompatActivity {
 
                 // 로그인 직후 DB에 저장되어 있는 회원의 데이터를 가져오기 위한 부분입니다.
                 final JsonParse jsonParse = new JsonParse();            // AsyncTask 생성
-                jsonParse.execute("http://52.78.74.201/GetInfo.php");   // AsyncTask 실행
+                jsonParse.execute("http://3.34.197.68/GetInfo.php");   // AsyncTask 실행
 
                 // 로그인 직후 DB에 저장되어 있는 회원의 예약정보를 가져오기 위한 부분입니다.
                 final GetReserve getReserve = new GetReserve();
-                getReserve.execute("http://52.78.74.201/GetReserve.php");
+                getReserve.execute("http://3.34.197.68/GetReserve.php");
             }
         });
 

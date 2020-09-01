@@ -11,7 +11,7 @@ import java.util.Map;
 public class ValidateRequest_RemoveReserve extends StringRequest {
 
     // 서버에 위치한 UserValidate.php 스트링 형식으로 저장
-    final static private String URL = "http://52.78.74.201/DeleteReserve.php";
+    final static private String URL = "http://3.34.197.68/DeleteReserve.php";
     private Map<String, String> parameters;
 
     // 이곳은 생성자입니다.

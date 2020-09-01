@@ -291,7 +291,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                             startActivity(intent);
 
                             final GetReserve getReserve = new GetReserve();
-                            getReserve.execute("http://52.78.74.201/GetReserve.php");
+                            getReserve.execute("http://3.34.197.68/GetReserve.php");
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -518,7 +518,7 @@ public class Luna_Reservation_pay extends AppCompatActivity {
                     String resTnrqkr = (String) params[13];
 
                     // 서버 안에 있는 Register.php의 주소를 link 안에 저장합니다.
-                    String link = "http://52.78.74.201/Reserve.php";
+                    String link = "http://3.34.197.68/Reserve.php";
 
                     // data라는 String 형태 변수 안에 배열의 내용들을 쭉 나열하여 넣습니다.
                     String data = URLEncoder.encode("resID", "UTF-8") + "=" + URLEncoder.encode(resID, "UTF-8");

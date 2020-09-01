@@ -193,7 +193,7 @@ public class Luna_Change_Password extends AppCompatActivity {
                     String userPW = (String) strings[0];
                     String userID = (String) strings[1];
 
-                    String url = "http://52.78.74.201/UpdatePW.php";
+                    String url = "http://3.34.197.68/UpdatePW.php";
 
                     String data = URLEncoder.encode("userPW", "UTF-8") + "=" + URLEncoder.encode(userPW, "UTF-8");
                     data += "&" + URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");
