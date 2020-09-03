@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -18,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Luna_Setting extends AppCompatActivity {
 
     Button btn_back,btn_lunalogo,btn_cash_remove,btn_rnjsgks,btn_apply;
-    Switch switch_SMS_adver, switch_SMS_reser;
+    Switch switch_SMS_adver, switch_SMS_reser,switch_autologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,50 @@ public class Luna_Setting extends AppCompatActivity {
 
         switch_SMS_adver  = (Switch) findViewById(R.id.switch_SMS_adver);
         switch_SMS_reser  = (Switch) findViewById(R.id.switch_SMS_reser);
+        switch_autologin = (Switch)findViewById(R.id.switch_autologin);
+
+        final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
+        final SharedPreferences.Editor editor = logininfo.edit(); // 에디터 연결합니다.
+
+        // 자동로그인 SharedPreferences 에 이미 값이 있으면 ?
+        if(logininfo.contains("id")&& logininfo.contains("pw"))
+        {
+            switch_autologin.setChecked(true);
+        }
+       switch_autologin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+               // 자동로그인을 체크했을때
+               if(isChecked)
+               {
+                   if(Login_gloval.login_id == null) // 로그인이 안되어있다면?
+                   {
+                       // 토스트 메시지 출력후
+                       Toast loginToast = Toast.makeText(Luna_Setting.this,"로그인이 되어있지 않습니다.",Toast.LENGTH_SHORT);
+                       loginToast.show();
+                       // 다시 스위치 비활성화
+                       switch_autologin.setChecked(false);
+                   }
+                   else   // 위 if문에 이상이 없다면
+                       {
+                       // SharedPreferences 에 값 저장하기
+                       editor.putString("id", Login_gloval.login_id); // 유저 파일에 로그인한 id 저장
+                       editor.putString("pw", Login_gloval.login_password); // 유저 파일에 로그인한 id 저장
+                       editor.commit(); // 저장하기
+                           Toast loginToast = Toast.makeText(Luna_Setting.this,"자동로그인 기능을 켭니다.",Toast.LENGTH_SHORT);
+                           loginToast.show();
+                   }
+               }
+               else
+               {
+                   editor.clear();
+                   editor.commit();
+                   Toast loginToast = Toast.makeText(Luna_Setting.this,"자동로그인 기능을 끕니다.",Toast.LENGTH_SHORT);
+                   loginToast.show();
+               }
+           }
+       });
+
 
 
         //좌측상단 뒤로가기 버튼 이벤트
