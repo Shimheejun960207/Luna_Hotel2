@@ -165,7 +165,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_height="20dp"
                                     android:textSize="15sp"
-                                    android:text=" 서울루나호텔"
+                                    android:text=" 호텔루나 서울"
                                     android:textStyle="bold"/>
 
                                 <View
@@ -194,7 +194,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_height="20dp"
                                     android:textSize="15sp"
-                                    android:text=" 부산루나호텔"
+                                    android:text=" 호텔루나 부산"
                                     android:textStyle="bold"/>
 
                                 <View
@@ -224,7 +224,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_height="20dp"
                                     android:textSize="15sp"
-                                    android:text=" 제주루나호텔"
+                                    android:text=" 호텔루나 제주"
                                     android:textStyle="bold"/>
 
                                 <View
@@ -254,7 +254,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_height="20dp"
                                     android:textSize="15sp"
-                                    android:text=" 속초루나호텔"
+                                    android:text=" 호텔루나 속초"
                                     android:textStyle="bold"/>
 
                                 <View
