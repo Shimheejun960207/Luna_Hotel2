@@ -25,6 +25,9 @@ public class Luna_Myinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_myinfo);
 
+        // 페이지 변수 선언 1로 선언해야 메인 -> 내정보 로 넘어가 지고  뒤로or 취소 를 눌렀을때 메뉴화면으로 이동가능함
+        Login_gloval.pageNum = 1;
+
         image_gender = (ImageView) findViewById(R.id.image_gender);
 
         text_uesr_email = (TextView)findViewById(R.id.text_uesr_email); // 유저의 이메일 담는곳
