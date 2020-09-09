@@ -42,6 +42,7 @@ public class Luna_Reservation_Check extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                // 메뉴에서 진입한 경우
                 Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
                 startActivity(intent);
                 //액티비티 전환 애니메이션 설정하는 부분
@@ -55,6 +56,8 @@ public class Luna_Reservation_Check extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
+                //홈 버튼을 눌렀을때는 페이지 변수를 0으로 초기화합니다.
+                Login_gloval.pageNum = 0;
                 startActivity(Intent);
             }
         });

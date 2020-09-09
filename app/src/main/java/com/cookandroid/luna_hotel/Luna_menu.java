@@ -42,6 +42,9 @@ public class Luna_menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_menu);
 
+        // 페이지 변수를 0으로 초기화합니다
+        Login_gloval.pageNum = 0;
+
         // 회원 정보를 읽어오기 위한 SharedPreferences 선언
         SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
         final SharedPreferences.Editor editor = info.edit();
@@ -237,6 +240,9 @@ public class Luna_menu extends AppCompatActivity {
                 else {
                     Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                     startActivity(intent);
+                    // 페이지 변수 선언 1은 메뉴화면에서 진입했다는 뜻입니다.
+                    Login_gloval.pageNum = 1;
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
             }
         });
@@ -263,6 +269,9 @@ public class Luna_menu extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(getApplicationContext(), Luna_Myinfo.class);
                     startActivity(intent);
+                    // 페이지 변수 선언 1은 메뉴화면에서 진입했다는 뜻입니다.
+                    Login_gloval.pageNum = 1;
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
             }
         });

@@ -55,6 +55,23 @@ public class Luna_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_main);
 
+        // 다음은 내정보,예약확인 화면이동 오류를 해결하는 코드입니다.
+        // 메뉴에서 진입한 경우 다시 홈으로 와서 메뉴화면으로 이동합니다
+        if(Login_gloval.pageNum == 1)
+        {
+            Intent intent = new Intent(getApplicationContext(), Luna_menu.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        }
+        // 내정보 -> 예약확인에서 홈으로 온경우는 다시 내정보로 이동합니다
+        if(Login_gloval.pageNum == 2)
+        {
+            Intent intent = new Intent(getApplicationContext(), Luna_Myinfo.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        }
+
+
         btn_lunalogo = (Button)findViewById(R.id.btn_lunalogo);
         btn_menu = (Button)findViewById(R.id.btn_menu);
         btn_setting = (Button)findViewById(R.id.btn_setting);

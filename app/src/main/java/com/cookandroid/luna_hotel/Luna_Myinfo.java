@@ -113,6 +113,7 @@ public class Luna_Myinfo extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                 startActivity(intent);
+                Login_gloval.pageNum = 2; // 내정보에서 예약확인으로 들어가면 변수가 2가됩니다.
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             }
         });
@@ -122,6 +123,8 @@ public class Luna_Myinfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
+                //홈 버튼을 눌렀을때는 페이지 변수를 0으로 초기화합니다.
+                Login_gloval.pageNum = 0;
                 startActivity(intent);
             }
         });
@@ -131,8 +134,8 @@ public class Luna_Myinfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 뒤로가기 하면 수정하는 창이 한 번 더 떠서
-                // 뒤로가기 하면 메뉴로 이동되게 했습니다.
-                Intent intent = new Intent(getApplicationContext(), Luna_menu.class);
+                // 뒤로가기 하면 메인으로 이동되게 했습니다.
+                Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
                 startActivity(intent);
                 //액티비티 전환 애니메이션 설정하는 부분
                 overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
