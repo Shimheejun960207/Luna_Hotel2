@@ -162,7 +162,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 가장 큰 규모를 자랑하며 "
+                                                android:text="호텔 루나의 가장 큰 규모를 자랑하며 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -279,7 +279,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 패밀리 룸은 "
+                                                android:text="호텔 루나의 패밀리 룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -412,7 +412,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 더블룸은 "
+                                                android:text="호텔 루나의 더블룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -676,7 +676,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 가장 큰 규모를 자랑하며 "
+                                                android:text="호텔 루나의 가장 큰 규모를 자랑하며 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -793,7 +793,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 패밀리 룸은 "
+                                                android:text="호텔 루나의 패밀리 룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -926,7 +926,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 더블룸은 "
+                                                android:text="호텔 루나의 더블룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1190,7 +1190,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 가장 큰 규모를 자랑하며 "
+                                                android:text="호텔 루나의 가장 큰 규모를 자랑하며 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1307,7 +1307,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 패밀리 룸은 "
+                                                android:text="호텔 루나의 패밀리 룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1440,7 +1440,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 더블룸은 "
+                                                android:text="호텔 루나의 더블룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1705,7 +1705,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 가장 큰 규모를 자랑하며 "
+                                                android:text="호텔 루나의 가장 큰 규모를 자랑하며 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1822,7 +1822,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 패밀리 룸은 "
+                                                android:text="호텔 루나의 패밀리 룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1955,7 +1955,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="루나 호텔의 더블룸은 "
+                                                android:text="호텔 루나의 더블룸은 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
