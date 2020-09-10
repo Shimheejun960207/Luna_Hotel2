@@ -413,7 +413,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text=" · 동성울대학교 컴퓨터소프트웨어학과"
+                        android:text=" · 동서울대학교 컴퓨터소프트웨어학과"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -487,7 +487,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text=" · 동성울대학교 컴퓨터소프트웨어학과"
+                        android:text=" · 동서울대학교 컴퓨터소프트웨어학과"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -561,7 +561,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text=" · 동성울대학교 컴퓨터소프트웨어학과"
+                        android:text=" · 동서울대학교 컴퓨터소프트웨어학과"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -635,7 +635,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text=" · 동성울대학교 컴퓨터소프트웨어학과"
+                        android:text=" · 동서울대학교 컴퓨터소프트웨어학과"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -708,7 +708,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text=" · 동성울대학교 컴퓨터소프트웨어학과"
+                            android:text=" · 동서울대학교 컴퓨터소프트웨어학과"
                             android:textColor="#000000"
                             android:textSize="12sp" />
 
