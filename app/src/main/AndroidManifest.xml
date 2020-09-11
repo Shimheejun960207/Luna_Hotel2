@@ -23,6 +23,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/luna_icon"
         android:label="호텔 루나"
+        android:screenOrientation="portrait"
         android:roundIcon="@mipmap/luna_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"

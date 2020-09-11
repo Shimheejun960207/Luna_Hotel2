@@ -109,7 +109,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="호텔루나 서울 본관 4층에 위치한 피트니스 센터는 PT Studio, GX Studio 등의"
+                                    android:text="호텔루나 본관 4층에 위치한 피트니스 센터는 PT Studio, GX Studio 등의"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 
@@ -386,7 +386,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="호텔루나 서울의 사우나는 도심 속 최상의 휴식 공간입니다."
+                                    android:text="호텔루나의 사우나는 도심 속 최상의 휴식 공간입니다."
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 
@@ -652,7 +652,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="호텔루나 서울의 수영장은 바다와 요트를 모티브로 한 현대적인 감각의"
+                                    android:text="호텔루나의 수영장은 바다와 요트를 모티브로 한 현대적인 감각의"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 
@@ -812,7 +812,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="서울의 빌딩 숲으로 날아가는 시원한 드라이버샷의"
+                                    android:text="빌딩 숲으로 날아가는 시원한 드라이버샷의"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
                                 <TextView
@@ -830,7 +830,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="호텔루나 서울의 실내골프장에서 스트레스를 날려보세요."
+                                    android:text="호텔루나의 실내골프장에서 스트레스를 날려보세요."
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 
@@ -998,7 +998,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="호텔루나서울 메인타워 1층 로비에 위치한 비즈니스 센터는"
+                                    android:text="호텔루나 본관 1층 로비에 위치한 비즈니스 센터는"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 

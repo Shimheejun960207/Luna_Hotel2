@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:text="  -  Welcome to the HotelLuna  -  "
+                android:text="  -  Welcome to the Hotel Luna  -  "
                 android:textColor="#000000"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dip"
-                android:text="호텔(HOTELS LUNA &amp; RESORTS)은 대한민국 최대규모 호텔그룹입니다."
+                android:text="호텔루나(HOTELS LUNA &amp; RESORTS)는 대한민국 최대규모 호텔그룹입니다."
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
@@ -421,7 +421,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text=" · 호첼루나 회장"
+                        android:text=" · 호텔루나 회장"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -906,7 +906,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dip"
-                android:text="호텔루나은 ‘아시아 TOP3 브랜드 호텔’ 로 성장한다는"
+                android:text="호텔루나는 ‘아시아 TOP3 브랜드 호텔’ 로 성장한다는"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="13sp" />
@@ -998,7 +998,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:text="더 많은 인류에게 품격과 자부심으르 겸험케한다."
+                android:text="더 많은 인류에게 품격과 자부심으르 경험 하게한다."
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -1103,7 +1103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="고객보다 앞선 \n행동과 밝은 \n미소로 세계 \n최고의 \n호텔루나을 \n만든다."
+                        android:text="고객보다 앞선 \n행동과 밝은 \n미소로 세계 \n최고의 \n호텔루나를 \n만든다."
                         android:textColor="#000000"
                         android:textStyle="bold" />
 
@@ -1118,7 +1118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dip"
-                android:text="Premium Lifestyle을 선도하는 루라인으로서 각각의"
+                android:text="Premium Lifestyle을 선도하는 루나인으로서 각각의"
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
@@ -1134,7 +1134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="다양한 생활영역에서 루라인의"
+                android:text="다양한 생활영역에서 루나인의"
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
