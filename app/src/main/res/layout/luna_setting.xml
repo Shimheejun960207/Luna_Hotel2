@@ -125,7 +125,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="219dp"
             android:id="@+id/switch_SMS_adver"
-            android:checked="true"
             android:thumbTint="#100c3e"
             />
 

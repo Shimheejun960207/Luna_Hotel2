@@ -21,6 +21,8 @@ public class Luna_Setting extends AppCompatActivity {
     Button btn_back,btn_lunalogo,btn_cash_remove,btn_rnjsgks,btn_apply;
     Switch switch_SMS_adver, switch_SMS_reser,switch_autologin;
 
+    String sms_copy = null;
+    String sms_reser = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,42 @@ public class Luna_Setting extends AppCompatActivity {
 
         final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
         final SharedPreferences.Editor editor = logininfo.edit(); // 에디터 연결합니다.
+
+        // SMS 알림 서비스 스위치 관련
+        final SharedPreferences SMS_info1 = getSharedPreferences("SMS1",0);
+        final SharedPreferences.Editor editor1 = SMS_info1.edit(); // 에디터 연결합니다.
+
+        final SharedPreferences SMS_info2 = getSharedPreferences("SMS2",0);
+        final SharedPreferences.Editor editor2 = SMS_info2.edit(); // 에디터 연결합니다.
+
+
+
+        final String option_on = "ON";
+
+        // SMS 옵션 설정관련 SharedPreferences 에 이미 값이 있으면 ?
+        if(SMS_info1.contains("SMS_COPY"))
+        {
+             sms_copy = SMS_info1.getString("SMS_COPY",null);
+        }
+        if(SMS_info2.contains("SMS_RESER"))
+        {
+            sms_reser = SMS_info2.getString("SMS_RESER",null);
+        }
+        // 값이 있으면 true 없으면  false
+        if(sms_copy != null) {
+            switch_SMS_adver.setChecked(true);
+        }
+        if(sms_copy == null) {
+            switch_SMS_adver.setChecked(false);
+        }
+        if(sms_reser != null) {
+            switch_SMS_reser.setChecked(true);
+        }
+        if(sms_reser == null) {
+            switch_SMS_reser.setChecked(false);
+        }
+
+
 
         // 자동로그인 SharedPreferences 에 이미 값이 있으면 ?
         if(logininfo.contains("id")&& logininfo.contains("pw"))
@@ -126,9 +164,13 @@ public class Luna_Setting extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
+                    editor1.putString("SMS_COPY", option_on); // sms 광고수신 변수 1 선언
+                    editor1.commit(); // 저장하기
                     Toast adverToast = Toast.makeText(Luna_Setting.this,"SMS 광고를 수신합니다.",Toast.LENGTH_SHORT);
                     adverToast.show();
                 } else {
+                    editor1.clear();
+                    editor1.commit(); // 저장하기
                     Toast adverToast = Toast.makeText(Luna_Setting.this,"SMS 광고를 수신하지 않습니다.",Toast.LENGTH_SHORT);
                     adverToast.show();
                 }
@@ -141,9 +183,13 @@ public class Luna_Setting extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
+                    editor2.putString("SMS_RESER", option_on); // sms 예약수신 변수 1 선언
+                    editor2.commit(); // 저장하기
                     Toast reserToast = Toast.makeText(Luna_Setting.this,"SMS 예약 알림을 받습니다.",Toast.LENGTH_SHORT);
                     reserToast.show();
                 } else {
+                    editor2.clear();
+                    editor2.commit(); // 저장하기
                     Toast reserToast = Toast.makeText(Luna_Setting.this,"SMS 예약 알림을 받지 않습니다.",Toast.LENGTH_SHORT);
                     reserToast.show();
                 }
