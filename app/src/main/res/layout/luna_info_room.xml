@@ -363,7 +363,6 @@
 
 
 
-                                // 싱글룸 끝
                                 // 더블룸 시작
                                 <ViewFlipper
                                     android:layout_width="330dip"
@@ -528,7 +527,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="싱글 룸은 호텔 루나 에서 조용하고 "
+                                                android:text="싱글 룸은 호텔 루나에서 조용하고 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -877,7 +876,6 @@
 
 
 
-                                // 싱글룸 끝
                                 // 더블룸 시작
                                 <ViewFlipper
                                     android:layout_width="330dip"
@@ -1042,7 +1040,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="싱글 룸은 호텔 루나 에서 조용하고 "
+                                                android:text="싱글 룸은 호텔 루나에서 조용하고 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1556,7 +1554,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="싱글 룸은 호텔 루나 에서 조용하고 "
+                                                android:text="싱글 룸은 호텔 루나에서 조용하고 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>
@@ -1906,7 +1904,6 @@
 
 
 
-                                // 싱글룸 끝
                                 // 더블룸 시작
                                 <ViewFlipper
                                     android:layout_width="330dip"
@@ -2071,7 +2068,7 @@
                                                 android:textAlignment="center"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="싱글 룸은 호텔 루나 에서 조용하고 "
+                                                android:text="싱글 룸은 호텔 루나에서 조용하고 "
                                                 android:textStyle="bold"
                                                 android:textSize="15sp"
                                                 android:textColor="#000000"/>

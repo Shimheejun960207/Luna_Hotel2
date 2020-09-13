@@ -114,7 +114,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10sp"
-                                    android:text="2020년 6월 오픈한 서울지점은 전에 없던 품격 있는 공간으로 재탄생하여"
+                                    android:text="2020년 3월 오픈한 서울지점은 전에 없던 품격 있는 공간으로 재탄생하여"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
 

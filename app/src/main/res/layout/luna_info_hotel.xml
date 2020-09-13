@@ -91,7 +91,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dip"
-                android:text="호텔루나(HOTELS LUNA &amp; RESORTS)는 대한민국 최대규모 호텔그룹입니다."
+                android:text=" 호텔루나(HOTELS LUNA &amp; RESORTS)는 대한민국 최대 규모의 "
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dip"
+                android:text=" 호텔그룹입니다. "
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
@@ -271,7 +280,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="호텔루나은 국내를 넘어 해외 관광 업계에서 대한민국 대표 호텔 브랜드로서의"
+                        android:text="호텔루나는 국내를 넘어 해외 관광 업계에서 대한민국 대표 호텔 브랜드로서의"
                         android:textColor="#000000"
                         android:textSize="8.5sp" />
 
@@ -305,14 +314,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="호텔루나을 찾아주신 고객님께 특별한 감동을 선사해 드리기 위해 전 임직원이 한결 같은"
+                    android:text="호텔루나를 찾아주신 고객님께 특별한 감동을 선사해 드리기 위해 전 임직원이 한결 같은"
                     android:textColor="#000000"
                     android:textSize="8.5sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="마음으로 노력하고 있습니다. 아울러 호텔루나은 최상급 럭셔리 호텔 ‘시그니엘’, 5성급"
+                    android:text="마음으로 노력하고 있습니다. 아울러 호텔루나는 최상급 럭셔리 호텔 ‘시그니엘’, 5성급"
                     android:textColor="#000000"
                     android:textSize="8.5sp" />
 
@@ -923,7 +932,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="또한 전 부문에 걸친 Quality-Up을 위한 철학을 바탕으로 더욱"
+                android:text="또한 전 부분에 걸친 Quality-Up을 위한 철학을 바탕으로 더욱"
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
@@ -978,7 +987,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dip"
-                android:text="사랑, 자유, 풍요의 끔을 실현하는 호텔"
+                android:text="사랑, 자유, 풍요의 꿈을 실현하는 호텔"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -998,7 +1007,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:text="더 많은 인류에게 품격과 자부심으르 경험 하게한다."
+                android:text="더 많은 인류에게 품격과 자부심으르 경험하게 한다."
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -1126,7 +1135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="분야에서 최고의 전무가로 성장하여 더 많은 고객이"
+                android:text="분야에서 최고의 전문가로 성장하여 더 많은 고객이"
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
