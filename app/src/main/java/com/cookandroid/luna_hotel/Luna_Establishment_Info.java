@@ -17,12 +17,13 @@ public class Luna_Establishment_Info extends AppCompatActivity {
     Button btn_back, btn_lunalogo;
 
     //서울(내용)
-    LinearLayout layout_info_fitness_seoul,layout_info_sauna_seoul,layout_info_swimmimg_seoul,layout_info_golf_seoul,layout_info_business_seoul,layout_info_parking_seoul;
+    LinearLayout layout_info_fitness_seoul, layout_info_sauna_seoul, layout_info_swimmimg_seoul, layout_info_golf_seoul, layout_info_business_seoul, layout_info_parking_seoul;
 
-    //서울(버튼)
-    Button btn_info_fitness_seoul,btn_info_sauna_seoul,btn_info_swimming_seoul,btn_info_golf_seoul,btn_info_business_seoul,btn_info_parking_seoul;
+    //서울(상세보기)
+    Button btn_info_fitness_seoul, btn_info_sauna_seoul, btn_info_swimming_seoul, btn_info_golf_seoul, btn_info_business_seoul, btn_info_parking_seoul;
 
-
+    //서울(화살표)
+    Button btn_info_fitness_seoul_arrow, btn_info_sauna_seoul_arrow, btn_info_swimming_seoul_arrow, btn_info_golf_seoul_arrow, btn_info_business_seoul_arrow;
 
 
     //슬라이드 변수 선언
@@ -42,18 +43,23 @@ public class Luna_Establishment_Info extends AppCompatActivity {
         //연결(서울)
         btn_info_fitness_seoul = (Button) findViewById(R.id.btn_info_fitness_seoul); //상세보기(버튼)
         layout_info_fitness_seoul = (LinearLayout) findViewById(R.id.layout_info_fitness_seoul); //상세보기(내용)
+        btn_info_fitness_seoul_arrow = (Button) findViewById(R.id.btn_info_fitness_seoul_arrow); //화살표(내용)
 
         btn_info_sauna_seoul = (Button) findViewById(R.id.btn_info_sauna_seoul); //상세보기(버튼)
         layout_info_sauna_seoul = (LinearLayout) findViewById(R.id.layout_info_sauna_seoul); //상세보기(내용)
+        btn_info_sauna_seoul_arrow = (Button) findViewById(R.id.btn_info_sauna_seoul_arrow); //화살표(내용)
 
         btn_info_swimming_seoul = (Button) findViewById(R.id.btn_info_swimming_seoul); //상세보기(버튼)
         layout_info_swimmimg_seoul = (LinearLayout) findViewById(R.id.layout_info_swimming_seoul); //상세보기(내용)
+        btn_info_swimming_seoul_arrow = (Button) findViewById(R.id.btn_info_swimming_seoul_arrow); //화살표(내용)
 
         btn_info_golf_seoul = (Button) findViewById(R.id.btn_info_golf_seoul); //상세보기(버튼)
         layout_info_golf_seoul = (LinearLayout) findViewById(R.id.layout_info_golf_seoul); //상세보기(내용)
+        btn_info_golf_seoul_arrow = (Button) findViewById(R.id.btn_info_golf_seoul_arrow); //화살표(내용)
 
         btn_info_business_seoul = (Button) findViewById(R.id.btn_info_business_seoul); //상세보기(버튼)
         layout_info_business_seoul = (LinearLayout) findViewById(R.id.layout_info_business_seoul); //상세보기(내용)
+        btn_info_business_seoul_arrow = (Button) findViewById(R.id.btn_info_business_seoul_arrow); //화살표(내용)
 
         // 주차장 상세보기 (보류)
         //btn_info_parking_seoul = (Button) findViewById(R.id.btn_info_parking_seoul); //상세보기(버튼)
@@ -63,15 +69,32 @@ public class Luna_Establishment_Info extends AppCompatActivity {
         btn_lunalogo = (Button) findViewById(R.id.btn_lunalogo);
 
 
-
-        //피트니스 상세 보기 이벤트(서울)
+        //피트니스 상세 보기 이벤트(서울)(상세보기 버튼)
         btn_info_fitness_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(layout_info_fitness_seoul.getVisibility() == View.GONE) //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                if (layout_info_fitness_seoul.getVisibility() == View.GONE) {//GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
                     layout_info_fitness_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
-                else
+                    btn_info_fitness_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
                     layout_info_fitness_seoul.setVisibility(View.GONE);
+                    btn_info_fitness_seoul_arrow.setSelected(false);// 화살표 아래 방향으로 다시 설정
+                }
+            }
+        });
+
+        //피트니스 상세 보기 이벤트(서울)(화살표 버튼)
+        btn_info_fitness_seoul_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layout_info_fitness_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                    layout_info_fitness_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
+                    btn_info_fitness_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
+                    layout_info_fitness_seoul.setVisibility(View.GONE);
+                    btn_info_fitness_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+
             }
         });
 
@@ -87,14 +110,32 @@ public class Luna_Establishment_Info extends AppCompatActivity {
             fllipperImages_1(image_1);
         }
 
-        //사우나 상세 보기 이벤트(서울)
+        //사우나 상세 보기 이벤트(서울)(상세보기 버튼)
         btn_info_sauna_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(layout_info_sauna_seoul.getVisibility() == View.GONE) //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                if (layout_info_sauna_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
                     layout_info_sauna_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
-                else
+                    btn_info_sauna_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
                     layout_info_sauna_seoul.setVisibility(View.GONE);
+                    btn_info_sauna_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+            }
+        });
+
+        //사우나 상세 보기 이벤트(서울)(화살표 버튼)
+        btn_info_sauna_seoul_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layout_info_sauna_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                    layout_info_sauna_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
+                    btn_info_sauna_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
+                    layout_info_sauna_seoul.setVisibility(View.GONE);
+                    btn_info_sauna_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+
             }
         });
 
@@ -109,25 +150,60 @@ public class Luna_Establishment_Info extends AppCompatActivity {
             fllipperImages_2(image_2);
         }
 
-        //수영장 상세 보기 이벤트(서울)
+        //수영장 상세 보기 이벤트(서울)(상세보기 버튼)
         btn_info_swimming_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(layout_info_swimmimg_seoul.getVisibility() == View.GONE) //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                if (layout_info_swimmimg_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
                     layout_info_swimmimg_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
-                else
+                    btn_info_swimming_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
                     layout_info_swimmimg_seoul.setVisibility(View.GONE);
+                    btn_info_swimming_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
             }
         });
 
-        //골프 상세 보기 이벤트(서울)
+        //수영장 상세 보기 이벤트(서울)(화살표 버튼)
+        btn_info_swimming_seoul_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layout_info_swimmimg_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                    layout_info_swimmimg_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
+                    btn_info_swimming_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
+                    layout_info_swimmimg_seoul.setVisibility(View.GONE);
+                    btn_info_swimming_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+
+            }
+        });
+
+        //골프 상세 보기 이벤트(서울)(상세보기 버튼)
         btn_info_golf_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(layout_info_golf_seoul.getVisibility() == View.GONE) //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                if (layout_info_golf_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
                     layout_info_golf_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
-                else
+                    btn_info_golf_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
                     layout_info_golf_seoul.setVisibility(View.GONE);
+                    btn_info_golf_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+            }
+        });
+
+        //골프 상세 보기 이벤트(서울)(화살표 버튼)
+        btn_info_golf_seoul_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layout_info_golf_seoul.getVisibility() == View.GONE) { //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                    layout_info_golf_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
+                    btn_info_golf_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
+                    layout_info_golf_seoul.setVisibility(View.GONE);
+                    btn_info_golf_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
             }
         });
 
@@ -144,14 +220,31 @@ public class Luna_Establishment_Info extends AppCompatActivity {
             fllipperImages_3(image_3);
         }
 
-        //비즈니스 상세 보기 이벤트(서울)
+        //비즈니스 상세 보기 이벤트(서울)(상세보기 버튼)
         btn_info_business_seoul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(layout_info_business_seoul.getVisibility() == View.GONE) //GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                if (layout_info_business_seoul.getVisibility() == View.GONE) {//GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
                     layout_info_business_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
-                else
+                    btn_info_business_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
                     layout_info_business_seoul.setVisibility(View.GONE);
+                    btn_info_business_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
+            }
+        });
+
+        //비즈니스 상세 보기 이벤트(서울)(화살표 버튼)
+        btn_info_business_seoul_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layout_info_business_seoul.getVisibility() == View.GONE) {//GONE : 해당 뷰를 안 보여줌(공간마저 감춤)
+                    layout_info_business_seoul.setVisibility(View.VISIBLE); // VISIBLE : 해당 뷰를 보여줌, {참고: INVISIBLE :해당 뷰를 안 보여줌(공간은 존재)}
+                    btn_info_business_seoul_arrow.setSelected(true); // 화살표 위 방향으로 설정
+                } else {
+                    layout_info_business_seoul.setVisibility(View.GONE);
+                    btn_info_business_seoul_arrow.setSelected(false); // 화살표 아래 방향으로 다시 설정
+                }
             }
         });
 
@@ -246,7 +339,6 @@ public class Luna_Establishment_Info extends AppCompatActivity {
         v_fllipper_4.setOutAnimation(this, android.R.anim.slide_out_right);
     }
     // 슬라이드 뷰 코딩 end
-
 
 
     // 취소버튼 누를때 생기는 애니메이션
