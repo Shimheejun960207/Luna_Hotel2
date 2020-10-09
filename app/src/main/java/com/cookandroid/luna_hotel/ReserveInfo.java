@@ -1,6 +1,6 @@
 package com.cookandroid.luna_hotel;
 
-// 회원 정보를 받아오기 위한 UserInfo 클래스입니다.
+// 예약 정보를 받아오기 위한 ReserveInfo 클래스입니다.
 
 public class ReserveInfo {
 

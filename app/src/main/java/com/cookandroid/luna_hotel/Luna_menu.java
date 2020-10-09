@@ -49,13 +49,18 @@ public class Luna_menu extends AppCompatActivity {
         SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
         final SharedPreferences.Editor editor = info.edit();
 
+        // 예약 정보를 읽어오기 위한 SharedPreferences 선언
         SharedPreferences reserve = getSharedPreferences("reserve", MODE_PRIVATE);
         final SharedPreferences.Editor editor2 = reserve.edit();
 
+        // 공지사항 목록을 읽어오기 위한 SharedPreferences 선언
+        SharedPreferences news = getSharedPreferences("news", MODE_PRIVATE);
+        final SharedPreferences.Editor editor4 = news.edit();
 
         // 자동로그인 정보를 읽기 위한 SharedPreferences 선언
         final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
         final SharedPreferences.Editor editor3 = logininfo.edit(); // 에디터 연결합니다.
+
 
         image_gender = (ImageView)findViewById(R.id.image_gender);
         menu_id = (TextView) findViewById(R.id.menu_id);
@@ -151,7 +156,8 @@ public class Luna_menu extends AppCompatActivity {
                             editor3.clear();
                             editor3.commit();
 
-
+                            editor4.clear();
+                            editor4.commit();
 
                             Intent goMain = new Intent(getApplicationContext(), Luna_Login.class);
                             goMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -235,6 +241,7 @@ public class Luna_menu extends AppCompatActivity {
                     // 예약확인을 눌렀을 때 접수된 예약이 없다고 뜨는 TextView가 있는 액티비티로 넘어갑니다.
                     Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check_Nothing.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
                 // 로그인도 되어있고 가져온 예약 정보가 하나라도 있다면 예약확인 액티비티로 이동
                 else {

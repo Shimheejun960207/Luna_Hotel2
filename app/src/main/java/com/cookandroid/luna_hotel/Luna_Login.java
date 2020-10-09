@@ -1,5 +1,6 @@
 package com.cookandroid.luna_hotel;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -34,8 +35,6 @@ import java.util.regex.Pattern;
 
 public class Luna_Login extends AppCompatActivity {
 
-
-
     Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
     EditText user_id, user_pw;
     TextView text_guest_login;
@@ -46,6 +45,9 @@ public class Luna_Login extends AppCompatActivity {
 
     private String jsonString2;
     ArrayList<ReserveInfo> reserveArrayList;
+
+    private String jsonString3;
+    ArrayList<NewsInfo> newsArrayList;
 
     AlertDialog dialog;
 
@@ -159,25 +161,54 @@ public class Luna_Login extends AppCompatActivity {
                                     editor.commit(); // 저장하기
                                 }
 
-                                Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
-
-                                String userID = jsonResponse.getString("userID");
-                                String userPW = jsonResponse.getString("userPW");
+                                final String userID = jsonResponse.getString("userID");
+                                final String userPW = jsonResponse.getString("userPW");
 
                                 // 유저 정보가 저장되어 있는 info 저장소를 불러옵니다.
-                                SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
+                                final SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
 
-                                Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
-                                //  전역변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
-                                Login_gloval.login_id = userID;
-                                Login_gloval.login_password = userPW;
+                                // 관리자 계정과 일반 계정을 구분하기 위한 if문
+                                // id가 administrator일 경우 관리 화면으로 이동
+                                if(userID.equals("administrator")) {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Login.this);
+                                    builder.setMessage("관리자 계정입니다. 로그인 하시겠습니까?");
+                                    builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Toast accountToast = Toast.makeText(Luna_Login.this,"로그인 되었습니다.",Toast.LENGTH_SHORT);
+                                            accountToast.show();
 
-                                // 전역변수에 가져온 유저 정보 중 이름 값을 resName 전역변수에 넣습니다.
-                                // 이 저장된 이름은 예약할 때 예약자 명이 들어가는 부분에서 사용됩니다.
-                                Login_gloval.Login_resName = info.getString("userName", "");
+                                            Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
 
-                                // 여기까지.
-                                Luna_Login.this.startActivity(loginintent);
+                                            Login_gloval.login_id = userID;
+                                            Login_gloval.login_password = userPW;
+                                            Login_gloval.Login_resName = info.getString("userName", "");
+
+                                            // 여기까지.
+                                            Luna_Login.this.startActivity(loginintent);
+                                        }
+                                    });
+                                    builder.setNegativeButton("아니요",null);
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                }
+
+                                // id가 administrator가 아닌 다른 id일 경우 (기존 로그인 방법)
+                                else {
+                                    Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+
+                                    Intent loginintent = new Intent(Luna_Login.this, Luna_Main.class);
+                                    //  전역변수에 로그인에 성공한 아이디와 비밀번호 값을 보낸다.
+                                    Login_gloval.login_id = userID;
+                                    Login_gloval.login_password = userPW;
+
+                                    // 전역변수에 가져온 유저 정보 중 이름 값을 resName 전역변수에 넣습니다.
+                                    // 이 저장된 이름은 예약할 때 예약자 명이 들어가는 부분에서 사용됩니다.
+                                    Login_gloval.Login_resName = info.getString("userName", "");
+
+                                    // 여기까지.
+                                    Luna_Login.this.startActivity(loginintent);
+                                }
                             }
                             else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Login.this);
@@ -204,6 +235,10 @@ public class Luna_Login extends AppCompatActivity {
                 // 로그인 직후 DB에 저장되어 있는 회원의 예약정보를 가져오기 위한 부분입니다.
                 final GetReserve getReserve = new GetReserve();
                 getReserve.execute("http://3.34.197.68/GetReserve.php");
+
+                // 로그인 직후 DB에 저장되어 있는 공지사항 목록을 가져옵니다.
+                final GetNews getNews = new GetNews();
+                getNews.execute("http://3.34.197.68/GetNews.php");
             }
         });
 
@@ -238,6 +273,11 @@ public class Luna_Login extends AppCompatActivity {
             public void onClick(View view) {
                 Login_gloval.login_id = null;
                 Login_gloval.login_password = null;
+
+                // 게스트로 로그인해도 공지사항은 받아와야 하기 때문에 공지사항을 불러오는 구문 실행.
+                final GetNews getNews = new GetNews();
+                getNews.execute("http://3.34.197.68/GetNews.php");
+
                 Intent Main_intent = new Intent(getApplicationContext(),Luna_Main.class);
                 startActivity(Main_intent);
             }
@@ -584,6 +624,141 @@ public class Luna_Login extends AppCompatActivity {
             }
             // JSON을 가공하여 tmpArray에 넣고 반환.
             return tmpArray2;
+        }
+    }
+
+
+    // 서버에서 공지사항 목록을 불러오기 위한 클래스입니다.
+    public class GetNews extends AsyncTask<String, Void, String> {
+        String TAG = "Get News";
+
+        @Override
+        protected String doInBackground(String... strings) {
+            // execute의 매개변수를 받아와서 사용합니다.
+            String url = strings[0];
+
+            try {
+                // 어플에서 데이터 전송 준비
+                URL serverURL = new URL(url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) serverURL.openConnection();
+
+                httpURLConnection.setReadTimeout(10000);
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.connect();
+
+
+                // 어플에서 데이터 전송 시작
+                int responseStatusCode = httpURLConnection.getResponseCode();
+
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else {
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                bufferedReader.close();
+                Log.d(TAG, sb.toString().trim());
+
+                // 받아온 JSON의 공백을 trim()으로 제거합니다.
+                return sb.toString().trim();
+            } catch(Exception e) {
+                Log.d(TAG, "InsertData : Error", e);
+                String errorString = e.toString();
+                return null;
+            }
+        }
+
+        @Override
+        // doInBackgroundString에서 return한 값을 받습니다.
+        protected void onPostExecute(String fromdoInBackgroundString) {
+            super.onPostExecute(fromdoInBackgroundString);
+
+            if(fromdoInBackgroundString == null) {
+                // doInBackgroundString에서 return받은 값이 null값일 경우 에러로 토스트 출력.
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                // null이 아니라면, 밑 문장들 실행
+                jsonString3 = fromdoInBackgroundString;
+                // ArrayList에 값을 넣기 위해 doParse() 메소드 실행.
+                // doParse() 메소드는 밑에 onProgressUpdate 부분에 넣음.
+                newsArrayList = doParse3();
+
+                // 단말기에 간단한 정보를 저장하는 SharedPreferences 객체를 PRIVATE모드로 선언
+                SharedPreferences news = getSharedPreferences("news", MODE_PRIVATE);
+                // SharedPreferences 를 제어하기 위한 Editor 선언
+                SharedPreferences.Editor editor = news.edit();
+
+                // newsArrayList에 들어간 배열의 크기를 news변수에 넣습니다.
+                // 이 news는 리스트뷰에서 배열의 크기를 불러올 때 사용됩니다.
+                editor.putInt("news", newsArrayList.size());
+
+                editor.clear();
+
+                // for 문을 통해 DB에 저장된 배열 갯수만큼 SharedPreferences에 넣습니다.
+                for(int i = 0; i < newsArrayList.size(); i++) {
+                    editor.putString("newsCODE" + i, newsArrayList.get(i).getNewsCODE());
+                    editor.putString("newsTitle" + i, newsArrayList.get(i).getNewsTitle());
+                    editor.putString("newsMain" + i, newsArrayList.get(i).getNewsMain());
+                    editor.putString("newsWriter" + i, newsArrayList.get(i).getNewsWriter());
+                    editor.putString("newsDate" + i, newsArrayList.get(i).getNewsDate());
+                }
+
+                editor.commit();
+            }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        private ArrayList<NewsInfo> doParse3() {
+
+            // ArrayList에 값을 넣기 위해 임시 ArrayList를 만듬
+            ArrayList<NewsInfo> tmpArray3 = new ArrayList<NewsInfo>();
+
+            try {
+                JSONObject jsonObject = new JSONObject(jsonString3);
+                // PHP 구문을 통해 받은 결과인 result라는 이름의 JSONArray를 받아옴.
+                JSONArray jsonArray = jsonObject.getJSONArray("result");
+
+                // 값들을 복사해서 넣는 과정.
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    NewsInfo tmpinfo = new NewsInfo();
+                    JSONObject item = jsonArray.getJSONObject(i);
+
+                    tmpinfo.setNewsCODE(item.getString("newsCODE"));
+                    tmpinfo.setNewsTitle(item.getString("newsTitle"));
+                    tmpinfo.setNewsMain(item.getString("newsMain"));
+                    tmpinfo.setNewsWriter(item.getString("newsWriter"));
+                    tmpinfo.setNewsDate(item.getString("newsDate"));
+
+                    tmpArray3.add(tmpinfo);
+                }
+            } catch(JSONException e) {
+                e.printStackTrace();
+            }
+            // JSON을 가공하여 tmpArray에 넣고 반환.
+            return tmpArray3;
         }
     }
 }

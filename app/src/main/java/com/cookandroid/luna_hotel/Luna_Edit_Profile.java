@@ -36,16 +36,15 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class Luna_Edit_Profile extends AppCompatActivity {
+    public class Luna_Edit_Profile extends AppCompatActivity {
 
-    Button btn_next,btn_lunalogo,btn_back;
-    EditText edit_name,edit_hp,edit_email;
+        Button btn_next,btn_lunalogo,btn_back;
+        EditText edit_name,edit_hp,edit_email;
 
-    AlertDialog dialog;
-    AlertDialog dialog2;
+        AlertDialog dialog;
 
-    private String jsonString;
-    ArrayList<ChangeInfo> changeArrayList;
+        private String jsonString;
+        ArrayList<ChangeInfo> changeArrayList;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

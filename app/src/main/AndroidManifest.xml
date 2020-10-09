@@ -46,6 +46,8 @@
         </activity>
         <activity android:name=".Luna_News">
         </activity>
+        <activity android:name=".Luna_News_Create">
+        </activity>
         <activity android:name=".Luna_Promotion">
         </activity>
         <activity android:name=".Luna_Local_Hotel_Info">

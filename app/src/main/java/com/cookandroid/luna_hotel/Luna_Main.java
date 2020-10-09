@@ -223,11 +223,13 @@ public class Luna_Main extends AppCompatActivity {
                     // 예약확인을 눌렀을 때 접수된 예약이 없다고 뜨는 TextView가 있는 액티비티로 넘어갑니다.
                     Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check_Nothing.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
                 // 로그인도 되어있고 가져온 예약 정보가 하나라도 있다면 예약확인 액티비티로 이동
                 else {
                     Intent intent = new Intent(getApplicationContext(), Luna_Reservation_Check.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 }
             }
         });
