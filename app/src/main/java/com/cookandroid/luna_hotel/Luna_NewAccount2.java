@@ -3,17 +3,20 @@ package com.cookandroid.luna_hotel;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -191,6 +194,17 @@ public class Luna_NewAccount2 extends AppCompatActivity {
         });
 
 
+        // 아이디 입력하는 칸을 터치하면 체크박스에 체크가 해제됩니다.
+        // 클릭 리스너로는 두 번 눌러야 되길래 터치 리스너로 구현했습니다.
+        edit_id.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                checkbox_id.setChecked(false);
+                return false;
+            }
+        });
+
+
         //중복확인 클릭시 실행되는 코드
         // 버튼을 누르면 ID 입력하는 곳의 edittext 값이랑 서버의 아이디값을
         // 모두 조회하여 같은 값이 있지 확인
@@ -242,15 +256,14 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
                                 dialog = builder.setMessage("사용할 수 있는 아이디입니다.").setPositiveButton("확인", null).create();
                                 dialog.show();
-                                edit_id.setEnabled(false);
-                                btn_check.setText("완료");
-                                btn_check.setEnabled(false);
                                 checkbox_id.setChecked(true);
                             }
                             else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
                                 dialog = builder.setMessage("이미 등록 된 아이디입니다.").setPositiveButton("확인", null).create();
                                 dialog.show();
+                                edit_id.requestFocus();
+                                checkbox_id.setChecked(false);
                             }
                         } catch(JSONException e) {
                             e.printStackTrace();
@@ -353,7 +366,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                 // 2번. 아이디 중복확인 체크박스가 체크가 되어있는가? : 체크박스 체크 여부 확인
                 if(!checkbox_id.isChecked()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
-                    dialog = builder.setMessage("아이디 중복확인을 해 주세요.").setPositiveButton("확인", null).create();
+                    dialog = builder.setMessage("중복확인이 이루어지지 않았습니다.").setPositiveButton("확인", null).create();
                     dialog.show();
                     return;
                 }
@@ -485,11 +498,20 @@ public class Luna_NewAccount2 extends AppCompatActivity {
 
                             // 중복되는 이메일이 없을 경우에 if문 실행
                             if (success) {
-                                // gotoDatabase 메소드를 호출합니다. gotoDatabase 메소드는 onCreate 밑에 있습니다!
-                                gotoDatabase(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
+                                builder.setMessage("성공적으로 회원가입 되셨습니다.");
+                                // 확인 누르면 데이터베이스에 회원 정보가 들어가고 로그인 화면으로 이동.
+                                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        gotoDatabase(userID, userName, userPW, userSsn, userGender, userHP, userEmail);
 
-                                Intent Home_Intent = new Intent(getApplicationContext(), Luna_Subscription.class);
-                                startActivity(Home_Intent);
+                                        Intent intent = new Intent(getApplicationContext(), Luna_Login.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                                dialog = builder.create();
+                                dialog.show();
                             }
                             // 중복되는 이메일이 있다면? 밑 메세지를 출력하고 진행이 안됩니다.
                             else {
@@ -523,7 +545,6 @@ public class Luna_NewAccount2 extends AppCompatActivity {
 
 
     }
-
 
     // 취소버튼 누를때 생기는 애니메이션
     @Override

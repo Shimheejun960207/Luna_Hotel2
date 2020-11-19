@@ -78,8 +78,6 @@
         </activity>
         <activity android:name=".Luna_Account_Search">
         </activity>
-        <activity android:name=".Luna_Subscription">
-        </activity>
         <activity android:name=".Luna_NewAccount2">
         </activity>
         <activity android:name=".Luna_NewAccount">
