@@ -91,7 +91,7 @@ public class Luna_News_ListAdapter extends BaseAdapter {
         final String Title = newsTitle.getText().toString();
 
         // 로그인 된 계정이 관리자 계정이면
-        if("administrator".equals(Login_gloval.login_id)) {
+        if("master".equals(Login_gloval.login_id)) {
             newsDelete.setVisibility(View.VISIBLE);
         } else {
             newsDelete.setVisibility(View.INVISIBLE);
@@ -138,7 +138,7 @@ public class Luna_News_ListAdapter extends BaseAdapter {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 // 삭제 된 DB가 있기 때문에 다시 예약정보를 가져오기 위한 GetReserve 클래스 실행.
                                                 final GetNews getNews = new GetNews();
-                                                getNews.execute("http://3.34.197.68/GetNews.php");
+                                                getNews.execute("http://15.164.49.193/GetNews.php");
 
                                                 // 대화상자에서 확인 누르면 메인 화면으로 이동됩니다.
                                                 // 갱신 찾아보면서 했는데 너무 어려워서 일단은 메인으로 이동해서 다시 확인하면 갱신되는 방향으로 했습니다...

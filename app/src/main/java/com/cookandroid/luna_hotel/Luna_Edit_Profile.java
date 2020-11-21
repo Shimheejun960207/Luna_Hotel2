@@ -172,7 +172,7 @@ import java.util.regex.Pattern;
                         // GetData 클래스를 통해 변경한 값들을 서버에서 가져오고 이 값들을 메인화면 및 어플에 적용시킵니다.
                         // GetData 클래스는 밑에 구현해놨어용
                         final GetData getdata = new GetData();
-                        getdata.execute("http://3.34.197.68/GetChangeData.php");
+                        getdata.execute("http://15.164.49.193/GetChangeData.php");
                     }
                 });
                 // 취소 눌렀을 경우
@@ -249,7 +249,7 @@ import java.util.regex.Pattern;
                     String userEmail = (String) strings[2];
                     String userID = (String) strings[3];
 
-                    String url = "http://3.34.197.68/UpdateData.php";
+                    String url = "http://15.164.49.193/UpdateData.php";
 
                     String data = URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
                     data += "&" + URLEncoder.encode("userHP", "UTF-8") + "=" + URLEncoder.encode(userHP, "UTF-8");

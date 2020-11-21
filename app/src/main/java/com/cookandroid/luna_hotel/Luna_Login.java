@@ -168,8 +168,8 @@ public class Luna_Login extends AppCompatActivity {
                                 final SharedPreferences info = getSharedPreferences("info", MODE_PRIVATE);
 
                                 // 관리자 계정과 일반 계정을 구분하기 위한 if문
-                                // id가 administrator일 경우 관리 화면으로 이동
-                                if(userID.equals("administrator")) {
+                                // id가 master일 경우 관리 화면으로 이동
+                                if(userID.equals("master")) {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Luna_Login.this);
                                     builder.setMessage("관리자 계정입니다. 로그인 하시겠습니까?");
                                     builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
@@ -193,7 +193,7 @@ public class Luna_Login extends AppCompatActivity {
                                     dialog.show();
                                 }
 
-                                // id가 administrator가 아닌 다른 id일 경우 (기존 로그인 방법)
+                                // id가 master가 아닌 다른 id일 경우 (기존 로그인 방법)
                                 else {
                                     Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
@@ -230,15 +230,15 @@ public class Luna_Login extends AppCompatActivity {
 
                 // 로그인 직후 DB에 저장되어 있는 회원의 데이터를 가져오기 위한 부분입니다.
                 final JsonParse jsonParse = new JsonParse();            // AsyncTask 생성
-                jsonParse.execute("http://3.34.197.68/GetInfo.php");   // AsyncTask 실행
+                jsonParse.execute("http://15.164.49.193/GetInfo.php");   // AsyncTask 실행
 
                 // 로그인 직후 DB에 저장되어 있는 회원의 예약정보를 가져오기 위한 부분입니다.
                 final GetReserve getReserve = new GetReserve();
-                getReserve.execute("http://3.34.197.68/GetReserve.php");
+                getReserve.execute("http://15.164.49.193/GetReserve.php");
 
                 // 로그인 직후 DB에 저장되어 있는 공지사항 목록을 가져옵니다.
                 final GetNews getNews = new GetNews();
-                getNews.execute("http://3.34.197.68/GetNews.php");
+                getNews.execute("http://15.164.49.193/GetNews.php");
             }
         });
 
@@ -276,7 +276,7 @@ public class Luna_Login extends AppCompatActivity {
 
                 // 게스트로 로그인해도 공지사항은 받아와야 하기 때문에 공지사항을 불러오는 구문 실행.
                 final GetNews getNews = new GetNews();
-                getNews.execute("http://3.34.197.68/GetNews.php");
+                getNews.execute("http://15.164.49.193/GetNews.php");
 
                 Intent Main_intent = new Intent(getApplicationContext(),Luna_Main.class);
                 startActivity(Main_intent);

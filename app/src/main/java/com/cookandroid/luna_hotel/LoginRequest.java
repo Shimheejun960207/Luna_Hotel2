@@ -10,7 +10,7 @@ import java.util.Map;
 public class LoginRequest extends StringRequest {
 
     // 서버에 위치한 Login.php 스트링 형식으로 저장
-    final static private String URL = "http://3.34.197.68/Login.php";
+    final static private String URL = "http://15.164.49.193/Login.php";
     private Map<String, String> parameters;
 
     // 이곳은 생성자입니다.

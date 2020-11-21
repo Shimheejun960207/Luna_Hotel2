@@ -32,7 +32,7 @@ public class Luna_News extends AppCompatActivity {
         btn_newsCreate = (Button)findViewById(R.id.news_create);
 
         // 관리자 계정으로 로그인 되어있다면 공지사항 삭제버튼 표시
-        if("administrator".equals(Login_gloval.login_id)) {
+        if("master".equals(Login_gloval.login_id)) {
             btn_newsCreate.setVisibility(VISIBLE);
         }
         // 일반 계정으로 로그인 되어있다면 공지사항 삭제버튼 숨김

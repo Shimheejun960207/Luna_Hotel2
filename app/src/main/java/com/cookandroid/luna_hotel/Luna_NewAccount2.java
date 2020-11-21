@@ -256,6 +256,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Luna_NewAccount2.this);
                                 dialog = builder.setMessage("사용할 수 있는 아이디입니다.").setPositiveButton("확인", null).create();
                                 dialog.show();
+                                edit_name.requestFocus();
                                 checkbox_id.setChecked(true);
                             }
                             else {
@@ -587,7 +588,7 @@ public class Luna_NewAccount2 extends AppCompatActivity {
                     String userEmail = (String) params[6];
 
                     // 서버 안에 있는 Register.php의 주소를 link 안에 저장합니다.
-                    String link = "http://3.34.197.68/Register.php";
+                    String link = "http://15.164.49.193/Register.php";
 
                     // data라는 String 형태 변수 안에 배열의 내용들을 쭉 나열하여 넣습니다.
                     String data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");

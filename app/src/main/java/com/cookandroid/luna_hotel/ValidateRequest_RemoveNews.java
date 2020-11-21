@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ValidateRequest_RemoveNews extends StringRequest{
     // 서버에 위치한 DeleteNews.php 스트링 형식으로 저장
-    final static private String URL = "http://3.34.197.68/DeleteNews.php";
+    final static private String URL = "http://15.164.49.193/DeleteNews.php";
     private Map<String, String> parameters;
 
     // 이곳은 생성자입니다.

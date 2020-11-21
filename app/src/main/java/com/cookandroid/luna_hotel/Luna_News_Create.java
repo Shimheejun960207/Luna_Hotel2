@@ -66,7 +66,7 @@ public class Luna_News_Create extends AppCompatActivity {
         final String getTime = simpleDate.format(mDate);
 
         // 로그인 된 계정이 관리자 계정이라면 temp 변수에 "관리자" 문자열 값을 저장합니다.
-        if(Login_gloval.login_id.equals("administrator")) {
+        if(Login_gloval.login_id.equals("master")) {
             temp = "관리자";
         }
         // 일반 계정일 경우 temp 변수에 현재 ID 문자열 값을 저장합니다.
@@ -151,7 +151,7 @@ public class Luna_News_Create extends AppCompatActivity {
 
                         // 작성이 끝난 후 다시 공지사항 목록을 불러와 목록을 최신화 시킵니다.
                         final GetNews getNews = new GetNews();
-                        getNews.execute("http://3.34.197.68/GetNews.php");
+                        getNews.execute("http://15.164.49.193/GetNews.php");
                     }
                 });
                 // 취소 눌렀을 경우
@@ -342,7 +342,7 @@ public class Luna_News_Create extends AppCompatActivity {
                     String newsDate = (String) params[3];
 
                     // 서버 안에 있는 CreateNews.php의 주소를 link 안에 저장합니다.
-                    String link = "http://3.34.197.68/CreateNews.php";
+                    String link = "http://15.164.49.193/CreateNews.php";
 
                     // data라는 String 형태 변수 안에 배열의 내용들을 쭉 나열하여 넣습니다.
                     String data = URLEncoder.encode("newsTitle", "UTF-8") + "=" + URLEncoder.encode(newsTitle, "UTF-8");
