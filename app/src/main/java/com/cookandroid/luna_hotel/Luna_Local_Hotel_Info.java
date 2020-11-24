@@ -60,6 +60,7 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         }
         //슬라이드 뷰 코딩 end 서울
 
+        /*
         //서울 지도 버튼
         btn_seoulmap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +69,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+         */
 
 
         // 두 번째 Tab. (탭 표시 텍스트:"TAB 2"), (페이지 뷰:"content2") 부산
@@ -89,6 +92,7 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         //슬라이드 뷰 코딩 end 부산
 
         //부산 지도 버튼
+        /*
         btn_busanmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +100,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+         */
 
         // 세 번째 Tab. (탭 표시 텍스트:"TAB 3"), (페이지 뷰:"content3") 제주
         TabHost.TabSpec ts3 = tabHost1.newTabSpec("Tab Spec 3");
@@ -116,6 +122,7 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         }
         //슬라이드 뷰 코딩 end 제주
 
+        /*
         //제주 지도 버튼
         btn_jejumap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +131,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+         */
 
         // 네 번째 Tab. (탭 표시 텍스트:"TAB 4"), (페이지 뷰:"content4") 속초
         TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4");
@@ -144,6 +153,7 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
         }
         //슬라이드 뷰 코딩 end 속초
 
+        /*
         //속초 지도 버튼
         btn_sokchomap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +162,8 @@ public class Luna_Local_Hotel_Info extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        
+         */
 
         //메뉴버튼 클릭 메소드
         btn_back.setOnClickListener(new View.OnClickListener() {
