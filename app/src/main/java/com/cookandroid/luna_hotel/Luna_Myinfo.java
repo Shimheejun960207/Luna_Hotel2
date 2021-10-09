@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 public class Luna_Myinfo extends AppCompatActivity {
 
     ImageView image_gender;
@@ -73,10 +75,20 @@ public class Luna_Myinfo extends AppCompatActivity {
             image_gender.setImageResource(R.drawable.lady);
         }
 
+
+
         text_uesr_name.setText(Name + "님");   // 회원의 이름을 가져옵니다.
         text_uesr_id.setText(ID);       // 회원의 아이디 정보를 가져옵니다.
         text_uesr_email.setText(Email); // 회원의 이메일 정보를 가져옵니다.
         text_uesr_phone.setText(HP);    // 회원의 전화번호 정보를 가져옵니다.
+
+        // 카카오 로그인이라면 실행됨
+        if(Login_gloval.Login_kakao == 1){
+            text_uesr_name.setVisibility(View.INVISIBLE);
+            text_uesr_id.setText(Login_gloval.login_id + "님");
+            text_uesr_email.setText(Login_gloval.Login_Email);
+            Glide.with(this).load(Login_gloval.Login_userProfile).into( image_gender);
+        }
 
 
         // 비밀번호 변경 이벤트

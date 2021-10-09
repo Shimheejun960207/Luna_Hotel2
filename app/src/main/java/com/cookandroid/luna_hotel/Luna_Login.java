@@ -3,11 +3,15 @@ package com.cookandroid.luna_hotel;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.kakao.auth.ApiErrorCode;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.response.MeV2Response;
+import com.kakao.util.OptionalBoolean;
+import com.kakao.util.exception.KakaoException;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,11 +43,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 
 public class Luna_Login extends AppCompatActivity {
+    // 카카오 코드
+    private SessionCallback sessionCallback;
 
     Button btn_Login, btn_account_find, btn_Sign_up, btn_menu, btn_lunalogo;
     EditText user_id, user_pw;
@@ -51,10 +68,16 @@ public class Luna_Login extends AppCompatActivity {
 
     AlertDialog dialog;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_login);
+        // 카카오 코드
+        sessionCallback = new SessionCallback();
+        Session.getCurrentSession().addCallback(sessionCallback);
+        Session.getCurrentSession().checkAndImplicitOpen();
 
         //자동로그인을 위한 SharedPreferences 선언
         final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
@@ -67,6 +90,9 @@ public class Luna_Login extends AppCompatActivity {
             // 로그인 전역변수에 아이디랑 비밀번호 값을 넣는다
             Login_gloval.login_id = logininfo.getString("id",null);
             Login_gloval.login_password = logininfo.getString("pw",null);
+            Login_gloval.Login_resName = logininfo.getString("name",null);;
+            Login_gloval.Login_userProfile = logininfo.getString("profile",null);
+            Login_gloval.Login_Email = logininfo.getString("email",null);
             // 메인화면으로 바로 이동한다.
             Intent Intent = new Intent(getApplicationContext(),Luna_Main.class);
             startActivity(Intent);
@@ -759,6 +785,97 @@ public class Luna_Login extends AppCompatActivity {
             }
             // JSON을 가공하여 tmpArray에 넣고 반환.
             return tmpArray3;
+        }
+    }
+    // 카카오 코드
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(sessionCallback);
+    }
+
+    private class SessionCallback implements ISessionCallback {
+        @Override
+        public void onSessionOpened() {
+            UserManagement.getInstance().me(new MeV2ResponseCallback() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    int result = errorResult.getErrorCode();
+
+                    if(result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                        Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(),"로그인 도중 오류가 발생했습니다: "+errorResult.getErrorMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    Toast.makeText(getApplicationContext(),"세션이 닫혔습니다. 다시 시도해 주세요: "+errorResult.getErrorMessage(),Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onSuccess(MeV2Response result) {
+                    Intent intent = new Intent(getApplicationContext(), Luna_Main.class);
+                    intent.putExtra("name", result.getNickname());
+                    intent.putExtra("profile", result.getProfileImagePath());
+                    if(result.getKakaoAccount().hasEmail() == OptionalBoolean.TRUE) {
+                        intent.putExtra("email", result.getKakaoAccount().getEmail());
+                        Login_gloval.Login_Email = result.getKakaoAccount().getEmail();
+                    }
+                    else
+                        intent.putExtra("email", "none");
+
+                    Login_gloval.login_id = result.getNickname();
+                    Login_gloval.login_password =result.getNickname();
+                    Login_gloval.Login_resName = result.getNickname();
+                    Login_gloval.Login_userProfile=result.getProfileImagePath();
+                    Login_gloval.Login_kakao = 1;
+
+                    //자동로그인을 위한 SharedPreferences 선언
+                    final SharedPreferences logininfo = getSharedPreferences("user",0); // user 라는 파일을 생성합니다.
+                    final SharedPreferences.Editor editor = logininfo.edit(); // 에디터 연결합니다.
+                    // SharedPreferences 에 값 저장하기
+                    editor.putString("id",Login_gloval.Login_resName);
+                    editor.putString("pw",Login_gloval.Login_resName);
+                    editor.putString("profile", Login_gloval.Login_userProfile);
+                    editor.putString("email", Login_gloval.Login_Email);
+                    editor.putString("name", Login_gloval.Login_resName);
+
+                    editor.commit(); // 저장하기
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException e) {
+            Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다. 인터넷 연결을 확인해주세요: "+e.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void getAppKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
         }
     }
 }

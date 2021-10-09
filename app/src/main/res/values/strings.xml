@@ -1,4 +1,5 @@
 <resources>
+    <string name="kakao_app_key">7bb1426c7960044a8b16d7ad4c357fbf</string>
     <string name="app_name">Luna_Hotel</string>
     //FAQ 질문내용
     <string name="group1">1. 호텔 루나의 입실시간과 퇴실시간이 궁금합니다.</string>

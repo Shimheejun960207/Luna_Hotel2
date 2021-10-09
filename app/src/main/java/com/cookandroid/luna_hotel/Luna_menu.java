@@ -16,6 +16,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -128,6 +132,17 @@ public class Luna_menu extends AppCompatActivity {
             menu_email.setText(info.getString("userEmail", ""));
             btn_new_acoout.setVisibility(View.INVISIBLE); // 회원가입 버튼이 안보이게함
             text_hi.setVisibility(View.VISIBLE); // 안녕하세요 문구가 보이게함
+
+            // 카카오 로그인이라면 실행됨
+            if(Login_gloval.Login_kakao == 1){
+                text_hi.setVisibility(View.INVISIBLE); // 안녕하세요 문구가 보이게함
+                btn_new_acoout.setVisibility(View.INVISIBLE); // 회원가입 버튼이 안보이게함
+                btn_login_logout.setText("로그아웃"); // 값이 있다면 로그인이 되어있는 상태입니다
+                menu_id.setText(Login_gloval.login_id + "님");
+                menu_email.setText(Login_gloval.Login_Email);
+                Glide.with(this).load(Login_gloval.Login_userProfile).into( image_gender);
+            }
+
             btn_login_logout.setText("로그아웃"); // 값이 있다면 로그인이 되어있는 상태입니다
             btn_login_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -140,10 +155,36 @@ public class Luna_menu extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast accountToast = Toast.makeText(Luna_menu.this,"로그아웃 되셨습니다.",Toast.LENGTH_SHORT);
                             accountToast.show();
+                            if(Login_gloval.Login_kakao == 1) // 카카오 로그인이면
+                            {
+                                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                                    @Override
+                                    public void onCompleteLogout() {
+                                        Login_gloval.login_id = null;  // 아이디 전역변수 입니다.
+                                        Login_gloval.Login_resName = null;  // 예약확인 할 때 예약자 명을 불러오기 위한 전역변수 입니다.
+                                        Login_gloval.Login_userProfile = null; // 카카오 프로필
+                                        Login_gloval.Login_Email = null; // 카카오 이메일
+                                        Login_gloval.Login_kakao = 0;  //카카오 로그인 유무 변수
+                                        editor.clear();
+                                        editor.commit();
 
+                                        editor2.clear();
+                                        editor2.commit();
+
+                                        // 자동로그인 파일 내용 전부삭제
+                                        editor3.clear();
+                                        editor3.commit();
+
+                                        editor4.clear();
+                                        editor4.commit();
+                                        Intent intent = new Intent(Luna_menu.this, Luna_Login.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                    }
+                                });
+                            }
                             Login_gloval.login_id = null;
                             Login_gloval.login_password = null;
-
                             Login_gloval.Login_resName = null;
 
                             editor.clear();

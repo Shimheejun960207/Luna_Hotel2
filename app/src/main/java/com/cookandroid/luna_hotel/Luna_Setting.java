@@ -101,6 +101,9 @@ public class Luna_Setting extends AppCompatActivity {
                        // SharedPreferences 에 값 저장하기
                        editor.putString("id", Login_gloval.login_id); // 유저 파일에 로그인한 id 저장
                        editor.putString("pw", Login_gloval.login_password); // 유저 파일에 로그인한 id 저장
+                       editor.putString("profile", Login_gloval.Login_userProfile);
+                       editor.putString("email", Login_gloval.Login_Email);
+                       editor.putString("name", Login_gloval.Login_resName);
                        editor.commit(); // 저장하기
                            Toast loginToast = Toast.makeText(Luna_Setting.this,"자동로그인 기능을 켭니다.",Toast.LENGTH_SHORT);
                            loginToast.show();
