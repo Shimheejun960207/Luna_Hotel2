@@ -67,6 +67,7 @@ public class Luna_Login extends AppCompatActivity {
     ArrayList<NewsInfo> newsArrayList;
 
     AlertDialog dialog;
+    AlertDialog logindialog;
 
 
 
@@ -74,6 +75,14 @@ public class Luna_Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.luna_login);
+        // 서버가 닫혔기 때문에 임시 알림은 대화상자로 출력합니다.
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(Luna_Login.this);
+        builder.setMessage("21년9월 이후로 사용하던 AWS 서버 작동이 중단되어 다음 기능이 정상적으로 작동되지 않습니다.\n\n"
+                            + "1.일반 로그인, 회원가입\n" + "2.예약확인\n" + "3.예약기능에서 결제완료버튼\n"+ "4.공지사항");
+
+        builder.setPositiveButton("알겠습니다.", null);
+        android.app.AlertDialog logindialog = builder.create();
+        logindialog.show();
         // 카카오 코드
         sessionCallback = new SessionCallback();
         Session.getCurrentSession().addCallback(sessionCallback);
